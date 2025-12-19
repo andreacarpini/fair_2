@@ -1,0 +1,609 @@
+---
+layout: default
+title: Book Your Move | Chicago Pro Movers
+permalink: /book-now/
+---
+
+<div class="booking-page">
+    <div class="booking-header">
+        <div class="container">
+            <h1>Get Your Free Moving Quote</h1>
+            <p>Tell us about your move and get an instant, no-obligation quote. We're ready when you are!</p>
+        </div>
+    </div>
+    
+    <div class="booking-content">
+        <div class="container">
+            <div class="booking-form-wrapper">
+                <form class="booking-form" id="bookingForm">
+                    <div class="step-indicator">
+                        <div class="step active">
+                            <div class="step-number">1</div>
+                            <div class="step-label">Move Details</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-label">Contact Info</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-label">Get Quote</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-step active" id="step1">
+                        <h3>Tell us about your move</h3>
+                        
+                        <div class="form-group">
+                            <label for="moveType">What type of move do you need?</label>
+                            <select id="moveType" name="moveType" required>
+                                <option value="">Select move type</option>
+                                <option value="residential">Residential Move</option>
+                                <option value="commercial">Commercial Move</option>
+                                <option value="packing">Packing Service Only</option>
+                                <option value="storage">Storage Service</option>
+                                <option value="long-distance">Long Distance Move</option>
+                                <option value="specialty">Specialty Items</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="homeSize">Size of your home/office</label>
+                            <select id="homeSize" name="homeSize" required>
+                                <option value="">Select size</option>
+                                <option value="studio">Studio Apartment</option>
+                                <option value="1-bedroom">1 Bedroom</option>
+                                <option value="2-bedroom">2 Bedrooms</option>
+                                <option value="3-bedroom">3 Bedrooms</option>
+                                <option value="4-bedroom">4+ Bedrooms</option>
+                                <option value="office-small">Small Office (1-10 employees)</option>
+                                <option value="office-medium">Medium Office (11-50 employees)</option>
+                                <option value="office-large">Large Office (50+ employees)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fromZip">Moving from ZIP code</label>
+                                <input type="text" id="fromZip" name="fromZip" pattern="[0-9]{5}" maxlength="5" placeholder="60601" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="toZip">Moving to ZIP code</label>
+                                <input type="text" id="toZip" name="toZip" pattern="[0-9]{5}" maxlength="5" placeholder="60657" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="moveDate">Preferred moving date</label>
+                            <input type="date" id="moveDate" name="moveDate" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="stairs">Are there stairs involved?</label>
+                            <select id="stairs" name="stairs" required>
+                                <option value="">Select option</option>
+                                <option value="none">No stairs (elevator/ground floor)</option>
+                                <option value="origin-only">Stairs at origin only</option>
+                                <option value="destination-only">Stairs at destination only</option>
+                                <option value="both">Stairs at both locations</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="additionalServices">Additional services needed (optional)</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="additionalServices" value="packing">
+                                    <span>Packing service</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="additionalServices" value="storage">
+                                    <span>Storage service</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="additionalServices" value="specialty">
+                                    <span>Specialty items (piano, artwork, etc.)</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="additionalServices" value="unpacking">
+                                    <span>Unpacking service</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <button type="button" class="btn btn-primary" onclick="nextStep()">Continue</button>
+                    </div>
+                    
+                    <div class="form-step" id="step2">
+                        <h3>Contact Information</h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="address">Current Address</label>
+                            <input type="text" id="address" name="address" placeholder="123 Main St, Chicago, IL" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="notes">Additional notes (optional)</label>
+                            <textarea id="notes" name="notes" rows="3" placeholder="Any special instructions or details about your move..."></textarea>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" onclick="prevStep()">Back</button>
+                            <button type="button" class="btn btn-primary" onclick="nextStep()">Get My Quote</button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-step" id="step3">
+                        <h3>Your Moving Quote</h3>
+                        
+                        <div class="booking-summary">
+                            <h4>Move Summary</h4>
+                            <div class="summary-item">
+                                <span>Move Type:</span>
+                                <span id="summaryMoveType">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Home Size:</span>
+                                <span id="summaryHomeSize">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>From ZIP:</span>
+                                <span id="summaryFromZip">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>To ZIP:</span>
+                                <span id="summaryToZip">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Move Date:</span>
+                                <span id="summaryMoveDate">-</span>
+                            </div>
+                            <div class="summary-item total">
+                                <span>Estimated Total:</span>
+                                <span id="summaryTotal">$0</span>
+                            </div>
+                        </div>
+                        
+                        <div class="quote-notes">
+                            <p><strong>What's Next?</strong></p>
+                            <ul>
+                                <li>We'll contact you within 1 hour to confirm details</li>
+                                <li>A moving coordinator will be assigned to your move</li>
+                                <li>We'll provide a detailed, binding quote</li>
+                                <li>Schedule your move at your convenience</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" onclick="prevStep()">Back</button>
+                            <button type="submit" class="btn btn-primary">Confirm & Book</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+let currentStep = 1;
+
+function nextStep() {
+    if (validateCurrentStep()) {
+        document.getElementById(`step${currentStep}`).classList.remove('active');
+        document.querySelectorAll('.step')[currentStep - 1].classList.remove('active');
+        document.querySelectorAll('.step')[currentStep - 1].classList.add('completed');
+        
+        currentStep++;
+        
+        document.getElementById(`step${currentStep}`).classList.add('active');
+        document.querySelectorAll('.step')[currentStep - 1].classList.add('active');
+        
+        if (currentStep === 3) {
+            generateQuote();
+        }
+    }
+}
+
+function prevStep() {
+    document.getElementById(`step${currentStep}`).classList.remove('active');
+    document.querySelectorAll('.step')[currentStep - 1].classList.remove('active');
+    
+    currentStep--;
+    
+    document.getElementById(`step${currentStep}`).classList.add('active');
+    document.querySelectorAll('.step')[currentStep - 1].classList.add('active');
+    document.querySelectorAll('.step')[currentStep - 1].classList.remove('completed');
+}
+
+function validateCurrentStep() {
+    const currentStepElement = document.getElementById(`step${currentStep}`);
+    const requiredFields = currentStepElement.querySelectorAll('[required]');
+    let isValid = true;
+    
+    requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+            field.classList.add('error');
+            isValid = false;
+        } else {
+            field.classList.remove('error');
+        }
+    });
+    
+    if (!isValid) {
+        showNotification('Please fill in all required fields.', 'error');
+    }
+    
+    return isValid;
+}
+
+function generateQuote() {
+    const formData = new FormData(document.getElementById('bookingForm'));
+    const data = Object.fromEntries(formData.entries());
+    
+    // Update summary
+    document.getElementById('summaryMoveType').textContent = formatMoveType(data.moveType);
+    document.getElementById('summaryHomeSize').textContent = formatHomeSize(data.homeSize);
+    document.getElementById('summaryFromZip').textContent = data.fromZip;
+    document.getElementById('summaryToZip').textContent = data.toZip;
+    document.getElementById('summaryMoveDate').textContent = formatDate(data.moveDate);
+    
+    // Calculate estimated price
+    const basePrice = calculateBasePrice(data.moveType, data.homeSize);
+    const additionalServices = formData.getAll('additionalServices');
+    const additionalPrice = additionalServices.length * 100;
+    const stairsMultiplier = data.stairs === 'both' ? 1.2 : data.stairs === 'none' ? 1 : 1.1;
+    
+    const total = Math.round(basePrice * stairsMultiplier + additionalPrice);
+    document.getElementById('summaryTotal').textContent = `$${total}`;
+}
+
+function formatMoveType(type) {
+    const types = {
+        'residential': 'Residential Move',
+        'commercial': 'Commercial Move',
+        'packing': 'Packing Service Only',
+        'storage': 'Storage Service',
+        'long-distance': 'Long Distance Move',
+        'specialty': 'Specialty Items'
+    };
+    return types[type] || type;
+}
+
+function formatHomeSize(size) {
+    const sizes = {
+        'studio': 'Studio Apartment',
+        '1-bedroom': '1 Bedroom',
+        '2-bedroom': '2 Bedrooms',
+        '3-bedroom': '3 Bedrooms',
+        '4-bedroom': '4+ Bedrooms',
+        'office-small': 'Small Office (1-10 employees)',
+        'office-medium': 'Medium Office (11-50 employees)',
+        'office-large': 'Large Office (50+ employees)'
+    };
+    return sizes[size] || size;
+}
+
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+    });
+}
+
+function calculateBasePrice(moveType, homeSize) {
+    const prices = {
+        'residential': {
+            'studio': 299,
+            '1-bedroom': 349,
+            '2-bedroom': 399,
+            '3-bedroom': 599,
+            '4-bedroom': 799
+        },
+        'commercial': {
+            'office-small': 599,
+            'office-medium': 1299,
+            'office-large': 1999
+        },
+        'packing': 199,
+        'storage': 99,
+        'long-distance': 999,
+        'specialty': 299
+    };
+    
+    if (prices[moveType] && prices[moveType][homeSize]) {
+        return prices[moveType][homeSize];
+    }
+    
+    return prices[moveType] || 299;
+}
+
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.textContent = message;
+    
+    Object.assign(notification.style, {
+        position: 'fixed',
+        top: '20px',
+        right: '20px',
+        padding: '1rem 1.5rem',
+        borderRadius: '0.5rem',
+        color: 'white',
+        fontWeight: '500',
+        zIndex: '9999',
+        transform: 'translateX(100%)',
+        transition: 'transform 0.3s ease',
+        maxWidth: '300px'
+    });
+    
+    const colors = {
+        success: '#10b981',
+        error: '#ef4444',
+        warning: '#f59e0b',
+        info: '#3b82f6'
+    };
+    notification.style.backgroundColor = colors[type] || colors.info;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.style.transform = 'translateX(0)';
+    }, 100);
+    
+    setTimeout(() => {
+        notification.style.transform = 'translateX(100%)';
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 300);
+    }, 5000);
+}
+
+// Set minimum date to today
+const moveDateInput = document.getElementById('moveDate');
+if (moveDateInput) {
+    const today = new Date().toISOString().split('T')[0];
+    moveDateInput.setAttribute('min', today);
+}
+</script>
+
+<style>
+.booking-page {
+    padding: 120px 0 80px;
+}
+
+.booking-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.booking-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #1f2937;
+}
+
+.booking-header p {
+    font-size: 1.125rem;
+    color: #6b7280;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.booking-form-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.step-indicator {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+    gap: 1rem;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #f3f4f6;
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #6b7280;
+    transition: all 0.3s ease;
+}
+
+.step.active {
+    background-color: #2563eb;
+    color: white;
+}
+
+.step.completed {
+    background-color: #10b981;
+    color: white;
+}
+
+.step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
+}
+
+.form-step h3 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: #1f2937;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #374151;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+.form-group input.error {
+    border-color: #ef4444;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-weight: normal !important;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: auto;
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.booking-summary {
+    background-color: #f8fafc;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.booking-summary h4 {
+    margin-bottom: 1.5rem;
+    color: #1f2937;
+    font-size: 1.25rem;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.summary-item.total {
+    border-top: 2px solid #2563eb;
+    border-bottom: none;
+    padding-top: 1rem;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: #2563eb;
+}
+
+.quote-notes {
+    background-color: #eff6ff;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.quote-notes ul {
+    margin: 0;
+    padding-left: 1.5rem;
+}
+
+.quote-notes li {
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 640px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .step-indicator {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .step {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+}
+</style>
