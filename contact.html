@@ -1,0 +1,186 @@
+---
+layout: default
+title: Contact Us - Fairplay Moving
+---
+
+<!-- Contact Hero Section -->
+<section class="bg-gradient-to-br from-brand-blue to-brand-blue-dark text-white pt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="text-center">
+            <h1 class="text-5xl font-bold mb-4">Contact Us</h1>
+            <p class="text-xl text-blue-100 max-w-3xl mx-auto">
+                Have questions? Need a custom quote? Our team is here to help make your move as smooth as possible.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Information -->
+<section class="bg-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+            <div class="bg-white rounded-xl shadow-lg p-8 text-center">
+                <div class="bg-brand-blue text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-phone text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-brand-gray-dark mb-2">Phone</h3>
+                <p class="text-brand-gray mb-4">Call us for immediate assistance</p>
+                <a href="tel:312-555-6683" class="text-brand-blue font-semibold text-lg hover:text-brand-blue-dark transition-colors">
+                    (312) 555-MOVE
+                </a>
+                <p class="text-sm text-brand-gray mt-2">Mon-Sun: 7 AM - 9 PM</p>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-8 text-center">
+                <div class="bg-brand-blue text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-envelope text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-brand-gray-dark mb-2">Email</h3>
+                <p class="text-brand-gray mb-4">Send us a message anytime</p>
+                <a href="mailto:info@fairplaymoving.com" class="text-brand-blue font-semibold text-lg hover:text-brand-blue-dark transition-colors">
+                    info@fairplaymoving.com
+                </a>
+                <p class="text-sm text-brand-gray mt-2">We respond within 2 hours</p>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-8 text-center">
+                <div class="bg-brand-blue text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-map-marker-alt text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-brand-gray-dark mb-2">Location</h3>
+                <p class="text-brand-gray mb-4">Serving all of Chicago</p>
+                <div class="text-brand-blue font-semibold text-lg">
+                    Chicago, IL
+                </div>
+                <p class="text-sm text-brand-gray mt-2">& surrounding suburbs</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form -->
+<section class="bg-brand-gray-light py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-xl shadow-lg p-8">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-brand-gray-dark mb-4">Send Us a Message</h2>
+                <p class="text-brand-gray">
+                    Fill out the form below and we'll get back to you within 2 hours
+                </p>
+            </div>
+            
+            <form id="contact-form" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
+                        <input type="text" name="firstName" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
+                        <input type="text" name="lastName" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent">
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+                        <input type="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+                        <input type="tel" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent">
+                    </div>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Subject *</label>
+                    <select name="subject" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent">
+                        <option value="">Select a subject</option>
+                        <option value="quote">Request a Quote</option>
+                        <option value="booking">Booking Question</option>
+                        <option value="service">Service Inquiry</option>
+                        <option value="support">Customer Support</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Message *</label>
+                    <textarea name="message" rows="6" required placeholder="Please tell us how we can help you..." class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent"></textarea>
+                </div>
+                
+                <div>
+                    <label class="flex items-center">
+                        <input type="checkbox" name="newsletter" class="mr-2 text-brand-blue focus:ring-brand-blue">
+                        <span class="text-sm text-gray-700">I'd like to receive moving tips and special offers via email</span>
+                    </label>
+                </div>
+                
+                <button type="submit" class="w-full bg-brand-blue text-white py-4 px-6 rounded-lg font-semibold text-lg hover:bg-brand-blue-dark transition-colors">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="bg-white py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-brand-gray-dark mb-4">Frequently Asked Questions</h2>
+            <p class="text-xl text-brand-gray">
+                Quick answers to common questions
+            </p>
+        </div>
+        
+        <div class="space-y-6">
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h3 class="text-lg font-bold text-brand-gray-dark mb-3">How far in advance should I book my move?</h3>
+                <p class="text-brand-gray">
+                    We recommend booking at least 2-3 weeks in advance, especially during peak moving season 
+                    (May-September). However, we can often accommodate last-minute moves with 48-72 hours notice.
+                </p>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h3 class="text-lg font-bold text-brand-gray-dark mb-3">Do you provide packing materials?</h3>
+                <p class="text-brand-gray">
+                    Yes! We provide high-quality boxes, packing tape, bubble wrap, and other materials. We can 
+                    also handle all your packing if you prefer a full-service move.
+                </p>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h3 class="text-lg font-bold text-brand-gray-dark mb-3">What areas do you serve?</h3>
+                <p class="text-brand-gray">
+                    We serve all of Chicago and most surrounding suburbs, including Oak Park, Evanston, Cicero, 
+                    Berwyn, and many others. Contact us if you're unsure about your area.
+                </p>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h3 class="text-lg font-bold text-brand-gray-dark mb-3">Are my belongings insured?</h3>
+                <p class="text-brand-gray">
+                    Yes, we provide basic coverage at no additional cost. We also offer additional insurance 
+                    options for valuable items. All our moves are fully licensed and insured.
+                </p>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h3 class="text-lg font-bold text-brand-gray-dark mb-3">Can you move specialty items like pianos?</h3>
+                <p class="text-brand-gray">
+                    Absolutely! Our team is trained to handle pianos, artwork, antiques, and other specialty 
+                    items. Let us know about these items when you book your move.
+                </p>
+            </div>
+        </div>
+        
+        <div class="text-center mt-12">
+            <p class="text-brand-gray mb-4">Have more questions?</p>
+            <a href="tel:312-555-6683" class="bg-brand-blue text-white px-8 py-3 rounded-lg font-semibold hover:bg-brand-blue-dark transition-colors">
+                Call Us Today
+            </a>
+        </div>
+    </div>
+</section>
