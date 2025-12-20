@@ -1,0 +1,38 @@
+---
+layout: default
+---
+
+<div class="service-page">
+    <div class="service-hero">
+        <div class="container">
+            <h1>{{ page.title }}</h1>
+            <p class="service-description">{{ page.description }}</p>
+            <div class="service-price">
+                <span class="price-label">Starting from</span>
+                <span class="price">${{ page.starting_price }}</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="service-content">
+        <div class="container">
+            {{ content }}
+            
+            <div class="service-features">
+                <h3>What's Included</h3>
+                <ul class="feature-list">
+                    {% for feature in page.features %}
+                    <li><i class="fas fa-check-circle"></i> {{ feature }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            
+            <div class="service-cta">
+                <a href="/book-now/" class="btn btn-primary">Book {{ page.title }} Service</a>
+                <a href="tel:{{ site.contact.phone }}" class="btn btn-secondary">
+                    <i class="fas fa-phone"></i> Call {{ site.contact.phone }}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

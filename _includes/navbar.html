@@ -1,0 +1,61 @@
+<header class="navbar">
+    <div class="container">
+        <div class="navbar-wrapper">
+            <div class="navbar-left">
+                <a href="{{ '/' | relative_url }}" class="logo">
+                    <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="Chicago Pro Movers" width="180" height="45">
+                </a>
+                <div class="location-selector">
+                    <span>Chicago</span>
+                    <i class="fas fa-caret-down"></i>
+                </div>
+            </div>
+            
+            <nav class="navbar-nav">
+                <a href="{{ '/' | relative_url }}" class="nav-link">Home</a>
+                <a href="{{ '/services/' | relative_url }}" class="nav-link">Services</a>
+                <a href="{{ '/areas/' | relative_url }}" class="nav-link">Service Areas</a>
+                <a href="{{ '/about/' | relative_url }}" class="nav-link">About</a>
+                <a href="{{ '/contact/' | relative_url }}" class="nav-link">Contact</a>
+            </nav>
+            
+            <div class="navbar-actions">
+                <a href="tel:{{ site.contact.phone }}" class="phone-link">
+                    <i class="fas fa-phone"></i>
+                    {{ site.contact.phone }}
+                </a>
+                <a href="{{ '/book-now/' | relative_url }}" class="btn btn-primary">Book Now</a>
+            </div>
+            
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <a href="{{ '/' | relative_url }}" class="logo">
+                <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="Chicago Pro Movers" width="150" height="38">
+            </a>
+            <button class="mobile-menu-close" aria-label="Close mobile menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav class="mobile-nav">
+            <a href="{{ '/' | relative_url }}" class="mobile-nav-link">Home</a>
+            <a href="{{ '/services/' | relative_url }}" class="mobile-nav-link">Services</a>
+            <a href="{{ '/areas/' | relative_url }}" class="mobile-nav-link">Service Areas</a>
+            <a href="{{ '/about/' | relative_url }}" class="mobile-nav-link">About</a>
+            <a href="{{ '/contact/' | relative_url }}" class="mobile-nav-link">Contact</a>
+        </nav>
+        <div class="mobile-actions">
+            <a href="tel:{{ site.contact.phone }}" class="mobile-phone">
+                <i class="fas fa-phone"></i>
+                {{ site.contact.phone }}
+            </a>
+            <a href="{{ '/book-now/' | relative_url }}" class="btn btn-primary btn-block">Book Now</a>
+        </div>
+    </div>
+</header>

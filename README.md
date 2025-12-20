@@ -1,138 +1,188 @@
-# Fairplay Moving Website
+# Chicago Pro Movers - Jekyll Website
 
-A professional Jekyll website for Fairplay Moving Inc., a licensed and insured moving company in Chicago, IL.
+A professional Jekyll website for a Chicago-based moving company, converted from a cleaning service website template.
 
 ## Features
 
-- **Responsive Design**: Fully responsive layout that works on all devices
-- **Interactive Quote Form**: Multi-step form with inventory management
-- **Animated Elements**: Smooth animations and gradient button effects
-- **Form Integration**: Ready for Formspree form submission
-- **SEO Optimized**: Built with SEO best practices
-- **Fast Loading**: Optimized CSS and JavaScript
+- **Responsive Design:** Mobile-first design that works on all devices
+- **Service Pages:** Individual pages for each moving service
+- **Quote System:** Multi-step booking form with instant pricing
+- **Service Areas:** Comprehensive coverage of all Chicago neighborhoods
+- **Contact Forms:** Multiple ways for customers to get in touch
+- **SEO Optimized:** Built with SEO best practices in mind
+- **Fast Loading:** Optimized performance and minimal dependencies
 
-## Company Information
+## Installation
 
-- **Name**: Fairplay Moving Inc.
-- **Address**: 2117 W Hubbard St. Chicago IL 60612
-- **Phone**: (312) 858-0611
-- **Email**: info@fairplaymoving.com
-- **License**: ILCC License #241666
+1. **Prerequisites:**
+   - Ruby 2.7 or higher
+   - Jekyll 4.3 or higher
+   - Bundler
 
-## Setup Instructions
+2. **Clone the repository:**
+   ```bash
+   git clone [repository-url]
+   cd chicago-movers
+   ```
 
-### Prerequisites
-
-- Ruby 2.7 or higher
-- Jekyll 4.3 or higher
-- Bundler
-
-### Installation
-
-1. Clone or download the website files
-2. Install dependencies:
+3. **Install dependencies:**
    ```bash
    bundle install
    ```
 
-3. Update configuration:
-   - Edit `_config.yml` with your information
-   - Replace `YOUR_FORMSPREE_FORM_ID` in `index.html` with your actual Formspree form ID
-
-4. Run the development server:
+4. **Build and serve the site:**
    ```bash
    bundle exec jekyll serve
    ```
 
-5. Open your browser to `http://localhost:4000`
-
-### Formspree Setup
-
-1. Sign up at [Formspree](https://formspree.io/)
-2. Create a new form
-3. Copy the form ID
-4. Replace `YOUR_FORMSPREE_FORM_ID` in the form action URL
+5. **Open your browser and visit:**
+   ```
+   http://localhost:4000
+   ```
 
 ## File Structure
 
 ```
-fairplay-moving/
-├── _config.yml          # Jekyll configuration
-├── _layouts/
-│   └── default.html     # Main layout template
-├── assets/
+chicago-movers/
+├── _config.yml              # Jekyll configuration
+├── _layouts/                # Page templates
+│   ├── default.html         # Main layout template
+│   └── service.html         # Service page layout
+├── _includes/               # Reusable components
+│   ├── navbar.html          # Navigation bar
+│   └── footer.html          # Footer
+├── _sass/                   # Sass stylesheets
+│   ├── _base.scss          # Base styles
+│   ├── _layout.scss        # Layout styles
+│   ├── _components.scss    # Component styles
+│   └── _utilities.scss     # Utility classes
+├── _services/              # Service content
+│   ├── residential-moving.md
+│   └── commercial-moving.md
+├── assets/                 # Static assets
 │   ├── css/
-│   │   └── main.css     # Main stylesheet
-│   └── js/
-│       └── main.js      # Interactive functionality
-├── index.html           # Main page with quote form
-├── Gemfile              # Ruby dependencies
-└── README.md            # This file
+│   │   └── style.scss     # Main stylesheet
+│   ├── js/
+│   │   └── main.js        # Main JavaScript
+│   └── images/
+│       └── logo.svg       # Company logo
+├── index.html             # Homepage
+├── services.html          # Services overview
+├── book-now.html          # Booking form
+├── areas.html             # Service areas
+├── about.html             # About page
+├── contact.html           # Contact page
+├── Gemfile                # Ruby dependencies
+└── README.md              # This file
 ```
 
 ## Customization
 
-### Colors
+### Company Information
+Update the following in `_config.yml`:
+- Company name and description
+- Contact information (phone, email, address)
+- Social media links
+- Service areas and ZIP codes
 
-Edit CSS variables in `assets/css/main.css`:
+### Colors and Styling
+Modify the color scheme in `_sass/_base.scss`:
+- Primary color: `#2563eb` (blue)
+- Secondary colors can be updated in the variables section
 
-```css
-:root {
-  --primary-blue: #1e40af;
-  --secondary-blue: #3b82f6;
-  --success-green: #10b981;
-  /* ... more variables
-}
-```
+### Content Updates
+- Update service descriptions in `_services/`
+- Modify page content in HTML files
+- Add new services by creating new `.md` files in `_services/`
 
-### Content
+## Services Included
 
-- Edit `index.html` to update service descriptions and company information
-- Modify `_config.yml` for site-wide settings
-- Update contact information in the footer and navigation
+1. **Residential Moving** - Homes, apartments, condos
+2. **Commercial Moving** - Offices, retail spaces, businesses
+3. **Packing Services** - Professional packing and materials
+4. **Storage Solutions** - Short and long-term storage
+5. **Long Distance** - Interstate moving services
+6. **Specialty Items** - Pianos, artwork, antiques
 
-### Inventory Items
+## Service Areas
 
-Add or modify inventory categories and items in the quote form section of `index.html`.
+The website covers all Chicago neighborhoods including:
+- Downtown Chicago (Loop, River North, Streeterville)
+- North Side (Lincoln Park, Lakeview, Wicker Park)
+- South Side (Hyde Park, Bridgeport, Bronzeville)
+- West Side (West Loop, Ukrainian Village)
+- Northwest Side (Portage Park, Belmont Cragin)
+- Southwest Side (Garfield Ridge, Clearing)
+- Far North Side (Rogers Park, Edgewater)
+- Far South Side (Morgan Park, Beverly)
+
+## Features
+
+### Multi-Step Booking Form
+- Step 1: Move details (type, size, locations, date)
+- Step 2: Contact information
+- Step 3: Instant quote generation
+- Form validation and error handling
+- Phone number and ZIP code formatting
+
+### Interactive Elements
+- Mobile-friendly navigation
+- FAQ accordion sections
+- Service area checker
+- Contact forms with validation
+- Smooth scrolling and animations
+
+### SEO Features
+- Semantic HTML structure
+- Meta tags and descriptions
+- Schema markup ready
+- Fast loading times
+- Mobile optimization
 
 ## Deployment
 
 ### GitHub Pages
-
 1. Push to a GitHub repository
 2. Enable GitHub Pages in repository settings
-3. Choose source branch (usually `main` or `gh-pages`)
+3. Site will be available at `https://[username].github.io/[repository-name]`
 
 ### Netlify
-
 1. Connect your repository to Netlify
-2. Set build command: `bundle exec jekyll build`
-3. Set publish directory: `_site`
+2. Build command: `bundle exec jekyll build`
+3. Publish directory: `_site`
+4. Deploy automatically on each push
 
 ### Other Hosting
+Build the site with `bundle exec jekyll build` and upload the `_site` directory to your web server.
 
-Build the site locally:
-```bash
-bundle exec jekyll build
-```
+## Maintenance
 
-Then upload the `_site` folder to your web server.
+### Regular Updates
+- Keep Jekyll and dependencies updated
+- Review and update service information
+- Check contact details and pricing
+- Update testimonials and reviews
 
-## Browser Support
-
-- Chrome 90+
-- Firefox 88+
-- Safari 14+
-- Edge 90+
-
-## License
-
-This website template is provided as-is for Fairplay Moving Inc. All company-specific content and branding are property of Fairplay Moving Inc.
+### Content Management
+- Services are managed in `_services/` directory
+- Global settings in `_config.yml`
+- Page content in HTML files
+- Images in `assets/images/`
 
 ## Support
 
-For technical support or questions about the website, please contact the development team.
+For technical issues or questions about customization:
+1. Check Jekyll documentation
+2. Review the file structure and code organization
+3. Test changes locally before deploying
+4. Keep backups of your customizations
 
-For moving services, contact:
-- Phone: (312) 858-0611
-- Email: info@fairplaymoving.com
+## License
+
+This Jekyll theme is open source and available under the MIT License.
+
+---
+
+**Chicago Pro Movers**  
+Professional moving services in Chicago, IL  
+Licensed, insured, and trusted by thousands of satisfied customers.
