@@ -273,6 +273,8 @@
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="/" class="text-white hover:text-gray-200 font-medium transition-colors">Home</a>
                     <a href="#faq" class="text-white hover:text-gray-200 font-medium transition-colors">FAQ</a>
+                    <a href="#faq" class="text-white hover:text-gray-200 font-medium transition-colors">About Us</a>
+
                     <a href="{{ '/blog' | relative_url }}" class="text-white hover:text-gray-200 font-medium transition-colors">Blog</a>
                     <button id="open-quote-modal-nav" class="quote-btn text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 inline-flex items-center">
     <i class="fas fa-calculator mr-2"></i>
@@ -305,6 +307,8 @@
         <div class="space-y-4">
             <a href="/" class="block text-white hover:text-gray-200 font-medium py-2">Home</a>
             <a href="#faq" class="block text-white hover:text-gray-200 font-medium py-2">FAQ</a>
+            <a href="#faq" class="block text-white hover:text-gray-200 font-medium py-2">About Us</a>
+
             <a href="{{ '/blog' | relative_url }}" class="block text-white hover:text-gray-200 font-medium py-2">Blog</a>
             <button id="open-quote-modal-nav" class="quote-btn text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 inline-flex items-center justify-center w-full">
                 <i class="fas fa-calculator mr-2"></i>
@@ -322,6 +326,77 @@
     <!-- Main Content -->
     {{ content }}
     
+<!-- Footer -->
+<footer class="bg-gray-50 mt-12">
+    <div class="max-w-7xl mx-auto px-6 pb-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- Company Info -->
+            <div class="md:col-span-2">
+                <div class="flex items-center mb-4">
+                    <img src="{{ '/assets/images/Fairplay_Moving_logo.svg' | relative_url }}" alt="Fairplay Moving Inc." class="w-16 h-16">
+                    <div class="ml-4">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Fairplay Moving Inc.</h3>
+                        <p class="text-sm text-gray-600">Chicago | ILCC License #241666</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quick Links -->
+            <div>
+                <h4 class="text-lg font-semibold text-gray-900 mb-4">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="/" class="text-gray-600 hover:text-blue-600 transition-colors">Home</a></li>
+                    <li><a href="#faq" class="text-gray-600 hover:text-blue-600 transition-colors">FAQ</a></li>
+                    <li><a href="#faq" class="text-gray-600 hover:text-blue-600 transition-colors">About Us</a></li>
+
+                    <li><a href="{{ '/blog' | relative_url }}" class="text-gray-600 hover:text-blue-600 transition-colors">Blog</a></li>
+                </ul>
+            </div>
+            
+            <!-- Contact Info -->
+            <div>
+                <h4 class="text-lg font-semibold text-gray-900 mb-4">Contact Us</h4>
+                <ul class="space-y-3">
+                    <li class="flex items-center">
+                        <a href="tel:312-858-0611" class="text-gray-600 hover:text-blue-600 transition-colors">(312) 858-0611</a>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="text-gray-600">info@fairplaymoving.com</span>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="text-gray-600">2117 W Hubbard St. Chicago IL 60612</span>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="text-gray-600">Mon-Sat: 8am-6pm</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Bottom Bar -->
+        <div class="border-t border-gray-200 mt-8 pt-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm mb-4 md:mb-0">
+                    &copy; <span id="current-year">2025</span> Fairplay Moving Inc. All rights reserved | Privacy Policy | Terms of Service
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
     
     <!-- Scripts -->
     <script>
