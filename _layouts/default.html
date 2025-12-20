@@ -78,11 +78,11 @@
             background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #6366f1 100%);
         }
         
-        /* Quote button gradient animation */
+        /* Quote button gradient animation - SLOWER */
         .quote-btn {
             background: linear-gradient(-45deg, #1e40af, #3b82f6, #6366f1, #8b5cf6);
             background-size: 400% 400%;
-            animation: gradientShift 3s ease-in-out infinite;
+            animation: gradientShift 6s ease-in-out infinite;
             transition: all 0.3s ease;
             border: none;
         }
@@ -98,6 +98,18 @@
             100% { background-position: 0% 50%; }
         }
         
+        /* Regular blue buttons for non-gradient areas */
+        .blue-btn {
+            background: #1e40af;
+            transition: all 0.3s ease;
+        }
+        
+        .blue-btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
         /* Card hover effects */
         .card-hover {
             transition: all 0.3s ease;
@@ -108,7 +120,7 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
         
-        /* Isometric illustration effects */
+        /* Isometric illustration effects - AUTOMATIC MOVEMENT */
         .isometric-illustration {
             perspective: 1000px;
             transform-style: preserve-3d;
@@ -117,13 +129,32 @@
         .isometric-illustration > div {
             transform: rotateX(10deg) rotateY(-10deg);
             box-shadow: 20px 20px 40px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
         }
         
-        /* Hover float effect for isometric illustrations */
-        .hover-float:hover > div {
-            transform: rotateX(5deg) rotateY(-5deg) translateY(-10px);
-            box-shadow: 25px 25px 50px rgba(0,0,0,0.15);
+        /* Automatic floating animation */
+        .auto-float {
+            animation: autoFloat 4s ease-in-out infinite;
+        }
+        
+        @keyframes autoFloat {
+            0%, 100% { transform: rotateX(10deg) rotateY(-10deg) translateY(0px); }
+            50% { transform: rotateX(10deg) rotateY(-10deg) translateY(-10px); }
+        }
+        
+        /* Promotional flyers */
+        .promo-flyer {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: linear-gradient(45deg, #10b981, #059669);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 0 12px 0 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            transform: rotate(12deg);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            z-index: 10;
         }
         
         /* Scroll reveal animations */
@@ -173,6 +204,7 @@
         .mobile-menu {
             transform: translateX(100%);
             transition: transform 0.3s ease;
+            background: #1e40af;
         }
         
         .mobile-menu.active {
@@ -196,11 +228,21 @@
         .faq-item {
             border: 1px solid #e5e7eb;
             overflow: hidden;
+            background: #f9fafb;
+        }
+        
+        .faq-item button {
+            background: #f9fafb;
+        }
+        
+        .faq-item button:hover {
+            background: #f3f4f6;
         }
         
         .faq-answer:not(.hidden) {
             display: block;
             animation: slideDown 0.3s ease;
+            background: white;
         }
         
         @keyframes slideDown {
@@ -218,6 +260,7 @@
         .service-card {
             opacity: 1;
             transform: none;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
         
         /* Modal backdrop */
@@ -242,12 +285,14 @@
                 
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#services" class="text-white hover:text-gray-200 font-medium transition-colors">Services</a>
-                    <a href="{{ '/blog' | relative_url }}" class="text-white hover:text-gray-200 font-medium transition-colors">Blog</a>
-                    <a href="#areas" class="text-white hover:text-gray-200 font-medium transition-colors">Areas</a>
+                    <a href="/" class="text-white hover:text-gray-200 font-medium transition-colors">Home</a>
                     <a href="#faq" class="text-white hover:text-gray-200 font-medium transition-colors">FAQ</a>
-                    <a href="tel:312-858-0611" class="quote-btn text-white px-6 py-2 rounded-lg font-medium transition-all">
-                        Get Quote
+                    <a href="{{ '/blog' | relative_url }}" class="text-white hover:text-gray-200 font-medium transition-colors">Blog</a>
+                    <button id="open-quote-modal-nav" class="quote-btn text-white px-6 py-2 rounded-lg font-medium transition-all">
+                        Quote
+                    </button>
+                    <a href="tel:312-858-0611" class="text-white hover:text-gray-200 font-medium transition-colors">
+                        Call
                     </a>
                 </div>
                 
@@ -270,12 +315,14 @@
                     </button>
                 </div>
                 <div class="space-y-4">
-                    <a href="#services" class="block text-white hover:text-gray-200 font-medium py-2">Services</a>
-                    <a href="{{ '/blog' | relative_url }}" class="block text-white hover:text-gray-200 font-medium py-2">Blog</a>
-                    <a href="#areas" class="block text-white hover:text-gray-200 font-medium py-2">Areas</a>
+                    <a href="/" class="block text-white hover:text-gray-200 font-medium py-2">Home</a>
                     <a href="#faq" class="block text-white hover:text-gray-200 font-medium py-2">FAQ</a>
-                    <a href="tel:312-858-0611" class="block quote-btn text-white px-6 py-3 rounded-lg font-medium text-center transition-all">
-                        Get Quote
+                    <a href="{{ '/blog' | relative_url }}" class="block text-white hover:text-gray-200 font-medium py-2">Blog</a>
+                    <button id="open-quote-modal-mobile" class="block quote-btn text-white px-6 py-3 rounded-lg font-medium text-center transition-all w-full">
+                        Quote
+                    </button>
+                    <a href="tel:312-858-0611" class="block text-white hover:text-gray-200 font-medium py-2">
+                        Call
                     </a>
                 </div>
             </div>
@@ -405,6 +452,8 @@
         // Quote modal functionality
         const openQuoteBtn = document.getElementById('open-quote-modal');
         const openQuoteBtn2 = document.getElementById('open-quote-modal-2');
+        const openQuoteBtnNav = document.getElementById('open-quote-modal-nav');
+        const openQuoteBtnMobile = document.getElementById('open-quote-modal-mobile');
         const quoteModal = document.getElementById('quote-modal');
         const closeQuoteBtn = document.getElementById('close-quote-modal');
         
@@ -418,13 +467,12 @@
             document.body.style.overflow = 'auto';
         }
         
-        if (openQuoteBtn && quoteModal) {
-            openQuoteBtn.addEventListener('click', openQuoteModal);
-        }
-        
-        if (openQuoteBtn2 && quoteModal) {
-            openQuoteBtn2.addEventListener('click', openQuoteModal);
-        }
+        // Add event listeners for all quote buttons
+        [openQuoteBtn, openQuoteBtn2, openQuoteBtnNav, openQuoteBtnMobile].forEach(btn => {
+            if (btn && quoteModal) {
+                btn.addEventListener('click', openQuoteModal);
+            }
+        });
         
         if (closeQuoteBtn && quoteModal) {
             closeQuoteBtn.addEventListener('click', closeQuoteModal);
@@ -560,10 +608,4 @@
         // Add scroll-reveal class to elements that should animate
         document.addEventListener('DOMContentLoaded', () => {
             const elementsToAnimate = document.querySelectorAll('.service-card, .faq-item');
-            elementsToAnimate.forEach(el => {
-                el.classList.add('scroll-reveal');
-            });
-        });
-    </script>
-</body>
-</html>
+            elementsToAnimate.forEach(el =
