@@ -35,6 +35,32 @@
             font-family: 'Inter', sans-serif;
         }
         
+        /* iPhone text sizing */
+        @media only screen and (max-device-width: 480px) {
+            html {
+                -webkit-text-size-adjust: none;
+            }
+            body {
+                font-size: 14px;
+            }
+            h1 {
+                font-size: 2rem !important;
+            }
+            h2 {
+                font-size: 1.5rem !important;
+            }
+            h3 {
+                font-size: 1.25rem !important;
+            }
+            .text-xl {
+                font-size: 1rem !important;
+            }
+            .text-lg {
+                font-size: 0.875rem !important;
+            }
+        }
+        
+        /* Gradient text */
         .gradient-text {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             -webkit-background-clip: text;
@@ -42,10 +68,31 @@
             background-clip: text;
         }
         
+        /* Hero gradient */
         .hero-gradient {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #6366f1 100%);
         }
         
+        /* Quote button gradient animation */
+        .quote-btn {
+            background: linear-gradient(-45deg, #1e40af, #3b82f6, #6366f1, #8b5cf6);
+            background-size: 400% 400%;
+            animation: gradientShift 3s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+        
+        .quote-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Card hover effects */
         .card-hover {
             transition: all 0.3s ease;
         }
@@ -55,16 +102,18 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
         
+        /* Isometric illustration effects */
         .isometric-illustration {
             perspective: 1000px;
             transform-style: preserve-3d;
         }
         
-        .isometric-illustration img {
+        .isometric-illustration > div {
             transform: rotateX(10deg) rotateY(-10deg);
             box-shadow: 20px 20px 40px rgba(0,0,0,0.1);
         }
         
+        /* Scroll reveal animations */
         .scroll-reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -76,6 +125,25 @@
             transform: translateY(0);
         }
         
+        /* FAQ styles */
+        .faq-question.active i {
+            transform: rotate(90deg);
+        }
+        
+        .faq-answer {
+            transition: all 0.3s ease;
+        }
+        
+        /* Navigation styles */
+        .navbar {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            position: relative;
+            top: 0;
+            width: 100%;
+            z-index: 50;
+        }
+        
+        /* Mobile menu */
         .mobile-menu {
             transform: translateX(100%);
             transition: transform 0.3s ease;
@@ -85,44 +153,47 @@
             transform: translateX(0);
         }
         
-        .iridescent-border {
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
-            padding: 2px;
-            border-radius: 12px;
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
         }
         
-        .iridescent-border > div {
-            background: white;
-            border-radius: 10px;
+        /* Focus styles for accessibility */
+        .quote-btn:focus,
+        a:focus,
+        button:focus {
+            outline: 2px solid #3b82f6;
+            outline-offset: 2px;
         }
     </style>
 </head>
 <body class="bg-gray-50">
     <!-- Navigation -->
-    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+    <nav class="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
-                <div class="flex items-center">
-                    <a href="{{ '/' | relative_url }}" class="flex items-center space-x-2">
-                        <i class="fas fa-truck-moving text-2xl text-blue-600"></i>
-                        <span class="text-xl font-bold text-gray-900">Chicago Pro Movers</span>
+                <div class="flex items-center space-x-2">
+                    <a href="{{ '/' | relative_url }}" class="flex items-center space-x-2 text-white">
+                        <i class="fas fa-truck-moving text-2xl"></i>
+                        <span class="text-xl font-bold">Fairplay Moving</span>
                     </a>
                 </div>
                 
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#services" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Services</a>
-                    <a href="#areas" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Service Areas</a>
-                    <a href="#about" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">About</a>
-                    <a href="#contact" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                    <a href="#services" class="text-white hover:text-gray-200 font-medium transition-colors">Services</a>
+                    <a href="{{ '/blog' | relative_url }}" class="text-white hover:text-gray-200 font-medium transition-colors">Blog</a>
+                    <a href="#areas" class="text-white hover:text-gray-200 font-medium transition-colors">Areas</a>
+                    <a href="#faq" class="text-white hover:text-gray-200 font-medium transition-colors">FAQ</a>
+                    <a href="tel:312-858-0611" class="quote-btn text-white px-6 py-2 rounded-lg font-medium transition-all">
                         Get Quote
                     </a>
                 </div>
                 
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-blue-600">
+                    <button id="mobile-menu-btn" class="text-white hover:text-gray-200">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
@@ -130,19 +201,20 @@
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="mobile-menu fixed top-16 right-0 w-64 h-screen bg-white shadow-xl md:hidden">
+        <div id="mobile-menu" class="mobile-menu fixed top-16 right-0 w-64 h-screen bg-blue-600 shadow-xl md:hidden">
             <div class="p-6">
                 <div class="flex justify-between items-center mb-8">
-                    <span class="text-lg font-semibold">Menu</span>
-                    <button id="close-menu" class="text-gray-500 hover:text-gray-700">
+                    <span class="text-lg font-semibold text-white">Menu</span>
+                    <button id="close-menu" class="text-white hover:text-gray-200">
                         <i class="fas fa-times text-xl"></i>
                     </button>
                 </div>
                 <div class="space-y-4">
-                    <a href="#services" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Services</a>
-                    <a href="#areas" class="block text-gray-700 hover:text-blue-600 font-medium py-2">Service Areas</a>
-                    <a href="#about" class="block text-gray-700 hover:text-blue-600 font-medium py-2">About</a>
-                    <a href="#contact" class="block bg-blue-600 text-white px-6 py-3 rounded-lg font-medium text-center hover:bg-blue-700 transition-colors">
+                    <a href="#services" class="block text-white hover:text-gray-200 font-medium py-2">Services</a>
+                    <a href="{{ '/blog' | relative_url }}" class="block text-white hover:text-gray-200 font-medium py-2">Blog</a>
+                    <a href="#areas" class="block text-white hover:text-gray-200 font-medium py-2">Areas</a>
+                    <a href="#faq" class="block text-white hover:text-gray-200 font-medium py-2">FAQ</a>
+                    <a href="tel:312-858-0611" class="block quote-btn text-white px-6 py-3 rounded-lg font-medium text-center transition-all">
                         Get Quote
                     </a>
                 </div>
@@ -160,18 +232,24 @@
                 <div>
                     <div class="flex items-center space-x-2 mb-4">
                         <i class="fas fa-truck-moving text-2xl text-blue-400"></i>
-                        <span class="text-xl font-bold">Chicago Pro Movers</span>
+                        <span class="text-xl font-bold">Fairplay Moving Inc.</span>
                     </div>
-                    <p class="text-gray-400">Professional moving services across Chicago. Reliable, affordable, and experienced movers you can trust.</p>
+                    <p class="text-gray-400 mb-4">Professional moving services in Chicago. Licensed, insured, and committed to your satisfaction.</p>
+                    <div class="text-gray-400 space-y-2">
+                        <div>2117 W Hubbard St.</div>
+                        <div>Chicago, IL 60612</div>
+                        <div>ILCC License #241666</div>
+                    </div>
                 </div>
                 
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
                     <div class="space-y-2">
                         <a href="#services" class="block text-gray-400 hover:text-white transition-colors">Services</a>
+                        <a href="{{ '/blog' | relative_url }}" class="block text-gray-400 hover:text-white transition-colors">Blog</a>
                         <a href="#areas" class="block text-gray-400 hover:text-white transition-colors">Service Areas</a>
-                        <a href="#about" class="block text-gray-400 hover:text-white transition-colors">About Us</a>
-                        <a href="#contact" class="block text-gray-400 hover:text-white transition-colors">Contact</a>
+                        <a href="#faq" class="block text-gray-400 hover:text-white transition-colors">FAQ</a>
+                        <a href="tel:312-858-0611" class="block text-gray-400 hover:text-white transition-colors">Contact</a>
                     </div>
                 </div>
                 
@@ -180,11 +258,11 @@
                     <div class="space-y-2 text-gray-400">
                         <div class="flex items-center space-x-2">
                             <i class="fas fa-phone"></i>
-                            <span>(312) 555-MOVE</span>
+                            <span>(312) 858-0611</span>
                         </div>
                         <div class="flex items-center space-x-2">
                             <i class="fas fa-envelope"></i>
-                            <span>info@chicagopromovers.com</span>
+                            <span>info@fairplaymoving.com</span>
                         </div>
                         <div class="flex items-center space-x-2">
                             <i class="fas fa-map-marker-alt"></i>
@@ -195,7 +273,7 @@
             </div>
             
             <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 Chicago Pro Movers. All rights reserved.</p>
+                <p>&copy; 2024 Fairplay Moving Inc. All rights reserved. ILCC License #241666</p>
             </div>
         </div>
     </footer>
@@ -207,20 +285,22 @@
         const mobileMenu = document.getElementById('mobile-menu');
         const closeMenu = document.getElementById('close-menu');
         
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-        });
-        
-        closeMenu.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-        });
-        
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.add('active');
+            });
+            
+            closeMenu.addEventListener('click', () => {
                 mobileMenu.classList.remove('active');
-            }
-        });
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    mobileMenu.classList.remove('active');
+                }
+            });
+        }
         
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -233,10 +313,60 @@
                         block: 'start'
                     });
                     // Close mobile menu if open
-                    mobileMenu.classList.remove('active');
+                    if (mobileMenu) {
+                        mobileMenu.classList.remove('active');
+                    }
                 }
             });
         });
+        
+        // FAQ functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const answer = faqItem.querySelector('.faq-answer');
+                const icon = question.querySelector('i');
+                
+                // Toggle current FAQ
+                answer.classList.toggle('hidden');
+                question.classList.toggle('active');
+                
+                // Close other FAQs
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== faqItem) {
+                        const otherAnswer = otherItem.querySelector('.faq-answer');
+                        const otherIcon = otherItem.querySelector('.faq-question i');
+                        otherAnswer.classList.add('hidden');
+                        otherItem.querySelector('.faq-question').classList.remove('active');
+                    }
+                });
+            });
+        });
+        
+        // Reviews modal functionality
+        const showMoreBtn = document.getElementById('show-more-reviews');
+        const reviewsModal = document.getElementById('reviews-modal');
+        const closeReviewsBtn = document.getElementById('close-reviews');
+        
+        if (showMoreBtn && reviewsModal) {
+            showMoreBtn.addEventListener('click', () => {
+                reviewsModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            closeReviewsBtn.addEventListener('click', () => {
+                reviewsModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Close modal when clicking outside
+            reviewsModal.addEventListener('click', (e) => {
+                if (e.target === reviewsModal) {
+                    reviewsModal.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
         
         // Scroll reveal animation
         const observerOptions = {
@@ -259,7 +389,7 @@
         
         // Add scroll-reveal class to elements that should animate
         document.addEventListener('DOMContentLoaded', () => {
-            const elementsToAnimate = document.querySelectorAll('.service-card, .area-card, .feature-card');
+            const elementsToAnimate = document.querySelectorAll('.service-card, .area-card, .faq-item');
             elementsToAnimate.forEach(el => {
                 el.classList.add('scroll-reveal');
             });
