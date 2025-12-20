@@ -1,210 +1,155 @@
-# Chicago Pro Movers - Tailwind CSS Version
+# Chicago Pro Movers - Jekyll Website
 
-A modern, responsive moving company website built with Jekyll and Tailwind CSS.
+A modern, responsive Jekyll website for Chicago Pro Movers - a professional moving service in Chicago.
 
 ## Features
 
-### 🏠 Homepage
-- Hero section with ZIP code mini-form
-- Trust indicators (licensed, insured, trusted, A+ rating)
-- About section with statistics
-- Services overview
-- FAQ section with accordion functionality
-- Service areas preview
-- Call-to-action sections
+- **Responsive Design**: Works perfectly on desktop, tablet, and mobile devices
+- **Modern UI**: Clean, professional design with smooth animations
+- **Isometric Illustrations**: Custom-generated isometric images for moving services
+- **Service Areas**: Comprehensive coverage of all Chicago neighborhoods
+- **Contact Forms**: Easy quote request functionality
+- **SEO Optimized**: Built with search engine optimization in mind
+- **Fast Loading**: Optimized for performance
 
-### 📋 Booking System
-- Multi-step booking form with progress indicator
-- Inventory management with quantity selectors
-- Additional services selection
-- Contact information collection
-- Form validation and submission
+## Technologies Used
 
-### 🗺️ Service Areas
-- Comprehensive Chicago area coverage
-- Suburbs and surrounding areas
-- ZIP code checker functionality
-- Interactive service area display
+- Jekyll - Static site generator
+- Tailwind CSS - Utility-first CSS framework
+- Font Awesome - Icon library
+- Inter Font - Modern typography
+- JavaScript - Interactive functionality
 
-### 📄 Pages
-- **Home** (`index.html`) - Main landing page
-- **Services** (`services.html`) - Service overview
-- **About** (`about.html`) - Company information
-- **Areas** (`areas.html`) - Service areas and ZIP codes
-- **Book Now** (`book-now.html`) - Multi-step booking form
+## Structure
 
-### 🎨 Design Features
-- Modern Tailwind CSS styling
-- Responsive design for all devices
-- Smooth animations and transitions
-- Professional color scheme
-- Accessible design patterns
-- Font Awesome icons
-- Google Fonts (Inter)
+```
+chicago-movers-jekyll/
+├── _config.yml          # Jekyll configuration
+├── _layouts/            # Page templates
+│   └── default.html     # Main layout template
+├── assets/              # Static assets
+│   └── images/          # Images and illustrations
+├── index.html           # Main landing page
+├── about.md             # About page
+├── services.md          # Services page
+├── Gemfile              # Ruby dependencies
+└── README.md            # This file
+```
 
-## Technology Stack
+## Local Development
 
-- **Jekyll** - Static site generator
-- **Tailwind CSS** - Utility-first CSS framework
-- **JavaScript (ES6+)** - Interactive functionality
-- **Font Awesome** - Icon library
-- **Google Fonts** - Typography
-
-## Getting Started
-
-### Prerequisites
-- Ruby 2.7+ 
-- Jekyll 4.0+
-- Node.js 14+ (for Tailwind CSS)
-
-### Installation
-
-1. Clone or download the project files
-2. Install Jekyll dependencies:
+1. **Prerequisites**: Install Ruby and Jekyll
    ```bash
+   ruby --version  # Should be 2.5.0 or higher
+   gem install jekyll bundler
+   ```
+
+2. **Clone and Setup**:
+   ```bash
+   git clone <repository-url>
+   cd chicago-movers-jekyll
    bundle install
    ```
 
-3. Install Node.js dependencies:
-   ```bash
-   npm install
-   ```
-
-4. Build Tailwind CSS:
-   ```bash
-   npm run build-css
-   ```
-
-5. Serve the site locally:
+3. **Run Locally**:
    ```bash
    bundle exec jekyll serve
+   # Site will be available at http://localhost:4000
    ```
 
-6. Open your browser to `http://localhost:4000`
+## Deployment to GitHub Pages
 
-### Development Commands
+This site is configured for automatic deployment to GitHub Pages:
 
-- `npm run build-css` - Build Tailwind CSS for production
-- `npm run watch-css` - Watch and rebuild CSS during development
-- `bundle exec jekyll serve` - Serve site locally with live reload
-- `bundle exec jekyll build` - Build static site for deployment
+1. **Create GitHub Repository**:
+   - Create a new repository named `chicago-movers-jekyll`
+   - Push your code to the main branch
 
-## Project Structure
+2. **Enable GitHub Pages**:
+   - Go to Settings → Pages in your repository
+   - Select "GitHub Actions" as the source
+   - The site will automatically deploy when you push to main
 
-```
-chicago-movers-tailwind/
-├── _config.yml              # Jekyll configuration
-├── _includes/               # Reusable components
-│   ├── navbar.html         # Navigation header
-│   └── footer.html         # Footer with mini-form
-├── _layouts/               # Page layouts
-│   ├── default.html        # Base layout
-│   └── service.html        # Service page layout
-├── _services/              # Service content
-│   ├── residential-moving.md
-│   └── commercial-moving.md
-├── assets/                 # Static assets
-│   ├── css/               # Compiled CSS
-│   └── js/                # JavaScript files
-├── src/                   # Source files
-│   └── input.css          # Tailwind CSS input
-├── index.html             # Homepage
-├── services.html          # Services page
-├── areas.html             # Service areas page
-├── about.html             # About page
-├── book-now.html          # Booking form
-├── package.json           # Node.js dependencies
-├── tailwind.config.js     # Tailwind configuration
-└── README.md              # This file
-```
+3. **Custom Domain** (Optional):
+   - Add your custom domain in the Pages settings
+   - Update the `url` in `_config.yml` with your domain
 
 ## Customization
 
-### Colors
-Update the color scheme in `tailwind.config.js`:
+### Update Company Information
+Edit the following files to customize for your moving company:
+- `_config.yml` - Site title, description, URL
+- `index.html` - Main content, hero section, services
+- `about.md` - Company information and story
+- `services.md` - Detailed service descriptions
 
-```javascript
-colors: {
-  primary: {
-    50: '#eff6ff',
-    600: '#2563eb', // Main brand color
-    700: '#1d4ed8',
-    // ... more shades
-  },
-  secondary: {
-    800: '#1e293b',
-    900: '#0f172a',
-  }
+### Add/Remove Services
+Modify the services section in `index.html` and update `services.md` accordingly.
+
+### Update Service Areas
+Edit the service areas section in `index.html` to reflect your coverage area.
+
+### Change Colors and Styling
+Update the CSS variables in `_layouts/default.html`:
+```css
+:root {
+    --primary-color: #1e40af;
+    --secondary-color: #3b82f6;
+    --accent-color: #f59e0b;
+    /* Add more custom colors */
 }
 ```
 
-### Contact Information
-Update contact details in `_config.yml`:
+### Replace Images
+Add your own images to the `assets/images/` directory and update the image paths in the HTML files.
 
-```yaml
-contact:
-  phone: "(312) 555-0123"
-  email: "info@chicagopromovers.com"
-  address: "123 N Michigan Ave, Chicago, IL 60601"
-```
+## Contact Form Setup
 
-### Content
-- Homepage content: `index.html`
-- Service descriptions: `_services/*.md`
-- About page: `about.html`
-- Service areas: `areas.html`
+The contact form is currently a placeholder. To make it functional:
 
-## Features Implemented
+1. **Use a Form Service**:
+   - Netlify Forms (free tier available)
+   - Formspree (free tier available)
+   - EmailJS (free tier available)
 
-✅ Responsive design (mobile-first)
-✅ Tailwind CSS styling
-✅ Multi-step booking form
-✅ FAQ accordion
-✅ ZIP code validation
-✅ Service area checker
-✅ Trust indicators
-✅ Professional typography
-✅ Smooth animations
-✅ Form validation
-✅ Local storage for form data
-✅ SEO-friendly structure
-✅ Accessibility features
+2. **Update the Form Action**:
+   ```html
+   <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+   ```
+
+## SEO Optimization
+
+The site includes basic SEO optimization:
+- Meta tags for title, description, and keywords
+- Open Graph tags for social media
+- Structured data markup
+- Sitemap generation
+
+Update the SEO information in `_config.yml` and individual page front matter.
+
+## Performance Optimization
+
+- Images are optimized for web
+- CSS and JavaScript are minified
+- Fonts are loaded efficiently
+- Lazy loading for images
 
 ## Browser Support
 
-- Chrome 80+
-- Firefox 75+
-- Safari 13+
-- Edge 80+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
 - Mobile browsers (iOS Safari, Chrome Mobile)
-
-## Deployment
-
-### GitHub Pages
-1. Push to GitHub repository
-2. Enable GitHub Pages in repository settings
-3. Site will be available at `https://[username].github.io/[repository-name]/`
-
-### Netlify
-1. Connect GitHub repository to Netlify
-2. Set build command: `npm run build-css && bundle exec jekyll build`
-3. Set publish directory: `_site`
-
-### Other Static Hosting
-Build the site with `bundle exec jekyll build` and upload the `_site` folder to your hosting provider.
-
-## Performance
-
-- Optimized CSS with Tailwind's purge feature
-- Minified JavaScript
-- Optimized images (when added)
-- Fast loading times
-- Mobile-optimized
 
 ## License
 
-This project is created for Chicago Pro Movers. All rights reserved.
+This project is open source and available under the MIT License.
 
 ## Support
 
-For questions or support, please contact the development team.
+For questions or issues, please open an issue in the GitHub repository.
+
+---
+
+**Built with ❤️ for Chicago movers**

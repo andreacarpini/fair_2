@@ -1,125 +1,39 @@
 ---
 layout: default
-title: Chicago Pro Movers | Professional Moving Services in Chicago
+title: "Chicago Pro Movers | Best Moving Service in Chicago"
+description: "Professional moving services in Chicago. Reliable, affordable, and experienced movers serving all Chicago neighborhoods."
 ---
 
 <!-- Hero Section -->
-<section class="bg-gradient-to-br from-secondary-800 to-secondary-900 text-white py-20">
-    <div class="container mx-auto px-4">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
-            <div class="hero-left">
-                <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-                    Chicago's Most Trusted Moving Company
+<section class="hero-gradient min-h-screen flex items-center pt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="text-white">
+                <h1 class="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                    <span class="gradient-text">Stress-Free</span><br>
+                    Moving in Chicago
                 </h1>
-                <p class="text-xl lg:text-2xl mb-8 opacity-90 leading-relaxed">
-                    We move, you relax. Join thousands of satisfied customers who've experienced stress-free moving with Chicago's premier moving service.
+                <p class="text-xl mb-8 text-gray-200 leading-relaxed">
+                    Professional moving services across all Chicago neighborhoods. From studio apartments to large homes, 
+                    we handle your move with care, efficiency, and competitive pricing.
                 </p>
-                
-                <!-- Mini Form -->
-                <form class="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-white/20" id="heroMiniForm">
-                    <div class="grid sm:grid-cols-2 gap-4 mb-6">
-                        <div>
-                            <label class="block text-sm font-medium text-white mb-2">Moving from ZIP</label>
-                            <input type="text" name="fromZip" class="w-full px-4 py-3 bg-white/90 border-2 border-transparent rounded-lg focus:bg-white focus:border-primary-600 focus:outline-none transition-all" placeholder="60601" pattern="[0-9]{5}" maxlength="5" required>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-white mb-2">Moving to ZIP</label>
-                            <input type="text" name="toZip" class="w-full px-4 py-3 bg-white/90 border-2 border-transparent rounded-lg focus:bg-white focus:border-primary-600 focus:outline-none transition-all" placeholder="60657" pattern="[0-9]{5}" maxlength="5" required>
-                        </div>
-                    </div>
-                    <div class="flex flex-col sm:flex-row gap-3">
-                        <button type="submit" class="btn-primary flex-1 justify-center">
-                            <span class="bg-gradient-to-r from-primary-600 to-primary-700 bg-clip-text text-transparent animate-gradient">Get Quote</span>
-                        </button>
-                        <a href="tel:{{ site.contact.phone }}" class="btn-secondary flex-1 justify-center">
-                            <i class="fas fa-phone mr-2"></i>
-                            {{ site.contact.phone }}
-                        </a>
-                    </div>
-                </form>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contact" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors text-center">
+                        <i class="fas fa-calculator mr-2"></i>
+                        Get Free Quote
+                    </a>
+                    <a href="tel:312-555-MOVE" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors text-center">
+                        <i class="fas fa-phone mr-2"></i>
+                        Call Now
+                    </a>
+                </div>
             </div>
             
-            <div class="hero-right">
-                <div class="bg-gradient-to-br from-primary-600 to-primary-700 rounded-2xl shadow-2xl overflow-hidden relative">
-                    <div class="absolute inset-0 bg-gradient-to-br from-transparent via-white/10 to-transparent animate-shimmer"></div>
-                    <div class="relative p-12 text-center text-white">
-                        <i class="fas fa-truck-moving text-6xl mb-6 opacity-90"></i>
-                        <h3 class="text-2xl font-bold mb-3">Professional Chicago Movers</h3>
-                        <p class="text-lg opacity-90">Licensed, Insured & Trusted</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Trust Indicators -->
-<section class="bg-gray-50 py-12">
-    <div class="container mx-auto px-4">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div class="bg-white rounded-xl shadow-lg p-6 flex items-center gap-4">
-                <div class="w-16 h-16 bg-gradient-to-br from-primary-600 to-primary-700 rounded-full flex items-center justify-center text-white flex-shrink-0">
-                    <i class="fas fa-certificate text-2xl"></i>
-                </div>
-                <div>
-                    <h4 class="font-bold text-gray-900">Licensed</h4>
-                    <p class="text-gray-600 text-sm">ILCC Certified</p>
-                </div>
-            </div>
-            <div class="bg-white rounded-xl shadow-lg p-6 flex items-center gap-4">
-                <div class="w-16 h-16 bg-gradient-to-br from-primary-600 to-primary-700 rounded-full flex items-center justify-center text-white flex-shrink-0">
-                    <i class="fas fa-shield-alt text-2xl"></i>
-                </div>
-                <div>
-                    <h4 class="font-bold text-gray-900">Insured</h4>
-                    <p class="text-gray-600 text-sm">Fully Protected</p>
-                </div>
-            </div>
-            <div class="bg-white rounded-xl shadow-lg p-6 flex items-center gap-4">
-                <div class="w-16 h-16 bg-gradient-to-br from-primary-600 to-primary-700 rounded-full flex items-center justify-center text-white flex-shrink-0">
-                    <i class="fas fa-star text-2xl"></i>
-                </div>
-                <div>
-                    <h4 class="font-bold text-gray-900">Trusted</h4>
-                    <p class="text-gray-600 text-sm">15,000+ Moves</p>
-                </div>
-            </div>
-            <div class="bg-white rounded-xl shadow-lg p-6 flex items-center gap-4">
-                <div class="w-16 h-16 bg-gradient-to-br from-primary-600 to-primary-700 rounded-full flex items-center justify-center text-white flex-shrink-0">
-                    <i class="fas fa-award text-2xl"></i>
-                </div>
-                <div>
-                    <h4 class="font-bold text-gray-900">Rated A+</h4>
-                    <p class="text-gray-600 text-sm">BBB Accredited</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- About Short Section -->
-<section class="section-padding bg-white">
-    <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">About Chicago Pro Movers</h2>
-            <p class="text-xl text-gray-600 mb-6 leading-relaxed">
-                Since 2010, we've been Chicago's trusted moving partner, helping over 15,000 families and businesses relocate with confidence. Our team of 50+ professional movers understands the unique challenges of moving in the Windy City - from navigating narrow staircases to dealing with unpredictable weather.
-            </p>
-            <p class="text-xl text-gray-700 font-semibold mb-8">
-                Licensed, insured, and committed to your satisfaction. We treat your belongings like our own, ensuring everything arrives safely at your new home or office.
-            </p>
-            <div class="grid grid-cols-3 gap-8">
-                <div class="text-center">
-                    <div class="text-4xl font-bold text-primary-600 mb-2">15,000+</div>
-                    <div class="text-gray-600 font-semibold">Successful Moves</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-4xl font-bold text-primary-600 mb-2">14</div>
-                    <div class="text-gray-600 font-semibold">Years Experience</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-4xl font-bold text-primary-600 mb-2">98%</div>
-                    <div class="text-gray-600 font-semibold">Satisfaction Rate</div>
+            <div class="isometric-illustration">
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center">
+                    <i class="fas fa-home text-8xl text-white mb-6"></i>
+                    <h3 class="text-2xl font-bold text-white mb-4">Your New Home Awaits</h3>
+                    <p class="text-gray-200">Let us take the stress out of your move</p>
                 </div>
             </div>
         </div>
@@ -127,229 +41,462 @@ title: Chicago Pro Movers | Professional Moving Services in Chicago
 </section>
 
 <!-- Services Section -->
-<section class="section-padding bg-gray-50">
-    <div class="container mx-auto px-4">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Our Moving Services</h2>
+<section id="services" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Moving Services</h2>
             <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                From studio apartments to large homes, we handle moves of all sizes with professional care and attention to detail.
+                Comprehensive moving solutions tailored to your needs. From local moves to long-distance relocations, 
+                we handle every aspect of your move with professionalism and care.
             </p>
         </div>
         
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="card hover:scale-105 transition-transform">
-                <div class="text-primary-600 text-5xl mb-4">
-                    <i class="fas fa-home"></i>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Residential Moving -->
+            <div class="service-card bg-white rounded-xl shadow-lg p-8 card-hover">
+                <div class="isometric-illustration mb-6">
+                    <div class="bg-blue-100 w-16 h-16 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-home text-2xl text-blue-600"></i>
+                    </div>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3">Residential Moving</h3>
-                <p class="text-gray-600 mb-4">
-                    Complete home moving services for apartments, condos, and houses. We handle your belongings with care.
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Residential Moving</h3>
+                <p class="text-gray-600 mb-6">
+                    Complete home moving services for apartments, condos, and houses. We handle everything from 
+                    studio apartments to large family homes with care and efficiency.
                 </p>
-                <div class="text-primary-600 font-bold text-lg mb-4">Starting at $299</div>
-                <a href="/services/residential/" class="btn-outline w-full">Learn More</a>
+                <ul class="text-gray-600 space-y-2">
+                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Studio & 1-Bedroom Moves</li>
+                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Family Home Relocations</li>
+                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>High-Rise Building Moves</li>
+                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Packing & Unpacking</li>
+                </ul>
             </div>
             
-            <div class="card hover:scale-105 transition-transform">
-                <div class="text-primary-600 text-5xl mb-4">
-                    <i class="fas fa-building"></i>
+            <!-- Commercial Moving -->
+            <div class="service-card bg-white rounded-xl shadow-lg p-8 card-hover">
+                <div class="isometric-illustration mb-6">
+                    <div class="bg-green-100 w-16 h-16 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-building text-2xl text-green-600"></i>
+                    </div>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3">Commercial Moving</h3>
-                <p class="text-gray-600 mb-4">
-                    Office relocations, retail moves, and business transitions. Minimize downtime with our efficient service.
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Commercial Moving</h3>
+                <p class="text-gray-600 mb-6">
+                    Professional office and business relocation services. Minimize downtime and ensure a smooth 
+                    transition for your company with our expert commercial moving team.
                 </p>
-                <div class="text-primary-600 font-bold text-lg mb-4">Starting at $599</div>
-                <a href="/services/commercial/" class="btn-outline w-full">Learn More</a>
+                <ul class="text-gray-600 space-y-2">
+                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Office Relocations</li>
+                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Retail Store Moves</li>
+                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Equipment Transport</li>
+                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Weekend & After-Hours</li>
+                </ul>
             </div>
             
-            <div class="card hover:scale-105 transition-transform">
-                <div class="text-primary-600 text-5xl mb-4">
-                    <i class="fas fa-box-open"></i>
+            <!-- Packing Services -->
+            <div class="service-card bg-white rounded-xl shadow-lg p-8 card-hover">
+                <div class="isometric-illustration mb-6">
+                    <div class="bg-purple-100 w-16 h-16 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-box text-2xl text-purple-600"></i>
+                    </div>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3">Packing Services</h3>
-                <p class="text-gray-600 mb-4">
-                    Professional packing and unpacking services. We bring all materials and ensure everything is safely packed.
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Packing Services</h3>
+                <p class="text-gray-600 mb-6">
+                    Professional packing and unpacking services to protect your belongings. We use high-quality 
+                    materials and proven techniques to ensure everything arrives safely.
                 </p>
-                <div class="text-primary-600 font-bold text-lg mb-4">Starting at $199</div>
-                <a href="/services/packing/" class="btn-outline w-full">Learn More</a>
+                <ul class="text-gray-600 space-y-2">
+                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Full Packing Service</li>
+                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Fragile Item Protection</li>
+                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Quality Packing Materials</li>
+                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Unpacking & Setup</li>
+                </ul>
             </div>
             
-            <div class="card hover:scale-105 transition-transform">
-                <div class="text-primary-600 text-5xl mb-4">
-                    <i class="fas fa-warehouse"></i>
+            <!-- Long Distance -->
+            <div class="service-card bg-white rounded-xl shadow-lg p-8 card-hover">
+                <div class="isometric-illustration mb-6">
+                    <div class="bg-orange-100 w-16 h-16 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-route text-2xl text-orange-600"></i>
+                    </div>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3">Storage Solutions</h3>
-                <p class="text-gray-600 mb-4">
-                    Secure, climate-controlled storage facilities. Short-term and long-term storage options available.
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Long Distance</h3>
+                <p class="text-gray-600 mb-6">
+                    Interstate and long-distance moving services. We handle moves to and from Chicago with 
+                    the same level of care and professionalism as local moves.
                 </p>
-                <div class="text-primary-600 font-bold text-lg mb-4">Starting at $99/month</div>
-                <a href="/services/storage/" class="btn-outline w-full">Learn More</a>
+                <ul class="text-gray-600 space-y-2">
+                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Interstate Moves</li>
+                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Cross-Country Relocations</li>
+                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Tracking & Updates</li>
+                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Guaranteed Delivery</li>
+                </ul>
             </div>
             
-            <div class="card hover:scale-105 transition-transform">
-                <div class="text-primary-600 text-5xl mb-4">
-                    <i class="fas fa-road"></i>
+            <!-- Storage Solutions -->
+            <div class="service-card bg-white rounded-xl shadow-lg p-8 card-hover">
+                <div class="isometric-illustration mb-6">
+                    <div class="bg-red-100 w-16 h-16 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-warehouse text-2xl text-red-600"></i>
+                    </div>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3">Long Distance</h3>
-                <p class="text-gray-600 mb-4">
-                    Interstate moving services to any state. Licensed and insured for moves across the country.
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Storage Solutions</h3>
+                <p class="text-gray-600 mb-6">
+                    Secure, climate-controlled storage facilities for short-term and long-term needs. Perfect 
+                    for staging your move or storing items during transitions.
                 </p>
-                <div class="text-primary-600 font-bold text-lg mb-4">Get Quote</div>
-                <a href="/services/long-distance/" class="btn-outline w-full">Learn More</a>
+                <ul class="text-gray-600 space-y-2">
+                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Climate Controlled</li>
+                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>24/7 Security</li>
+                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Flexible Terms</li>
+                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Easy Access</li>
+                </ul>
             </div>
             
-            <div class="card hover:scale-105 transition-transform">
-                <div class="text-primary-600 text-5xl mb-4">
-                    <i class="fas fa-truck-loading"></i>
+            <!-- Specialty Items -->
+            <div class="service-card bg-white rounded-xl shadow-lg p-8 card-hover">
+                <div class="isometric-illustration mb-6">
+                    <div class="bg-yellow-100 w-16 h-16 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-gem text-2xl text-yellow-600"></i>
+                    </div>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3">Specialty Items</h3>
-                <p class="text-gray-600 mb-4">
-                    Piano moving, artwork, antiques, and other valuable items. White-glove service for your precious belongings.
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Specialty Items</h3>
+                <p class="text-gray-600 mb-6">
+                    Expert handling of valuable and delicate items including pianos, artwork, antiques, and 
+                    other specialty possessions that require extra care.
                 </p>
-                <div class="text-primary-600 font-bold text-lg mb-4">Get Quote</div>
-                <a href="/services/specialty/" class="btn-outline w-full">Learn More</a>
+                <ul class="text-gray-600 space-y-2">
+                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Piano Moving</li>
+                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Artwork & Antiques</li>
+                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Electronics</li>
+                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Custom Crating</li>
+                </ul>
             </div>
         </div>
     </div>
 </section>
 
-<!-- CTA Section -->
-<section class="bg-gradient-to-br from-secondary-800 to-secondary-900 text-white py-20">
-    <div class="container mx-auto px-4 text-center">
-        <h2 class="text-3xl lg:text-4xl font-bold mb-6">Ready to Move?</h2>
-        <p class="text-xl mb-8 opacity-90">Get your free moving quote in seconds. Just enter your ZIP code to get started.</p>
+<!-- Service Areas Section -->
+<section id="areas" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">We Serve All Chicago Neighborhoods</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                From the Loop to the suburbs, we provide reliable moving services across the entire Chicago area. 
+                No neighborhood is too far or too challenging for our experienced team.
+            </p>
+        </div>
         
-        <form class="max-w-md mx-auto flex gap-3" id="ctaForm">
-            <input type="text" name="zip" placeholder="Enter your ZIP code" pattern="[0-9]{5}" maxlength="5" class="flex-1 px-4 py-3 rounded-lg border-0 text-gray-900" required>
-            <button type="submit" class="btn-primary whitespace-nowrap">
-                <span class="bg-gradient-to-r from-primary-600 to-primary-700 bg-clip-text text-transparent animate-gradient">Check Availability</span>
-            </button>
-        </form>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Downtown Chicago -->
+            <div class="area-card bg-white rounded-xl shadow-lg p-6 card-hover">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-city text-2xl text-blue-600 mr-3"></i>
+                    <h3 class="text-xl font-bold text-gray-900">Downtown Chicago</h3>
+                </div>
+                <p class="text-gray-600 mb-4">
+                    The Loop, River North, Streeterville, and surrounding downtown areas. 
+                    High-rise building moves and downtown relocations.
+                </p>
+                <div class="text-sm text-gray-500">
+                    <i class="fas fa-map-marker-alt mr-2"></i>
+                    Loop, River North, Gold Coast, Streeterville
+                </div>
+            </div>
+            
+            <!-- North Side -->
+            <div class="area-card bg-white rounded-xl shadow-lg p-6 card-hover">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-home text-2xl text-green-600 mr-3"></i>
+                    <h3 class="text-xl font-bold text-gray-900">North Side</h3>
+                </div>
+                <p class="text-gray-600 mb-4">
+                    Lincoln Park, Lakeview, Wrigleyville, and North Side neighborhoods. 
+                    Family homes and apartment moves.
+                </p>
+                <div class="text-sm text-gray-500">
+                    <i class="fas fa-map-marker-alt mr-2"></i>
+                    Lincoln Park, Lakeview, Andersonville, Edgewater
+                </div>
+            </div>
+            
+            <!-- South Side -->
+            <div class="area-card bg-white rounded-xl shadow-lg p-6 card-hover">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-building text-2xl text-purple-600 mr-3"></i>
+                    <h3 class="text-xl font-bold text-gray-900">South Side</h3>
+                </div>
+                <p class="text-gray-600 mb-4">
+                    Hyde Park, Bronzeville, Bridgeport, and South Side communities. 
+                    Historic homes and modern apartments.
+                </p>
+                <div class="text-sm text-gray-500">
+                    <i class="fas fa-map-marker-alt mr-2"></i>
+                    Hyde Park, Bronzeville, Bridgeport, Chinatown
+                </div>
+            </div>
+            
+            <!-- West Side -->
+            <div class="area-card bg-white rounded-xl shadow-lg p-6 card-hover">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-tree text-2xl text-orange-600 mr-3"></i>
+                    <h3 class="text-xl font-bold text-gray-900">West Side</h3>
+                </div>
+                <p class="text-gray-600 mb-4">
+                    Wicker Park, Bucktown, Logan Square, and West Side neighborhoods. 
+                    Trendy areas with unique moving challenges.
+                </p>
+                <div class="text-sm text-gray-500">
+                    <i class="fas fa-map-marker-alt mr-2"></i>
+                    Wicker Park, Bucktown, Logan Square, Humboldt Park
+                </div>
+            </div>
+            
+            <!-- Northwest Side -->
+            <div class="area-card bg-white rounded-xl shadow-lg p-6 card-hover">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-subway text-2xl text-red-600 mr-3"></i>
+                    <h3 class="text-xl font-bold text-gray-900">Northwest Side</h3>
+                </div>
+                <p class="text-gray-600 mb-4">
+                    Irving Park, Portage Park, Belmont Cragin, and Northwest communities. 
+                    Residential neighborhoods and family moves.
+                </p>
+                <div class="text-sm text-gray-500">
+                    <i class="fas fa-map-marker-alt mr-2"></i>
+                    Irving Park, Portage Park, Belmont Cragin, Dunning
+                </div>
+            </div>
+            
+            <!-- Suburbs -->
+            <div class="area-card bg-white rounded-xl shadow-lg p-6 card-hover">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-car text-2xl text-yellow-600 mr-3"></i>
+                    <h3 class="text-xl font-bold text-gray-900">Chicago Suburbs</h3>
+                </div>
+                <p class="text-gray-600 mb-4">
+                    Evanston, Oak Park, Cicero, Berwyn, and surrounding suburbs. 
+                    Suburban residential and commercial moves.
+                </p>
+                <div class="text-sm text-gray-500">
+                    <i class="fas fa-map-marker-alt mr-2"></i>
+                    Evanston, Oak Park, Cicero, Berwyn, Forest Park
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
-<!-- FAQ Section -->
-<section class="py-20 bg-white">
-    <div class="container mx-auto px-4">
+<!-- About Section -->
+<section id="about" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">Why Choose Chicago Pro Movers?</h2>
+                <p class="text-lg text-gray-600 mb-8">
+                    With over 10 years of experience serving Chicago, we understand the unique challenges 
+                    of moving in the Windy City. From navigating tight city streets to managing high-rise 
+                    building moves, our team has the expertise to handle any situation.
+                </p>
+                
+                <div class="space-y-6">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-blue-100 p-3 rounded-lg">
+                            <i class="fas fa-shield-alt text-blue-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Licensed & Insured</h3>
+                            <p class="text-gray-600">Fully licensed and insured moving company for your peace of mind.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-green-100 p-3 rounded-lg">
+                            <i class="fas fa-users text-green-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Professional Team</h3>
+                            <p class="text-gray-600">Experienced movers who handle your belongings with care and respect.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-purple-100 p-3 rounded-lg">
+                            <i class="fas fa-clock text-purple-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">On-Time Service</h3>
+                            <p class="text-gray-600">We value your time and always arrive when promised.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-orange-100 p-3 rounded-lg">
+                            <i class="fas fa-dollar-sign text-orange-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Transparent Pricing</h3>
+                            <p class="text-gray-600">No hidden fees or surprise charges - ever.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="isometric-illustration">
+                <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 text-center">
+                    <i class="fas fa-award text-8xl text-blue-600 mb-6"></i>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">10+ Years Experience</h3>
+                    <p class="text-gray-600 mb-6">Serving Chicago with pride and professionalism</p>
+                    <div class="grid grid-cols-2 gap-4 text-center">
+                        <div>
+                            <div class="text-3xl font-bold text-blue-600">15,000+</div>
+                            <div class="text-sm text-gray-600">Successful Moves</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-green-600">98%</div>
+                            <div class="text-sm text-gray-600">Satisfaction Rate</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact/Quote Section -->
+<section id="contact" class="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
-            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-            <p class="text-xl text-gray-600">Everything you need to know about your move</p>
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">Get Your Free Moving Quote</h2>
+            <p class="text-xl text-gray-600">
+                Ready to move? Let us provide you with a free, no-obligation quote for your Chicago move.
+            </p>
         </div>
         
-        <div class="max-w-4xl mx-auto space-y-4">
-            <div class="faq-item bg-gray-50 rounded-xl overflow-hidden">
-                <button class="faq-question w-full text-left p-6 hover:bg-gray-100 transition-colors flex items-center justify-between">
-                    <span class="flex items-center">
-                        <span class="text-primary-600 font-bold mr-3">1.</span>
-                        <span class="font-semibold text-gray-900">How far in advance should I book my move?</span>
-                    </span>
-                    <i class="fas fa-chevron-down text-gray-400 transition-transform"></i>
-                </button>
-                <div class="faq-answer hidden px-6 pb-6 text-gray-600">
-                    <p>We recommend booking at least 2-3 weeks in advance, especially during peak moving season (May-September). However, we can often accommodate last-minute moves with 48-72 hours notice.</p>
+        <div class="bg-white rounded-2xl shadow-xl p-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Contact Form -->
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Request a Quote</h3>
+                    <form class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                                <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="John">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                                <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Doe">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                            <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="john@example.com">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+                            <input type="tel" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="(312) 555-0123">
+                        </div>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Moving From ZIP</label>
+                                <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="60601">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Moving To ZIP</label>
+                                <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="60657">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Home Size</label>
+                            <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                <option>Select home size</option>
+                                <option>Studio</option>
+                                <option>1 Bedroom</option>
+                                <option>2 Bedroom</option>
+                                <option>3 Bedroom</option>
+                                <option>4+ Bedroom</option>
+                                <option>Office/Commercial</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Preferred Moving Date</label>
+                            <input type="date" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-blue-600 text-white py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors">
+                            Get Free Quote
+                        </button>
+                    </form>
                 </div>
-            </div>
-            
-            <div class="faq-item bg-gray-50 rounded-xl overflow-hidden">
-                <button class="faq-question w-full text-left p-6 hover:bg-gray-100 transition-colors flex items-center justify-between">
-                    <span class="flex items-center">
-                        <span class="text-primary-600 font-bold mr-3">2.</span>
-                        <span class="font-semibold text-gray-900">What areas do you serve?</span>
-                    </span>
-                    <i class="fas fa-chevron-down text-gray-400 transition-transform"></i>
-                </button>
-                <div class="faq-answer hidden px-6 pb-6 text-gray-600">
-                    <p>We serve all of Chicago and most surrounding suburbs including Evanston, Oak Park, Cicero, Berwyn, and more. If you're unsure whether we serve your area, just give us a call or enter your ZIP code on our website.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item bg-gray-50 rounded-xl overflow-hidden">
-                <button class="faq-question w-full text-left p-6 hover:bg-gray-100 transition-colors flex items-center justify-between">
-                    <span class="flex items-center">
-                        <span class="text-primary-600 font-bold mr-3">3.</span>
-                        <span class="font-semibold text-gray-900">Are you licensed and insured?</span>
-                    </span>
-                    <i class="fas fa-chevron-down text-gray-400 transition-transform"></i>
-                </button>
-                <div class="faq-answer hidden px-6 pb-6 text-gray-600">
-                    <p>Yes! We're fully licensed by the Illinois Commerce Commission (#123456) and insured. We also carry full DOT certification for interstate moves.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item bg-gray-50 rounded-xl overflow-hidden">
-                <button class="faq-question w-full text-left p-6 hover:bg-gray-100 transition-colors flex items-center justify-between">
-                    <span class="flex items-center">
-                        <span class="text-primary-600 font-bold mr-3">4.</span>
-                        <span class="font-semibold text-gray-900">Do you provide packing materials?</span>
-                    </span>
-                    <i class="fas fa-chevron-down text-gray-400 transition-transform"></i>
-                </button>
-                <div class="faq-answer hidden px-6 pb-6 text-gray-600">
-                    <p>Yes, we provide all necessary packing materials including boxes, tape, bubble wrap, and packing paper. Materials are included with our packing service or available for purchase separately.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item bg-gray-50 rounded-xl overflow-hidden">
-                <button class="faq-question w-full text-left p-6 hover:bg-gray-100 transition-colors flex items-center justify-between">
-                    <span class="flex items-center">
-                        <span class="text-primary-600 font-bold mr-3">5.</span>
-                        <span class="font-semibold text-gray-900">Can you move pianos and other specialty items?</span>
-                    </span>
-                    <i class="fas fa-chevron-down text-gray-400 transition-transform"></i>
-                </button>
-                <div class="faq-answer hidden px-6 pb-6 text-gray-600">
-                    <p>Absolutely! Our team includes specialists trained in moving pianos, artwork, antiques, and other valuable items. We have the equipment and expertise to handle these moves safely.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item bg-gray-50 rounded-xl overflow-hidden">
-                <button class="faq-question w-full text-left p-6 hover:bg-gray-100 transition-colors flex items-center justify-between">
-                    <span class="flex items-center">
-                        <span class="text-primary-600 font-bold mr-3">6.</span>
-                        <span class="font-semibold text-gray-900">What happens if something gets damaged?</span>
-                    </span>
-                    <i class="fas fa-chevron-down text-gray-400 transition-transform"></i>
-                </button>
-                <div class="faq-answer hidden px-6 pb-6 text-gray-600">
-                    <p>While we take every precaution to prevent damage, accidents can happen. We include basic valuation coverage with every move, and additional insurance options are available for extra protection.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item bg-gray-50 rounded-xl overflow-hidden">
-                <button class="faq-question w-full text-left p-6 hover:bg-gray-100 transition-colors flex items-center justify-between">
-                    <span class="flex items-center">
-                        <span class="text-primary-600 font-bold mr-3">7.</span>
-                        <span class="font-semibold text-gray-900">How do you charge for moving services?</span>
-                    </span>
-                    <i class="fas fa-chevron-down text-gray-400 transition-transform"></i>
-                </button>
-                <div class="faq-answer hidden px-6 pb-6 text-gray-600">
-                    <p>Local moves are typically charged by the hour based on the number of movers and trucks needed. Long-distance moves are based on weight and distance. We provide transparent, binding quotes with no hidden fees.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item bg-gray-50 rounded-xl overflow-hidden">
-                <button class="faq-question w-full text-left p-6 hover:bg-gray-100 transition-colors flex items-center justify-between">
-                    <span class="flex items-center">
-                        <span class="text-primary-600 font-bold mr-3">8.</span>
-                        <span class="font-semibold text-gray-900">Do you offer storage services?</span>
-                    </span>
-                    <i class="fas fa-chevron-down text-gray-400 transition-transform"></i>
-                </button>
-                <div class="faq-answer hidden px-6 pb-6 text-gray-600">
-                    <p>Yes! We offer both short-term and long-term storage in our secure, climate-controlled facilities. The first month is free when you use our moving services.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item bg-gray-50 rounded-xl overflow-hidden">
-                <button class="faq-question w-full text-left p-6 hover:bg-gray-100 transition-colors flex items-center justify-between">
-                    <span class="flex items-center">
-                        <span class="text-primary-600 font-bold mr-3">9.</span>
-                        <span class="font-semibold text-gray-900">Can you help with furniture assembly and disassembly?</span>
-                    </span>
-                    <i class="fas fa-chevron-down text-gray-400 transition-transform"></i>
-                </button>
-                <div class="faq-answer hidden px-6 pb-6 text-gray-600">
-                    <p>Yes, furniture disassembly and reassembly is included with all our moves at no extra charge. Our movers bring all the necessary tools and expertise to handle this efficiently.</p>
+                
+                <!-- Contact Info & Pricing -->
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="bg-blue-100 p-3 rounded-lg">
+                                    <i class="fas fa-phone text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-gray-900">Phone</div>
+                                    <div class="text-gray-600">(312) 555-MOVE</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-3">
+                                <div class="bg-green-100 p-3 rounded-lg">
+                                    <i class="fas fa-envelope text-green-600"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-gray-900">Email</div>
+                                    <div class="text-gray-600">info@chicagopromovers.com</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-3">
+                                <div class="bg-purple-100 p-3 rounded-lg">
+                                    <i class="fas fa-clock text-purple-600"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-gray-900">Hours</div>
+                                    <div class="text-gray-600">Mon-Sun: 7AM - 7PM</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="iridescent-border">
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold text-gray-900 mb-4">Starting Prices</h4>
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-600">Studio Apartment</span>
+                                    <span class="font-bold text-gray-900">$299</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-600">1 Bedroom</span>
+                                    <span class="font-bold text-gray-900">$399</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-600">2 Bedroom</span>
+                                    <span class="font-bold text-gray-900">$599</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-600">3 Bedroom</span>
+                                    <span class="font-bold text-gray-900">$799</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-500 mt-4">
+                                *Prices may vary based on distance, stairs, and additional services
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
