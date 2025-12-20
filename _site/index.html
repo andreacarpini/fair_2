@@ -1,9 +1,342 @@
----
-title: "Fairplay Moving Inc. | Professional Movers in Chicago"
-description: "Licensed and insured moving company in Chicago. Local and long-distance moves, residential and commercial. Call (312) 858-0611 for a free quote."
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Fairplay Moving Inc. | Professional Movers in Chicago</title>
+    <meta name="description" content="Licensed and insured moving company in Chicago. Local and long-distance moves, residential and commercial. Call (312) 858-0611 for a free quote.">
+    
+    <!-- Jekyll SEO Tag -->
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Fairplay Moving Inc. Professional Movers in Chicago | Chicago Pro Movers Best Moving Service in Chicago</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Fairplay Moving Inc. Professional Movers in Chicago" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Licensed and insured moving company in Chicago. Local and long-distance moves, residential and commercial. Call (312) 858-0611 for a free quote." />
+<meta property="og:description" content="Licensed and insured moving company in Chicago. Local and long-distance moves, residential and commercial. Call (312) 858-0611 for a free quote." />
+<link rel="canonical" href="http://localhost:4000/chicago-movers-jekyll/" />
+<meta property="og:url" content="http://localhost:4000/chicago-movers-jekyll/" />
+<meta property="og:site_name" content="Chicago Pro Movers Best Moving Service in Chicago" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Fairplay Moving Inc. Professional Movers in Chicago" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"Licensed and insured moving company in Chicago. Local and long-distance moves, residential and commercial. Call (312) 858-0611 for a free quote.","headline":"Fairplay Moving Inc. Professional Movers in Chicago","name":"Chicago Pro Movers Best Moving Service in Chicago","url":"http://localhost:4000/chicago-movers-jekyll/"}</script>
+<!-- End Jekyll SEO tag -->
 
-<!-- Hero Section -->
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --primary-color: #1e40af;
+            --secondary-color: #3b82f6;
+            --accent-color: #f59e0b;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        /* Prevent zoom on mobile */
+        @media (max-width: 768px) {
+            input, textarea, select {
+                font-size: 16px !important;
+            }
+        }
+        
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Hero gradient */
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #6366f1 100%);
+        }
+        
+        /* Quote button gradient animation */
+        .quote-btn {
+            background: linear-gradient(-45deg, #1e40af, #3b82f6, #6366f1, #8b5cf6);
+            background-size: 400% 400%;
+            animation: gradientShift 6s ease-in-out infinite;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .quote-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Card hover effects */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        /* Remove isometric animation - keep static */
+        .isometric-illustration {
+            perspective: 1000px;
+            transform-style: preserve-3d;
+        }
+        
+        .isometric-illustration > div {
+            transform: rotateX(10deg) rotateY(-10deg);
+            box-shadow: 20px 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        /* Promotional flyers - tongue behind effect */
+        .promo-flyer {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            background: linear-gradient(45deg, #10b981, #059669);
+            color: white;
+            padding: 6px 20px;
+            border-radius: 0 20px 0 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            transform: rotate(8deg);
+            z-index: 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        /* Add a background element to create the tongue effect */
+        .promo-flyer::before {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 0 16px 0 16px;
+            z-index: -1;
+        }
+        
+        /* Service card with promo tongue */
+        .service-card.with-promo {
+            position: relative;
+            overflow: visible;
+        }
+        
+        /* Trust indicators alignment */
+        .trust-indicator {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .trust-indicator i {
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+        }
+        
+        /* FAQ styles */
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: 1.5rem;
+            font-weight: 600;
+            color: #1f2937;
+            background: #f9fafb;
+            border-radius: 0.5rem;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .faq-question:hover {
+            background: #f3f4f6;
+        }
+        
+        .faq-question.active {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            border-bottom: none;
+        }
+        
+        .faq-answer {
+            display: none;
+            padding: 0 1.5rem 1.5rem 1.5rem;
+            background: #F9FAFB;
+            border: 1px solid #e5e7eb;
+            border-top: none;
+            border-bottom-left-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+        }
+        
+        .faq-answer.open {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Transparent navigation - remove text shadow */
+        .navbar {
+            background: transparent;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 50;
+        }
+        
+        /* Navigation text - remove shadow */
+        .navbar a {
+            color: white;
+        }
+        
+        .navbar a:hover {
+            color: rgba(255,255,255,0.8);
+        }
+        
+        /* Mobile menu */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            background: rgba(30, 64, 175, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Focus styles for accessibility */
+        .quote-btn:focus,
+        a:focus,
+        button:focus {
+            outline: 2px solid #3b82f6;
+            outline-offset: 2px;
+        }
+        
+        
+        .trust-section::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%231e40af' fill-opacity='1' d='M0,96L48,112C96,128,192,160,288,181.3C384,203,480,213,576,197.3C672,181,768,139,864,128C960,117,1056,139,1152,154.7C1248,171,1344,181,1392,186.7L1440,192L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: center;
+            transform: rotate(180deg);
+        }
+        
+        .trust-section {
+            position: relative;
+            margin-top: -50px;
+            padding-top: 100px;
+            z-index: 2;
+        }
+        
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <!-- Logo -->
+                <div class="flex items-center">
+                <img src="/chicago-movers-jekyll/assets/images/Fairplay_Moving_logo.svg" alt="Professional Chicago Movers" class="w-20 ml-2"/>
+            </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="text-white hover:text-gray-200 font-medium transition-colors">Home</a>
+                    <a href="#faq" class="text-white hover:text-gray-200 font-medium transition-colors">FAQ</a>
+                    <a href="/chicago-movers-jekyll/blog" class="text-white hover:text-gray-200 font-medium transition-colors">Blog</a>
+                    <button id="open-quote-modal-nav" class="quote-btn text-white px-6 py-2 rounded-lg font-medium transition-all">
+                        Get Quote
+                    </button>
+                    <a href="tel:312-858-0611" class="text-white hover:text-gray-200 font-medium transition-colors">
+                        (312) 858-0611
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-white hover:text-gray-200 p-2">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-64 h-900 shadow-xl md:hidden rounded-lg">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-8">
+                    <span class="text-lg font-semibold text-white">Menu</span>
+                    <button id="close-menu" class="text-white hover:text-gray-200 p-2">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <div class="space-y-4">
+                    <a href="/" class="block text-white hover:text-gray-200 font-medium py-2">Home</a>
+                    <a href="#faq" class="block text-white hover:text-gray-200 font-medium py-2">FAQ</a>
+                    <a href="/chicago-movers-jekyll/blog" class="block text-white hover:text-gray-200 font-medium py-2">Blog</a>
+                    <button id="open-quote-modal-mobile" class="block quote-btn text-white px-6 py-3 rounded-lg font-medium text-center transition-all w-full">
+                        Get Quote
+                    </button>
+                    <a href="tel:312-858-0611" class="block text-white hover:text-gray-200 font-medium py-2">
+                        (312) 858-0611
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <!-- Hero Section -->
 <section class="hero-gradient min-h-[600px] flex items-center relative overflow-hidden">
     <div class="absolute inset-0 opacity-10">
         <div class="absolute top-20 left-10 w-32 h-32 bg-white rounded-full blur-xl"></div>
@@ -700,3 +1033,343 @@ description: "Licensed and insured moving company in Chicago. Local and long-dis
         </div>
     </div>
 </div>
+    
+    <!-- Footer -->
+    <footer class="hero-gradient text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-left text-gray-400 grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                <img src="/chicago-movers-jekyll/assets/images/Fairplay_Moving_logo.svg" alt="Professional Chicago Movers" class="w-20 ml-2"/>
+
+                    </div>
+                    <p class="text-gray-400 mb-4">Born in Chicago. Moved by people who care.</p>
+
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <div class="space-y-2">
+                        <a href="#faq" class="block text-gray-400 hover:text-white transition-colors">FAQ</a>
+                        <a href="/chicago-movers-jekyll/blog" class="block text-gray-400 hover:text-white transition-colors">Blog</a>
+                        <a href="tel:312-858-0611" class="block text-gray-400 hover:text-white transition-colors">Contact</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
+                    <div class="space-y-2 text-gray-400">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-phone"></i>
+                            <span>(312) 858-0611</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@fairplaymoving.com</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>2117 W Hubbard St. Chicago IL 60612</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Fairplay Moving Inc. All rights reserved. ILCC License #241666</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script>
+        // Mobile menu toggle with touch support for iPhone
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.getElementById('close-menu');
+        
+        if (mobileMenuBtn && mobileMenu) {
+            // Add touch event listeners for iPhone
+            mobileMenuBtn.addEventListener('click', openMobileMenu);
+            mobileMenuBtn.addEventListener('touchend', function(e) {
+                e.preventDefault();
+                openMobileMenu();
+            });
+            
+            closeMenu.addEventListener('click', closeMobileMenu);
+            closeMenu.addEventListener('touchend', function(e) {
+                e.preventDefault();
+                closeMobileMenu();
+            });
+            
+            function openMobileMenu() {
+                mobileMenu.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            
+            function closeMobileMenu() {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+            
+            // Close mobile menu when clicking outside (including touch)
+            document.addEventListener('click', (e) => {
+                if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    closeMobileMenu();
+                }
+            });
+            
+            // Also handle touch events
+            document.addEventListener('touchend', (e) => {
+                if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    closeMobileMenu();
+                }
+            });
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    if (mobileMenu) {
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    }
+                }
+            });
+        });
+        
+        // FAQ functionality - CORRECTED
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.closest('.faq-item');
+                const answer = faqItem.querySelector('.faq-answer');
+                const icon = question.querySelector('i');
+                
+                // Toggle current FAQ
+                answer.classList.toggle('open');
+                question.classList.toggle('active');
+                
+                if (icon) {
+                    icon.style.transform = answer.classList.contains('open') ? 'rotate(90deg)' : 'rotate(0deg)';
+                    icon.style.transition = 'transform 0.3s ease';
+                }
+                
+                // Close other FAQs
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== faqItem) {
+                        const otherAnswer = otherItem.querySelector('.faq-answer');
+                        const otherQuestion = otherItem.querySelector('.faq-question');
+                        const otherIcon = otherQuestion.querySelector('i');
+                        
+                        otherAnswer.classList.remove('open');
+                        otherQuestion.classList.remove('active');
+                        
+                        if (otherIcon) {
+                            otherIcon.style.transform = 'rotate(0deg)';
+                        }
+                    }
+                });
+            });
+        });
+        
+        // Quote modal functionality
+        const openQuoteBtn = document.getElementById('open-quote-modal');
+        const openQuoteBtn2 = document.getElementById('open-quote-modal-2');
+        const openQuoteBtnNav = document.getElementById('open-quote-modal-nav');
+        const openQuoteBtnMobile = document.getElementById('open-quote-modal-mobile');
+        const quoteModal = document.getElementById('quote-modal');
+        const closeQuoteBtn = document.getElementById('close-quote-modal');
+        
+        function openQuoteModal() {
+            if (quoteModal) {
+                quoteModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        
+        function closeQuoteModal() {
+            if (quoteModal) {
+                quoteModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        }
+        
+        // Add event listeners for all quote buttons
+        [openQuoteBtn, openQuoteBtn2, openQuoteBtnNav, openQuoteBtnMobile].forEach(btn => {
+            if (btn) {
+                btn.addEventListener('click', openQuoteModal);
+                btn.addEventListener('touchend', function(e) {
+                    e.preventDefault();
+                    openQuoteModal();
+                });
+            }
+        });
+        
+        if (closeQuoteBtn) {
+            closeQuoteBtn.addEventListener('click', closeQuoteModal);
+            closeQuoteBtn.addEventListener('touchend', function(e) {
+                e.preventDefault();
+                closeQuoteModal();
+            });
+        }
+        
+        // Close modal when clicking outside
+        if (quoteModal) {
+            quoteModal.addEventListener('click', (e) => {
+                if (e.target === quoteModal) {
+                    closeQuoteModal();
+                }
+            });
+        }
+        
+        // Reviews modal functionality
+        const showMoreBtn = document.getElementById('show-more-reviews');
+        const reviewsModal = document.getElementById('reviews-modal');
+        const closeReviewsBtn = document.getElementById('close-reviews');
+        
+        if (showMoreBtn && reviewsModal) {
+            showMoreBtn.addEventListener('click', () => {
+                reviewsModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            showMoreBtn.addEventListener('touchend', function(e) {
+                e.preventDefault();
+                reviewsModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            if (closeReviewsBtn) {
+                closeReviewsBtn.addEventListener('click', () => {
+                    reviewsModal.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                });
+                
+                closeReviewsBtn.addEventListener('touchend', function(e) {
+                    e.preventDefault();
+                    reviewsModal.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+            
+            // Close modal when clicking outside
+            reviewsModal.addEventListener('click', (e) => {
+                if (e.target === reviewsModal) {
+                    reviewsModal.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+        
+        // Service areas - random display
+        const allAreas = [
+            { name: "The Loop", area: "Downtown Chicago" },
+            { name: "Lincoln Park", area: "North Side" },
+            { name: "Lakeview", area: "North Side" },
+            { name: "Wicker Park", area: "West Side" },
+            { name: "Bucktown", area: "West Side" },
+            { name: "Hyde Park", area: "South Side" },
+            { name: "Logan Square", area: "Northwest Side" },
+            { name: "Andersonville", area: "North Side" },
+            { name: "Evanston", area: "North Suburb" },
+            { name: "Oak Park", area: "West Suburb" },
+            { name: "Cicero", area: "West Suburb" },
+            { name: "Berwyn", area: "West Suburb" },
+            { name: "Forest Park", area: "West Suburb" },
+            { name: "River North", area: "Downtown" },
+            { name: "Streeterville", area: "Downtown" },
+            { name: "Gold Coast", area: "Downtown" },
+            { name: "Old Town", area: "North Side" },
+            { name: "Roscoe Village", area: "North Side" },
+            { name: "North Center", area: "North Side" },
+            { name: "Avondale", area: "Northwest Side" },
+            { name: "Irving Park", area: "Northwest Side" },
+            { name: "Portage Park", area: "Northwest Side" },
+            { name: "Jefferson Park", area: "Northwest Side" },
+            { name: "Mayfair", area: "Northwest Side" },
+            { name: "Albany Park", area: "North Side" },
+            { name: "North Park", area: "North Side" },
+            { name: "Rogers Park", area: "North Side" },
+            { name: "West Ridge", area: "North Side" },
+            { name: "Lincoln Square", area: "North Side" },
+            { name: "Uptown", area: "North Side" },
+            { name: "Edgewater", area: "North Side" },
+            { name: "Bronzeville", area: "South Side" },
+            { name: "Bridgeport", area: "South Side" },
+            { name: "Chinatown", area: "South Side" },
+            { name: "Pilsen", area: "South Side" },
+            { name: "Little Italy", area: "West Side" },
+            { name: "Greektown", area: "West Side" },
+            { name: "West Loop", area: "Downtown" },
+            { name: "South Loop", area: "Downtown" },
+            { name: "Printer's Row", area: "Downtown" },
+            { name: "Museum Campus", area: "Downtown" },
+            { name: "Grant Park", area: "Downtown" },
+            { name: "Millennium Park", area: "Downtown" }
+        ];
+        
+        function displayRandomAreas() {
+            const areasContainer = document.getElementById('service-areas');
+            if (!areasContainer) return;
+            
+            // Shuffle array and take first 12
+            const shuffled = [...allAreas].sort(() => 0.5 - Math.random());
+            const selected = shuffled.slice(0, 12);
+            
+            areasContainer.innerHTML = selected.map(area => `
+                <div class="bg-white rounded-lg p-4 text-center shadow-sm hover:shadow-md transition-shadow">
+                    <h4 class="font-semibold text-gray-900 mb-2">${area.name}</h4>
+                    <p class="text-sm text-gray-600">${area.area}</p>
+                </div>
+            `).join('');
+        }
+        
+        // Display areas on load
+        document.addEventListener('DOMContentLoaded', () => {
+            displayRandomAreas();
+            
+            // Refresh areas button
+            const refreshBtn = document.getElementById('refresh-areas');
+            if (refreshBtn) {
+                refreshBtn.addEventListener('click', displayRandomAreas);
+                refreshBtn.addEventListener('touchend', function(e) {
+                    e.preventDefault();
+                    displayRandomAreas();
+                });
+            }
+            
+            // Initialize FAQ icons
+            document.querySelectorAll('.faq-question i').forEach(icon => {
+                icon.style.transition = 'transform 0.3s ease';
+            });
+        });
+        
+        // Prevent form zoom on iOS
+        document.addEventListener('DOMContentLoaded', function() {
+            if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
+                document.addEventListener('focus', function(e) {
+                    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') {
+                        document.body.style.zoom = '100%';
+                    }
+                }, true);
+                
+                document.addEventListener('blur', function(e) {
+                    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') {
+                        document.body.style.zoom = '100%';
+                    }
+                }, true);
+            }
+        });
+    </script>
+</body>
+</html>
