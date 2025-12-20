@@ -1,55 +1,61 @@
-<header class="navbar">
-    <div class="container">
-        <div class="navbar-wrapper">
-            <div class="navbar-left">
-                <a href="{{ '/' | relative_url }}" class="logo">
-                    <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="Chicago Pro Movers" width="180" height="45">
+<header class="bg-white border-b border-gray-200">
+    <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between py-4">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <a href="{{ '/' | relative_url }}" class="flex items-center">
+                    <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="Chicago Pro Movers" class="h-11 w-auto">
                 </a>
             </div>
             
-            <nav class="navbar-nav">
-                <a href="{{ '/' | relative_url }}" class="nav-link">Home</a>
-                <a href="{{ '/services/' | relative_url }}" class="nav-link">Services</a>
-                <a href="{{ '/areas/' | relative_url }}" class="nav-link">Service Areas</a>
-                <a href="{{ '/about/' | relative_url }}" class="nav-link">About</a>
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="{{ '/' | relative_url }}" class="text-gray-700 hover:text-primary-600 font-medium transition-colors">Home</a>
+                <a href="{{ '/services/' | relative_url }}" class="text-gray-700 hover:text-primary-600 font-medium transition-colors">Services</a>
+                <a href="{{ '/areas/' | relative_url }}" class="text-gray-700 hover:text-primary-600 font-medium transition-colors">Service Areas</a>
+                <a href="{{ '/about/' | relative_url }}" class="text-gray-700 hover:text-primary-600 font-medium transition-colors">About</a>
             </nav>
             
-            <div class="navbar-actions">
-                <a href="tel:{{ site.contact.phone }}" class="phone-link">
-                    <i class="fas fa-phone"></i>
+            <!-- Desktop Actions -->
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="tel:{{ site.contact.phone }}" class="flex items-center text-primary-600 font-semibold">
+                    <i class="fas fa-phone mr-2"></i>
                     {{ site.contact.phone }}
                 </a>
-                <a href="{{ '/book-now/' | relative_url }}" class="btn btn-primary">Book Now</a>
+                <a href="{{ '/book-now/' | relative_url }}" class="btn-primary">Book Now</a>
             </div>
             
-            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
-                <i class="fas fa-bars"></i>
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-gray-600 hover:text-primary-600" id="mobileMenuToggle">
+                <i class="fas fa-bars text-xl"></i>
             </button>
         </div>
     </div>
     
     <!-- Mobile Menu -->
-    <div class="mobile-menu">
-        <div class="mobile-menu-header">
-            <a href="{{ '/' | relative_url }}" class="logo">
-                <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="Chicago Pro Movers" width="150" height="38">
-            </a>
-            <button class="mobile-menu-close" aria-label="Close mobile menu">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <nav class="mobile-nav">
-            <a href="{{ '/' | relative_url }}" class="mobile-nav-link">Home</a>
-            <a href="{{ '/services/' | relative_url }}" class="mobile-nav-link">Services</a>
-            <a href="{{ '/areas/' | relative_url }}" class="mobile-nav-link">Service Areas</a>
-            <a href="{{ '/about/' | relative_url }}" class="mobile-nav-link">About</a>
-        </nav>
-        <div class="mobile-actions">
-            <a href="tel:{{ site.contact.phone }}" class="mobile-phone">
-                <i class="fas fa-phone"></i>
-                {{ site.contact.phone }}
-            </a>
-            <a href="{{ '/book-now/' | relative_url }}" class="btn btn-primary btn-block">Book Now</a>
+    <div class="md:hidden bg-white border-t border-gray-200 hidden" id="mobileMenu">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between mb-4">
+                <a href="{{ '/' | relative_url }}" class="flex items-center">
+                    <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="Chicago Pro Movers" class="h-10 w-auto">
+                </a>
+                <button class="text-gray-600 hover:text-primary-600" id="mobileMenuClose">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <nav class="flex flex-col space-y-3 mb-4">
+                <a href="{{ '/' | relative_url }}" class="text-gray-700 hover:text-primary-600 font-medium py-2">Home</a>
+                <a href="{{ '/services/' | relative_url }}" class="text-gray-700 hover:text-primary-600 font-medium py-2">Services</a>
+                <a href="{{ '/areas/' | relative_url }}" class="text-gray-700 hover:text-primary-600 font-medium py-2">Service Areas</a>
+                <a href="{{ '/about/' | relative_url }}" class="text-gray-700 hover:text-primary-600 font-medium py-2">About</a>
+            </nav>
+            <div class="border-t border-gray-200 pt-4 space-y-3">
+                <a href="tel:{{ site.contact.phone }}" class="flex items-center text-primary-600 font-semibold">
+                    <i class="fas fa-phone mr-2"></i>
+                    {{ site.contact.phone }}
+                </a>
+                <a href="{{ '/book-now/' | relative_url }}" class="btn-primary w-full text-center">Book Now</a>
+            </div>
         </div>
     </div>
 </header>

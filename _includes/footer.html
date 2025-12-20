@@ -1,235 +1,87 @@
-<footer class="footer">
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Chicago Pro Movers</h3>
-                <p>Professional moving services in Chicago. Licensed, insured, and trusted by thousands of satisfied customers.</p>
+<footer class="bg-gray-900 text-white py-16">
+    <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <!-- Company Info -->
+            <div>
+                <h3 class="text-xl font-bold mb-4">Chicago Pro Movers</h3>
+                <p class="text-gray-300 mb-6">
+                    Professional moving services in Chicago. Licensed, insured, and trusted by thousands of satisfied customers.
+                </p>
                 
-                <div class="footer-mini-form">
-                    <h4>Get Free Quote</h4>
-                    <form class="footer-quote-form" id="footerQuoteForm">
-                        <div class="form-group">
-                            <input type="text" name="fromZip" placeholder="From ZIP" pattern="[0-9]{5}" maxlength="5" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="toZip" placeholder="To ZIP" pattern="[0-9]{5}" maxlength="5" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary quote-btn btn-block">
-                            <span class="gradient-text">Get Quote</span>
+                <!-- Mini Form -->
+                <div class="bg-white/10 backdrop-blur-lg rounded-lg p-4 border border-white/20 mb-6">
+                    <h4 class="text-sm font-semibold mb-3">Get Free Quote</h4>
+                    <form class="space-y-3" id="footerQuoteForm">
+                        <input type="text" name="fromZip" placeholder="From ZIP" pattern="[0-9]{5}" maxlength="5" class="w-full px-3 py-2 bg-white/90 border-0 rounded text-sm text-gray-900" required>
+                        <input type="text" name="toZip" placeholder="To ZIP" pattern="[0-9]{5}" maxlength="5" class="w-full px-3 py-2 bg-white/90 border-0 rounded text-sm text-gray-900" required>
+                        <button type="submit" class="w-full btn-primary text-sm">
+                            <span class="bg-gradient-to-r from-primary-600 to-primary-700 bg-clip-text text-transparent">Get Quote</span>
                         </button>
                     </form>
                 </div>
                 
-                <div class="social-links">
-                    <a href="{{ site.social.facebook }}" aria-label="Facebook">
+                <div class="flex space-x-4">
+                    <a href="{{ site.social.facebook }}" class="w-10 h-10 bg-gray-700 hover:bg-primary-600 rounded-full flex items-center justify-center transition-colors" aria-label="Facebook">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="{{ site.social.instagram }}" aria-label="Instagram">
+                    <a href="{{ site.social.instagram }}" class="w-10 h-10 bg-gray-700 hover:bg-primary-600 rounded-full flex items-center justify-center transition-colors" aria-label="Instagram">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="{{ site.social.twitter }}" aria-label="Twitter">
+                    <a href="{{ site.social.twitter }}" class="w-10 h-10 bg-gray-700 hover:bg-primary-600 rounded-full flex items-center justify-center transition-colors" aria-label="Twitter">
                         <i class="fab fa-twitter"></i>
                     </a>
-                    <a href="{{ site.social.yelp }}" aria-label="Yelp">
+                    <a href="{{ site.social.yelp }}" class="w-10 h-10 bg-gray-700 hover:bg-primary-600 rounded-full flex items-center justify-center transition-colors" aria-label="Yelp">
                         <i class="fab fa-yelp"></i>
                     </a>
                 </div>
             </div>
             
-            <div class="footer-section">
-                <h4>Services</h4>
-                <ul>
-                    <li><a href="{{ '/services/residential/' }}">Residential Moving</a></li>
-                    <li><a href="{{ '/services/commercial/' }}">Commercial Moving</a></li>
-                    <li><a href="{{ '/services/packing/' }}">Packing Services</a></li>
-                    <li><a href="{{ '/services/storage/' }}">Storage Solutions</a></li>
-                    <li><a href="{{ '/services/long-distance/' }}">Long Distance</a></li>
+            <!-- Services -->
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Services</h4>
+                <ul class="space-y-2">
+                    <li><a href="{{ '/services/residential/' }}" class="text-gray-300 hover:text-white transition-colors">Residential Moving</a></li>
+                    <li><a href="{{ '/services/commercial/' }}" class="text-gray-300 hover:text-white transition-colors">Commercial Moving</a></li>
+                    <li><a href="{{ '/services/packing/' }}" class="text-gray-300 hover:text-white transition-colors">Packing Services</a></li>
+                    <li><a href="{{ '/services/storage/' }}" class="text-gray-300 hover:text-white transition-colors">Storage Solutions</a></li>
+                    <li><a href="{{ '/services/long-distance/' }}" class="text-gray-300 hover:text-white transition-colors">Long Distance</a></li>
                 </ul>
             </div>
             
-            <div class="footer-section">
-                <h4>Service Areas</h4>
-                <div id="footerAreas" class="footer-areas">
+            <!-- Service Areas -->
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Service Areas</h4>
+                <div id="footerAreas" class="space-y-2">
                     <!-- Areas will be populated by JavaScript -->
                 </div>
             </div>
             
-            <div class="footer-section">
-                <h4>Contact Info</h4>
-                <ul class="contact-info">
-                    <li>
-                        <i class="fas fa-phone"></i>
-                        <a href="tel:{{ site.contact.phone }}">{{ site.contact.phone }}</a>
+            <!-- Contact Info -->
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                <ul class="space-y-3">
+                    <li class="flex items-center">
+                        <i class="fas fa-phone text-primary-500 mr-3"></i>
+                        <a href="tel:{{ site.contact.phone }}" class="text-gray-300 hover:text-white transition-colors">{{ site.contact.phone }}</a>
                     </li>
-                    <li>
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a>
+                    <li class="flex items-center">
+                        <i class="fas fa-envelope text-primary-500 mr-3"></i>
+                        <a href="mailto:{{ site.contact.email }}" class="text-gray-300 hover:text-white transition-colors">{{ site.contact.email }}</a>
                     </li>
-                    <li>
-                        <i class="fas fa-map-marker-alt"></i>
-                        {{ site.contact.address }}
+                    <li class="flex items-center">
+                        <i class="fas fa-map-marker-alt text-primary-500 mr-3"></i>
+                        <span class="text-gray-300">{{ site.contact.address }}</span>
                     </li>
                 </ul>
-                <div class="footer-cta">
-                    <a href="{{ '/book-now/' | relative_url }}" class="btn btn-primary">Get Free Quote</a>
+                <div class="mt-6">
+                    <a href="{{ '/book-now/' | relative_url }}" class="btn-primary">Get Free Quote</a>
                 </div>
             </div>
         </div>
         
-        <div class="footer-bottom">
-            <p>&copy; {{ site.time | date: '%Y' }} Chicago Pro Movers. All rights reserved.</p>
-            <p>Licensed & Insured | ILCC #123456</p>
+        <div class="border-t border-gray-700 pt-8 text-center">
+            <p class="text-gray-400 mb-2">&copy; {{ site.time | date: '%Y' }} Chicago Pro Movers. All rights reserved.</p>
+            <p class="text-gray-400">Licensed & Insured | ILCC #123456</p>
         </div>
     </div>
 </footer>
-
-<style>
-.footer-mini-form {
-    margin: 1.5rem 0;
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 0.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-
-    h4 {
-        margin-bottom: 1rem;
-        color: white;
-        font-size: 1rem;
-    }
-
-    .form-group {
-        margin-bottom: 0.75rem;
-
-        input {
-            width: 100%;
-            padding: 0.5rem;
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid transparent;
-            border-radius: 0.25rem;
-            font-size: 0.875rem;
-
-            &:focus {
-                outline: none;
-                border-color: #2563eb;
-            }
-        }
-    }
-
-    .btn {
-        padding: 0.5rem 1rem;
-        font-size: 0.875rem;
-    }
-}
-
-.footer-areas {
-    .area-item {
-        display: block;
-        margin-bottom: 0.5rem;
-        color: #d1d5db;
-        text-decoration: none;
-        font-size: 0.875rem;
-        transition: color 0.3s ease;
-
-        &:hover {
-            color: #2563eb;
-        }
-    }
-}
-</style>
-
-<script>
-// Service areas data
-const serviceAreas = [
-    { name: 'Downtown Chicago', url: '/areas/#downtown' },
-    { name: 'Lincoln Park', url: '/areas/#north-side' },
-    { name: 'Lakeview', url: '/areas/#north-side' },
-    { name: 'Wicker Park', url: '/areas/#north-side' },
-    { name: 'West Loop', url: '/areas/#west-side' },
-    { name: 'Hyde Park', url: '/areas/#south-side' },
-    { name: 'Evanston', url: '/areas/#suburbs' },
-    { name: 'Oak Park', url: '/areas/#suburbs' },
-    { name: 'Berwyn', url: '/areas/#suburbs' },
-    { name: 'Cicero', url: '/areas/#suburbs' },
-    { name: 'Skokie', url: '/areas/#suburbs' },
-    { name: 'Glenview', url: '/areas/#suburbs' }
-];
-
-// Populate footer areas (show 6 random areas)
-function populateFooterAreas() {
-    const footerAreas = document.getElementById('footerAreas');
-    const shuffled = [...serviceAreas].sort(() => 0.5 - Math.random());
-    const selected = shuffled.slice(0, 6);
-    
-    footerAreas.innerHTML = selected.map(area => 
-        `<a href="${area.url}" class="area-item">${area.name}</a>`
-    ).join('');
-}
-
-// Footer quote form handling
-document.getElementById('footerQuoteForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const fromZip = this.querySelector('input[name="fromZip"]').value.trim();
-    const toZip = this.querySelector('input[name="toZip"]').value.trim();
-    
-    if (fromZip.length === 5 && toZip.length === 5) {
-        // Store ZIP codes and redirect to main booking form
-        sessionStorage.setItem('fromZip', fromZip);
-        sessionStorage.setItem('toZip', toZip);
-        window.location.href = '/book-now/';
-    } else {
-        showNotification('Please enter valid 5-digit ZIP codes.', 'error');
-    }
-});
-
-// Initialize footer areas on page load
-document.addEventListener('DOMContentLoaded', function() {
-    populateFooterAreas();
-});
-
-function showNotification(message, type = 'info') {
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.textContent = message;
-    
-    Object.assign(notification.style, {
-        position: 'fixed',
-        top: '20px',
-        right: '20px',
-        padding: '1rem 1.5rem',
-        borderRadius: '0.5rem',
-        color: 'white',
-        fontWeight: '500',
-        zIndex: '9999',
-        transform: 'translateX(100%)',
-        transition: 'transform 0.3s ease',
-        maxWidth: '300px'
-    });
-    
-    const colors = {
-        success: '#10b981',
-        error: '#ef4444',
-        warning: '#f59e0b',
-        info: '#3b82f6'
-    };
-    notification.style.backgroundColor = colors[type] || colors.info;
-    
-    document.body.appendChild(notification);
-    
-    setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
-    }, 100);
-    
-    setTimeout(() => {
-        notification.style.transform = 'translateX(100%)';
-        setTimeout(() => {
-            if (document.body.contains(notification)) {
-                document.body.removeChild(notification);
-            }
-        }, 300);
-    }, 5000);
-}
-
-// Refresh footer areas every 30 seconds
-setInterval(populateFooterAreas, 30000);
-</script>

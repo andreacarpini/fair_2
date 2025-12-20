@@ -10,6 +10,7 @@ features:
   - Furniture disassembly and reassembly
   - Basic valuation coverage
   - No hidden fees or surprises
+icon: home
 ---
 
 # Residential Moving Services in Chicago

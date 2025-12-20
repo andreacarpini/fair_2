@@ -10,6 +10,7 @@ features:
   - Project management included
   - Minimal business disruption
   - Fully insured and bonded
+icon: building
 ---
 
 # Commercial Moving Services in Chicago

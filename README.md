@@ -1,188 +1,210 @@
-# Chicago Pro Movers - Jekyll Website
+# Chicago Pro Movers - Tailwind CSS Version
 
-A professional Jekyll website for a Chicago-based moving company, converted from a cleaning service website template.
+A modern, responsive moving company website built with Jekyll and Tailwind CSS.
 
 ## Features
 
-- **Responsive Design:** Mobile-first design that works on all devices
-- **Service Pages:** Individual pages for each moving service
-- **Quote System:** Multi-step booking form with instant pricing
-- **Service Areas:** Comprehensive coverage of all Chicago neighborhoods
-- **Contact Forms:** Multiple ways for customers to get in touch
-- **SEO Optimized:** Built with SEO best practices in mind
-- **Fast Loading:** Optimized performance and minimal dependencies
+### 🏠 Homepage
+- Hero section with ZIP code mini-form
+- Trust indicators (licensed, insured, trusted, A+ rating)
+- About section with statistics
+- Services overview
+- FAQ section with accordion functionality
+- Service areas preview
+- Call-to-action sections
 
-## Installation
+### 📋 Booking System
+- Multi-step booking form with progress indicator
+- Inventory management with quantity selectors
+- Additional services selection
+- Contact information collection
+- Form validation and submission
 
-1. **Prerequisites:**
-   - Ruby 2.7 or higher
-   - Jekyll 4.3 or higher
-   - Bundler
+### 🗺️ Service Areas
+- Comprehensive Chicago area coverage
+- Suburbs and surrounding areas
+- ZIP code checker functionality
+- Interactive service area display
 
-2. **Clone the repository:**
-   ```bash
-   git clone [repository-url]
-   cd chicago-movers
-   ```
+### 📄 Pages
+- **Home** (`index.html`) - Main landing page
+- **Services** (`services.html`) - Service overview
+- **About** (`about.html`) - Company information
+- **Areas** (`areas.html`) - Service areas and ZIP codes
+- **Book Now** (`book-now.html`) - Multi-step booking form
 
-3. **Install dependencies:**
+### 🎨 Design Features
+- Modern Tailwind CSS styling
+- Responsive design for all devices
+- Smooth animations and transitions
+- Professional color scheme
+- Accessible design patterns
+- Font Awesome icons
+- Google Fonts (Inter)
+
+## Technology Stack
+
+- **Jekyll** - Static site generator
+- **Tailwind CSS** - Utility-first CSS framework
+- **JavaScript (ES6+)** - Interactive functionality
+- **Font Awesome** - Icon library
+- **Google Fonts** - Typography
+
+## Getting Started
+
+### Prerequisites
+- Ruby 2.7+ 
+- Jekyll 4.0+
+- Node.js 14+ (for Tailwind CSS)
+
+### Installation
+
+1. Clone or download the project files
+2. Install Jekyll dependencies:
    ```bash
    bundle install
    ```
 
-4. **Build and serve the site:**
+3. Install Node.js dependencies:
+   ```bash
+   npm install
+   ```
+
+4. Build Tailwind CSS:
+   ```bash
+   npm run build-css
+   ```
+
+5. Serve the site locally:
    ```bash
    bundle exec jekyll serve
    ```
 
-5. **Open your browser and visit:**
-   ```
-   http://localhost:4000
-   ```
+6. Open your browser to `http://localhost:4000`
 
-## File Structure
+### Development Commands
+
+- `npm run build-css` - Build Tailwind CSS for production
+- `npm run watch-css` - Watch and rebuild CSS during development
+- `bundle exec jekyll serve` - Serve site locally with live reload
+- `bundle exec jekyll build` - Build static site for deployment
+
+## Project Structure
 
 ```
-chicago-movers/
+chicago-movers-tailwind/
 ├── _config.yml              # Jekyll configuration
-├── _layouts/                # Page templates
-│   ├── default.html         # Main layout template
-│   └── service.html         # Service page layout
 ├── _includes/               # Reusable components
-│   ├── navbar.html          # Navigation bar
-│   └── footer.html          # Footer
-├── _sass/                   # Sass stylesheets
-│   ├── _base.scss          # Base styles
-│   ├── _layout.scss        # Layout styles
-│   ├── _components.scss    # Component styles
-│   └── _utilities.scss     # Utility classes
+│   ├── navbar.html         # Navigation header
+│   └── footer.html         # Footer with mini-form
+├── _layouts/               # Page layouts
+│   ├── default.html        # Base layout
+│   └── service.html        # Service page layout
 ├── _services/              # Service content
 │   ├── residential-moving.md
 │   └── commercial-moving.md
 ├── assets/                 # Static assets
-│   ├── css/
-│   │   └── style.scss     # Main stylesheet
-│   ├── js/
-│   │   └── main.js        # Main JavaScript
-│   └── images/
-│       └── logo.svg       # Company logo
+│   ├── css/               # Compiled CSS
+│   └── js/                # JavaScript files
+├── src/                   # Source files
+│   └── input.css          # Tailwind CSS input
 ├── index.html             # Homepage
-├── services.html          # Services overview
-├── book-now.html          # Booking form
-├── areas.html             # Service areas
+├── services.html          # Services page
+├── areas.html             # Service areas page
 ├── about.html             # About page
-├── contact.html           # Contact page
-├── Gemfile                # Ruby dependencies
+├── book-now.html          # Booking form
+├── package.json           # Node.js dependencies
+├── tailwind.config.js     # Tailwind configuration
 └── README.md              # This file
 ```
 
 ## Customization
 
-### Company Information
-Update the following in `_config.yml`:
-- Company name and description
-- Contact information (phone, email, address)
-- Social media links
-- Service areas and ZIP codes
+### Colors
+Update the color scheme in `tailwind.config.js`:
 
-### Colors and Styling
-Modify the color scheme in `_sass/_base.scss`:
-- Primary color: `#2563eb` (blue)
-- Secondary colors can be updated in the variables section
+```javascript
+colors: {
+  primary: {
+    50: '#eff6ff',
+    600: '#2563eb', // Main brand color
+    700: '#1d4ed8',
+    // ... more shades
+  },
+  secondary: {
+    800: '#1e293b',
+    900: '#0f172a',
+  }
+}
+```
 
-### Content Updates
-- Update service descriptions in `_services/`
-- Modify page content in HTML files
-- Add new services by creating new `.md` files in `_services/`
+### Contact Information
+Update contact details in `_config.yml`:
 
-## Services Included
+```yaml
+contact:
+  phone: "(312) 555-0123"
+  email: "info@chicagopromovers.com"
+  address: "123 N Michigan Ave, Chicago, IL 60601"
+```
 
-1. **Residential Moving** - Homes, apartments, condos
-2. **Commercial Moving** - Offices, retail spaces, businesses
-3. **Packing Services** - Professional packing and materials
-4. **Storage Solutions** - Short and long-term storage
-5. **Long Distance** - Interstate moving services
-6. **Specialty Items** - Pianos, artwork, antiques
+### Content
+- Homepage content: `index.html`
+- Service descriptions: `_services/*.md`
+- About page: `about.html`
+- Service areas: `areas.html`
 
-## Service Areas
+## Features Implemented
 
-The website covers all Chicago neighborhoods including:
-- Downtown Chicago (Loop, River North, Streeterville)
-- North Side (Lincoln Park, Lakeview, Wicker Park)
-- South Side (Hyde Park, Bridgeport, Bronzeville)
-- West Side (West Loop, Ukrainian Village)
-- Northwest Side (Portage Park, Belmont Cragin)
-- Southwest Side (Garfield Ridge, Clearing)
-- Far North Side (Rogers Park, Edgewater)
-- Far South Side (Morgan Park, Beverly)
+✅ Responsive design (mobile-first)
+✅ Tailwind CSS styling
+✅ Multi-step booking form
+✅ FAQ accordion
+✅ ZIP code validation
+✅ Service area checker
+✅ Trust indicators
+✅ Professional typography
+✅ Smooth animations
+✅ Form validation
+✅ Local storage for form data
+✅ SEO-friendly structure
+✅ Accessibility features
 
-## Features
+## Browser Support
 
-### Multi-Step Booking Form
-- Step 1: Move details (type, size, locations, date)
-- Step 2: Contact information
-- Step 3: Instant quote generation
-- Form validation and error handling
-- Phone number and ZIP code formatting
-
-### Interactive Elements
-- Mobile-friendly navigation
-- FAQ accordion sections
-- Service area checker
-- Contact forms with validation
-- Smooth scrolling and animations
-
-### SEO Features
-- Semantic HTML structure
-- Meta tags and descriptions
-- Schema markup ready
-- Fast loading times
-- Mobile optimization
+- Chrome 80+
+- Firefox 75+
+- Safari 13+
+- Edge 80+
+- Mobile browsers (iOS Safari, Chrome Mobile)
 
 ## Deployment
 
 ### GitHub Pages
-1. Push to a GitHub repository
+1. Push to GitHub repository
 2. Enable GitHub Pages in repository settings
-3. Site will be available at `https://[username].github.io/[repository-name]`
+3. Site will be available at `https://[username].github.io/[repository-name]/`
 
 ### Netlify
-1. Connect your repository to Netlify
-2. Build command: `bundle exec jekyll build`
-3. Publish directory: `_site`
-4. Deploy automatically on each push
+1. Connect GitHub repository to Netlify
+2. Set build command: `npm run build-css && bundle exec jekyll build`
+3. Set publish directory: `_site`
 
-### Other Hosting
-Build the site with `bundle exec jekyll build` and upload the `_site` directory to your web server.
+### Other Static Hosting
+Build the site with `bundle exec jekyll build` and upload the `_site` folder to your hosting provider.
 
-## Maintenance
+## Performance
 
-### Regular Updates
-- Keep Jekyll and dependencies updated
-- Review and update service information
-- Check contact details and pricing
-- Update testimonials and reviews
-
-### Content Management
-- Services are managed in `_services/` directory
-- Global settings in `_config.yml`
-- Page content in HTML files
-- Images in `assets/images/`
-
-## Support
-
-For technical issues or questions about customization:
-1. Check Jekyll documentation
-2. Review the file structure and code organization
-3. Test changes locally before deploying
-4. Keep backups of your customizations
+- Optimized CSS with Tailwind's purge feature
+- Minified JavaScript
+- Optimized images (when added)
+- Fast loading times
+- Mobile-optimized
 
 ## License
 
-This Jekyll theme is open source and available under the MIT License.
+This project is created for Chicago Pro Movers. All rights reserved.
 
----
+## Support
 
-**Chicago Pro Movers**  
-Professional moving services in Chicago, IL  
-Licensed, insured, and trusted by thousands of satisfied customers.
+For questions or support, please contact the development team.

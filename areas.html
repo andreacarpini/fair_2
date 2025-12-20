@@ -1,512 +1,174 @@
 ---
 layout: default
 title: Service Areas & ZIP Codes | Chicago Pro Movers
-permalink: /areas/
 ---
 
-<div class="page-header">
-    <div class="container">
-        <h1>Our Service Areas & ZIP Codes</h1>
-        <p>We proudly serve all of Chicago and surrounding suburbs. Check if we serve your area below.</p>
+<!-- Areas Hero -->
+<section class="bg-gradient-to-br from-secondary-800 to-secondary-900 text-white py-20">
+    <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl lg:text-5xl font-bold mb-6">We Serve All of Chicago & Suburbs</h1>
+        <p class="text-xl lg:text-2xl opacity-90 max-w-3xl mx-auto">
+            From downtown to the suburbs, we provide moving services across Chicago and surrounding areas. Check if we serve your ZIP code below.
+        </p>
     </div>
-</div>
+</section>
 
-<div class="areas-content">
-    <div class="container">
-        <div class="zip-checker">
-            <h2>Check Your ZIP Code</h2>
-            <form class="zip-check-form" id="zipCheckerForm">
-                <input type="text" name="zip" placeholder="Enter your ZIP code" pattern="[0-9]{5}" maxlength="5" required>
-                <button type="submit" class="btn btn-primary">Check Service Area</button>
-            </form>
-            <div id="zipCheckResult" class="zip-check-result"></div>
-        </div>
-        
-        <div class="areas-grid">
-            <div class="area-section">
-                <h2>Downtown Chicago</h2>
-                <div class="zip-list">
-                    <div class="zip-item">
-                        <span class="zip-code">60601</span>
-                        <span class="area-name">The Loop</span>
+<!-- Service Areas -->
+<section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="grid lg:grid-cols-2 gap-12">
+            <!-- Chicago Areas -->
+            <div>
+                <h2 class="text-3xl font-bold text-gray-900 mb-8">Chicago Areas</h2>
+                
+                <div class="space-y-6">
+                    <div class="bg-white rounded-xl p-6 shadow-lg">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Downtown Chicago</h3>
+                        <p class="text-gray-600 mb-4">The Loop, River North, Streeterville, Gold Coast, West Loop</p>
+                        <div class="text-sm text-gray-500">
+                            <strong>ZIPS:</strong> 60601, 60602, 60603, 60604, 60605, 60606, 60607, 60610, 60611, 60654
+                        </div>
                     </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60602</span>
-                        <span class="area-name">The Loop</span>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-lg">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">North Side</h3>
+                        <p class="text-gray-600 mb-4">Lincoln Park, Lakeview, Wicker Park, Bucktown, Old Town</p>
+                        <div class="text-sm text-gray-500">
+                            <strong>ZIPS:</strong> 60614, 60657, 60647, 60622, 60642, 60613, 60610
+                        </div>
                     </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60603</span>
-                        <span class="area-name">The Loop</span>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-lg">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">West Side</h3>
+                        <p class="text-gray-600 mb-4">West Loop, Ukrainian Village, Logan Square, Humboldt Park</p>
+                        <div class="text-sm text-gray-500">
+                            <strong>ZIPS:</strong> 60607, 60608, 60612, 60622, 60623, 60624, 60647
+                        </div>
                     </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60604</span>
-                        <span class="area-name">The Loop</span>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-lg">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">South Side</h3>
+                        <p class="text-gray-600 mb-4">Hyde Park, Bridgeport, Pilsen, Chinatown, Bronzeville</p>
+                        <div class="text-sm text-gray-500">
+                            <strong>ZIPS:</strong> 60615, 60616, 60637, 60608, 60609, 60653
+                        </div>
                     </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60605</span>
-                        <span class="area-name">South Loop</span>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-lg">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Northwest Side</h3>
+                        <p class="text-gray-600 mb-4">Portage Park, Belmont Cragin, Dunning, Austin, Hermosa</p>
+                        <div class="text-sm text-gray-500">
+                            <strong>ZIPS:</strong> 60634, 60635, 60639, 60641, 60651
+                        </div>
                     </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60606</span>
-                        <span class="area-name">West Loop</span>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-lg">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Far North</h3>
+                        <p class="text-gray-600 mb-4">Rogers Park, Edgewater, Uptown, Andersonville</p>
+                        <div class="text-sm text-gray-500">
+                            <strong>ZIPS:</strong> 60626, 60640, 60660, 60625
+                        </div>
                     </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60611</span>
-                        <span class="area-name">River North, Streeterville</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60654</span>
-                        <span class="area-name">River North</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60610</span>
-                        <span class="area-name">Gold Coast, Old Town</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60661</span>
-                        <span class="area-name">West Loop</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="area-section">
-                <h2>North Side</h2>
-                <div class="zip-list">
-                    <div class="zip-item">
-                        <span class="zip-code">60614</span>
-                        <span class="area-name">Lincoln Park</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60613</span>
-                        <span class="area-name">Lakeview</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60657</span>
-                        <span class="area-name">Lakeview, Wrigleyville</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60622</span>
-                        <span class="area-name">Wicker Park, Ukrainian Village</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60647</span>
-                        <span class="area-name">Logan Square, Bucktown</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60618</span>
-                        <span class="area-name">Roscoe Village, North Center</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60625</span>
-                        <span class="area-name">Albany Park</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60634</span>
-                        <span class="area-name">Belmont Cragin, Portage Park</span>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-lg">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Far South</h3>
+                        <p class="text-gray-600 mb-4">Morgan Park, Beverly, Mount Greenwood, Roseland</p>
+                        <div class="text-sm text-gray-500">
+                            <strong>ZIPS:</strong> 60643, 60655, 60620, 60621, 60628
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <div class="area-section">
-                <h2>West Side</h2>
-                <div class="zip-list">
-                    <div class="zip-item">
-                        <span class="zip-code">60607</span>
-                        <span class="area-name">West Loop, Little Italy</span>
+            <!-- Suburbs -->
+            <div>
+                <h2 class="text-3xl font-bold text-gray-900 mb-8">Suburbs & Surrounding Areas</h2>
+                
+                <div class="space-y-6">
+                    <div class="bg-white rounded-xl p-6 shadow-lg">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">North Suburbs</h3>
+                        <p class="text-gray-600 mb-4">Evanston, Skokie, Wilmette, Winnetka, Northbrook, Glenview</p>
+                        <div class="text-sm text-gray-500">
+                            <strong>ZIPS:</strong> 60201, 60202, 60076, 60077, 60091, 60093, 60062, 60025, 60026
+                        </div>
                     </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60608</span>
-                        <span class="area-name">Pilsen, Little Village</span>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-lg">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">West Suburbs</h3>
+                        <p class="text-gray-600 mb-4">Oak Park, Cicero, Berwyn, Forest Park, River Forest, Maywood</p>
+                        <div class="text-sm text-gray-500">
+                            <strong>ZIPS:</strong> 60301, 60302, 60304, 60804, 60402, 60130, 60305, 60153
+                        </div>
                     </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60609</span>
-                        <span class="area-name">Bridgeport, Armour Square</span>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-lg">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Southwest Suburbs</h3>
+                        <p class="text-gray-600 mb-4">Burbank, Oak Lawn, Evergreen Park, Alsip, Blue Island</p>
+                        <div class="text-sm text-gray-500">
+                            <strong>ZIPS:</strong> 60459, 60453, 60805, 60406, 60419, 60406
+                        </div>
                     </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60612</span>
-                        <span class="area-name">Near West Side, Medical District</span>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-lg">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">South Suburbs</h3>
+                        <p class="text-gray-600 mb-4">Calumet City, Lansing, Harvey, Dolton, South Holland</p>
+                        <div class="text-sm text-gray-500">
+                            <strong>ZIPS:</strong> 60409, 60438, 60426, 60419, 60473
+                        </div>
                     </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60623</span>
-                        <span class="area-name">North Lawndale</span>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-lg">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Northwest Suburbs</h3>
+                        <p class="text-gray-600 mb-4">Park Ridge, Des Plaines, Mount Prospect, Arlington Heights, Schaumburg</p>
+                        <div class="text-sm text-gray-500">
+                            <strong>ZIPS:</strong> 60068, 60016, 60018, 60056, 60004, 60005, 60173, 60193, 60194
+                        </div>
                     </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60624</span>
-                        <span class="area-name">West Garfield Park</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60644</span>
-                        <span class="area-name">Austin</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="area-section">
-                <h2>South Side</h2>
-                <div class="zip-list">
-                    <div class="zip-item">
-                        <span class="zip-code">60615</span>
-                        <span class="area-name">Hyde Park</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60637</span>
-                        <span class="area-name">Hyde Park, Woodlawn</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60616</span>
-                        <span class="area-name">Chinatown, South Loop</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60653</span>
-                        <span class="area-name">Bronzeville</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60620</span>
-                        <span class="area-name">Washington Heights</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60621</span>
-                        <span class="area-name">Englewood</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60636</span>
-                        <span class="area-name">Chicago Lawn</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="area-section">
-                <h2>Northwest Suburbs</h2>
-                <div class="zip-list">
-                    <div class="zip-item">
-                        <span class="zip-code">60201</span>
-                        <span class="area-name">Evanston</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60202</span>
-                        <span class="area-name">Evanston</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60302</span>
-                        <span class="area-name">Oak Park</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60304</span>
-                        <span class="area-name">Oak Park</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60804</span>
-                        <span class="area-name">Cicero</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60402</span>
-                        <span class="area-name">Berwyn</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60130</span>
-                        <span class="area-name">Forest Park</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60153</span>
-                        <span class="area-name">Maywood</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="area-section">
-                <h2>West Suburbs</h2>
-                <div class="zip-list">
-                    <div class="zip-item">
-                        <span class="zip-code">60154</span>
-                        <span class="area-name">Westchester</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60155</span>
-                        <span class="area-name">Broadview</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60160</span>
-                        <span class="area-name">Melrose Park</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60162</span>
-                        <span class="area-name">Hillside</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60164</span>
-                        <span class="area-name">Northlake</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60165</span>
-                        <span class="area-name">Stone Park</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60171</span>
-                        <span class="area-name">River Grove</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="area-section">
-                <h2>Southwest Suburbs</h2>
-                <div class="zip-list">
-                    <div class="zip-item">
-                        <span class="zip-code">60513</span>
-                        <span class="area-name">Brookfield</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60546</span>
-                        <span class="area-name">Riverside</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60525</span>
-                        <span class="area-name">La Grange</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60526</span>
-                        <span class="area-name">La Grange Park</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60521</span>
-                        <span class="area-name">Hinsdale</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60514</span>
-                        <span class="area-name">Clarendon Hills</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="area-section">
-                <h2>North Suburbs</h2>
-                <div class="zip-list">
-                    <div class="zip-item">
-                        <span class="zip-code">60076</span>
-                        <span class="area-name">Skokie</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60077</span>
-                        <span class="area-name">Skokie</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60712</span>
-                        <span class="area-name">Lincolnwood</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60646</span>
-                        <span class="area-name">Forest Glen, Edgebrook</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60645</span>
-                        <span class="area-name">West Ridge</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60659</span>
-                        <span class="area-name">North Park</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="area-section">
-                <h2>Far North Suburbs</h2>
-                <div class="zip-list">
-                    <div class="zip-item">
-                        <span class="zip-code">60025</span>
-                        <span class="area-name">Glenview</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60026</span>
-                        <span class="area-name">Glenview</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60062</span>
-                        <span class="area-name">Northbrook</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60035</span>
-                        <span class="area-name">Highland Park</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60037</span>
-                        <span class="area-name">Highwood</span>
-                    </div>
-                    <div class="zip-item">
-                        <span class="zip-code">60022</span>
-                        <span class="area-name">Glencoe</span>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-lg">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">West Suburbs Extended</h3>
+                        <p class="text-gray-600 mb-4">Elmhurst, Villa Park, Lombard, Glen Ellyn, Wheaton</p>
+                        <div class="text-sm text-gray-500">
+                            <strong>ZIPS:</strong> 60126, 60181, 60148, 60137, 60187, 60189
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         
-        <div class="service-cta">
-            <h3>Ready to Move?</h3>
-            <p>We serve all these areas and more. Enter your ZIP code above to confirm service availability and get your free quote.</p>
-            <a href="/book-now/" class="btn btn-primary">Get Free Quote</a>
+        <!-- ZIP Code Checker -->
+        <div class="mt-16 text-center">
+            <div class="bg-white rounded-2xl p-8 shadow-xl max-w-md mx-auto">
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Check Your ZIP Code</h3>
+                <p class="text-gray-600 mb-6">Enter your ZIP code to confirm we serve your area</p>
+                
+                <form id="zipChecker" class="flex gap-3">
+                    <input type="text" name="zip" placeholder="Enter ZIP code" pattern="[0-9]{5}" maxlength="5" class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent" required>
+                    <button type="submit" class="btn-primary whitespace-nowrap">Check</button>
+                </form>
+                
+                <div id="zipResult" class="mt-4 hidden">
+                    <div class="p-4 rounded-lg" id="zipMessage"></div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+</section>
 
-<style>
-.areas-content {
-    padding: 80px 0;
-}
-
-.zip-checker {
-    text-align: center;
-    margin-bottom: 4rem;
-    padding: 2rem;
-    background: white;
-    border-radius: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-
-    h2 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-        color: #1f2937;
-    }
-
-    .zip-check-form {
-        display: flex;
-        max-width: 400px;
-        margin: 0 auto 1rem;
-        gap: 1rem;
-    }
-
-    .zip-check-result {
-        margin-top: 1rem;
-        font-weight: 600;
-
-        &.success {
-            color: #10b981;
-        }
-
-        &.error {
-            color: #ef4444;
-        }
-    }
-}
-
-.area-section {
-    margin-bottom: 3rem;
-
-    h2 {
-        font-size: 1.5rem;
-        margin-bottom: 1.5rem;
-        color: #1f2937;
-        border-bottom: 2px solid #2563eb;
-        padding-bottom: 0.5rem;
-    }
-
-    .zip-list {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 0.5rem;
-    }
-
-    .zip-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.75rem 1rem;
-        background: white;
-        border-radius: 0.5rem;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        transition: all 0.3s ease;
-
-        &:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .zip-code {
-            font-weight: 700;
-            color: #2563eb;
-            font-size: 1.125rem;
-        }
-
-        .area-name {
-            color: #6b7280;
-            font-size: 0.875rem;
-        }
-    }
-}
-
-.service-cta {
-    text-align: center;
-    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-    color: white;
-    padding: 3rem 2rem;
-    border-radius: 1rem;
-    margin-top: 4rem;
-
-    h3 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-        color: white;
-    }
-
-    p {
-        font-size: 1.125rem;
-        margin-bottom: 2rem;
-        opacity: 0.9;
-    }
-}
-
-@media (max-width: 768px) {
-    .zip-checker .zip-check-form {
-        flex-direction: column;
-    }
-    
-    .area-section .zip-list {
-        grid-template-columns: 1fr;
-    }
-    
-    .service-cta {
-        padding: 2rem 1rem;
-    }
-}
-</style>
-
-<script>
-document.getElementById('zipCheckerForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const zip = this.querySelector('input[name="zip"]').value.trim();
-    const resultDiv = document.getElementById('zipCheckResult');
-    
-    if (zip.length === 5) {
-        // Check if ZIP is in our service areas
-        const serviceZips = [
-            '60601', '60602', '60603', '60604', '60605', '60606', '60607', '60608', '60609', '60610',
-            '60611', '60612', '60613', '60614', '60615', '60616', '60618', '60620', '60621', '60622',
-            '60623', '60624', '60625', '60626', '60628', '60629', '60630', '60631', '60632', '60634',
-            '60636', '60637', '60638', '60639', '60640', '60641', '60643', '60644', '60645', '60646',
-            '60647', '60649', '60651', '60652', '60653', '60654', '60655', '60656', '60657', '60659',
-            '60660', '60661', '60201', '60202', '60302', '60304', '60804', '60402', '60130', '60153',
-            '60154', '60155', '60160', '60162', '60164', '60165', '60171', '60513', '60546', '60525',
-            '60526', '60521', '60514', '60076', '60077', '60712', '60025', '60026', '60062', '60035',
-            '60037', '60022'
-        ];
+<!-- CTA Section -->
+<section class="bg-gradient-to-br from-secondary-800 to-secondary-900 text-white py-20">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl lg:text-4xl font-bold mb-6">Ready to Move?</h2>
+        <p class="text-xl mb-8 opacity-90">We serve your area! Get your free moving quote today.</p>
         
-        if (serviceZips.includes(zip)) {
-            resultDiv.textContent = `Great! We serve ZIP code ${zip}. Get your free quote now!`;
-            resultDiv.className = 'zip-check-result success';
-        } else {
-            resultDiv.textContent = `Sorry, we don't currently serve ZIP code ${zip}. Please call us for nearby areas.`;
-            resultDiv.className = 'zip-check-result error';
-        }
-    } else {
-        resultDiv.textContent = 'Please enter a valid 5-digit ZIP code.';
-        resultDiv.className = 'zip-check-result error';
-    }
-});
-</script>
-
-        .zip-item {
-            .zip-code {
-                text-align: left;
-            }
-            .area-name {
-                text-align: right;
-            }
-        }
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/book-now/" class="btn-primary">
+                <span class="bg-gradient-to-r from-primary-600 to-primary-700 bg-clip-text text-transparent animate-gradient">Get Free Quote</span>
+            </a>
+            <a href="tel:{{ site.contact.phone }}" class="btn-secondary">
+                <i class="fas fa-phone mr-2"></i>
+                {{ site.contact.phone }}
+            </a>
+        </div>
+    </div>
+</section>
