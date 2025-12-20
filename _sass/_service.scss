@@ -1,0 +1,270 @@
+// Service page styles
+
+.service-page {
+  padding: 60px 0 80px;
+
+  .service-hero {
+    padding: 60px 0;
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    color: white;
+    text-align: center;
+
+    .container {
+      max-width: 800px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: white;
+
+      @media (min-width: 768px) {
+        font-size: 3rem;
+      }
+    }
+
+    .service-description {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    .service-price {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 0;
+
+      .price-label {
+        font-size: 1rem;
+        opacity: 0.8;
+      }
+
+      .price {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #60a5fa;
+      }
+    }
+  }
+
+  .service-content {
+    padding: 60px 0;
+
+    .container {
+      max-width: 900px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin: 3rem 0 1.5rem 0;
+      color: #1f2937;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin: 2rem 0 1rem 0;
+      color: #374151;
+    }
+
+    h4 {
+      font-size: 1.25rem;
+      margin: 1.5rem 0 0.75rem 0;
+      color: #4b5563;
+    }
+
+    p {
+      color: #4b5563;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    ul, ol {
+      margin-bottom: 1.5rem;
+      padding-left: 2rem;
+
+      li {
+        margin-bottom: 0.5rem;
+        color: #4b5563;
+        line-height: 1.6;
+      }
+    }
+
+    strong {
+      color: #1f2937;
+      font-weight: 600;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      margin: 2rem 0;
+
+      @media (max-width: 640px) {
+        flex-direction: column;
+      }
+    }
+
+    blockquote {
+      border-left: 4px solid #2563eb;
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      color: #4b5563;
+      font-style: italic;
+    }
+  }
+
+  .service-features {
+    background: #f8fafc;
+    padding: 2rem;
+    border-radius: 1rem;
+    margin: 3rem 0;
+
+    h3 {
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+      color: #1f2937;
+      text-align: center;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
+
+      li {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 1rem;
+        background: white;
+        border-radius: 0.5rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+        i {
+          color: #10b981;
+          font-size: 1.125rem;
+          margin-top: 0.125rem;
+          flex-shrink: 0;
+        }
+
+        strong {
+          color: #1f2937;
+        }
+      }
+    }
+  }
+
+  .service-cta {
+    text-align: center;
+    padding: 3rem;
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    border-radius: 1rem;
+    margin: 3rem 0;
+
+    h3 {
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      color: white;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      margin: 0 0.5rem;
+
+      @media (max-width: 640px) {
+        display: block;
+        margin: 0.5rem 0;
+      }
+    }
+  }
+
+  .pricing-info {
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 1rem;
+    padding: 2rem;
+    margin: 3rem 0;
+
+    h4 {
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+      color: #1f2937;
+      text-align: center;
+    }
+
+    p {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0;
+      margin: 0;
+      border-bottom: 1px solid #f3f4f6;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      strong {
+        color: #2563eb;
+      }
+
+      &.note {
+        font-size: 0.875rem;
+        font-style: italic;
+        color: #6b7280;
+        justify-content: center;
+        border-top: 1px solid #f3f4f6;
+        margin-top: 1rem;
+        padding-top: 1rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .service-page {
+    padding: 40px 0 60px;
+
+    .service-hero {
+      padding: 40px 0;
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .service-description {
+        font-size: 1.125rem;
+      }
+    }
+
+    .service-content {
+      padding: 40px 0;
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+      }
+    }
+
+    .service-features .feature-list {
+      grid-template-columns: 1fr;
+    }
+  }
+}

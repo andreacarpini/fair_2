@@ -140,9 +140,6 @@ permalink: /book-now/
                         </div>
                         
                         <div class="form-group">
-                            <label for="address">Current Address *</label>
-                            <input type="text" id="address" name="address" placeholder="123 Main St, Chicago, IL" required>
-                        </div>
                         
                         <div class="form-actions">
                             <button type="button" class="btn btn-secondary" onclick="prevStep()">Back</button>
@@ -155,10 +152,7 @@ permalink: /book-now/
                         <p>Help us provide a more accurate quote by telling us what you'll be moving.</p>
                         
                         <div class="inventory-toggle">
-                            <label class="checkbox-label">
-                                <input type="checkbox" id="addInventory" name="addInventory">
-                                <span>Add inventory list</span>
-                            </label>
+                            <button type="button" class="btn btn-outline" id="addInventoryBtn">Add Inventory List (Optional)</button>
                         </div>
                         
                         <div id="inventorySection" class="inventory-section" style="display: none;">
@@ -377,10 +371,7 @@ permalink: /book-now/
                                 <span>Inventory Items:</span>
                                 <span id="summaryInventory">-</span>
                             </div>
-                            <div class="summary-item total">
-                                <span>Estimated Total:</span>
-                                <span id="summaryTotal">$0</span>
-                            </div>
+                            
                         </div>
                         
                         <div class="quote-notes">
