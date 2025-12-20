@@ -1,8 +1,9 @@
 # Site settings
 title: "Chicago Pro Movers | Best Moving Service in Chicago"
 description: "Professional moving services in Chicago. Reliable, affordable, and experienced movers serving all Chicago neighborhoods."
-url: "https://yourusername.github.io"
-baseurl: "/chicago-movers-jekyll"
+url: "https://andreacarpini.github.io"
+baseurl: "/fair_2"  # lowercase to match your repository
+
 
 # Build settings
 markdown: kramdown
