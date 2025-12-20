@@ -120,7 +120,7 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
         
-        /* Isometric illustration effects - AUTOMATIC MOVEMENT */
+        /* Isometric illustration effects - NO ANIMATION */
         .isometric-illustration {
             perspective: 1000px;
             transform-style: preserve-3d;
@@ -131,29 +131,24 @@
             box-shadow: 20px 20px 40px rgba(0,0,0,0.1);
         }
         
-        /* Automatic floating animation */
+        /* NO auto-float animation */
         .auto-float {
-            animation: autoFloat 4s ease-in-out infinite;
+            /* Animation removed */
         }
         
-        @keyframes autoFloat {
-            0%, 100% { transform: rotateX(10deg) rotateY(-10deg) translateY(0px); }
-            50% { transform: rotateX(10deg) rotateY(-10deg) translateY(-10px); }
-        }
-        
-        /* Promotional flyers */
+        /* Promotional flyers - tongue style */
         .promo-flyer {
             position: absolute;
-            top: -8px;
-            right: -8px;
+            top: -6px;
+            right: -6px;
             background: linear-gradient(45deg, #10b981, #059669);
             color: white;
-            padding: 4px 12px;
-            border-radius: 0 12px 0 12px;
-            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 0 8px 0 8px;
+            font-size: 0.7rem;
             font-weight: 600;
-            transform: rotate(12deg);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform: rotate(8deg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             z-index: 10;
         }
         
@@ -179,7 +174,7 @@
             transition: all 0.3s ease;
         }
         
-        /* Transparent navigation */
+        /* Transparent navigation - NO TEXT SHADOW */
         .navbar {
             background: transparent;
             position: absolute;
@@ -190,10 +185,10 @@
             -webkit-backdrop-filter: blur(10px);
         }
         
-        /* Navigation text auto-adjust for visibility */
+        /* Navigation text - NO SHADOW */
         .navbar a {
             color: white;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            /* text-shadow removed */
         }
         
         .navbar a:hover {
@@ -228,21 +223,22 @@
         .faq-item {
             border: 1px solid #e5e7eb;
             overflow: hidden;
-            background: #f9fafb;
+            background: white;
         }
         
         .faq-item button {
-            background: #f9fafb;
+            background: white;
         }
         
         .faq-item button:hover {
-            background: #f3f4f6;
+            background: #f9fafb;
         }
         
         .faq-answer:not(.hidden) {
             display: block;
             animation: slideDown 0.3s ease;
             background: white;
+            border-top: 1px solid #e5e7eb;
         }
         
         @keyframes slideDown {
@@ -256,17 +252,33 @@
             }
         }
         
-        /* Service cards visibility */
+        /* Service cards with zoom */
         .service-card {
             opacity: 1;
             transform: none;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
         
         /* Modal backdrop */
         .fixed.inset-0 {
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
+        }
+        
+        /* Trust indicators alignment */
+        .trust-indicator {
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .trust-indicator i {
+            margin-top: 2px;
         }
     </style>
 </head>
@@ -292,7 +304,7 @@
                         Quote
                     </button>
                     <a href="tel:312-858-0611" class="text-white hover:text-gray-200 font-medium transition-colors">
-                        Call
+                        (312) 858-0611
                     </a>
                 </div>
                 
@@ -322,7 +334,7 @@
                         Quote
                     </button>
                     <a href="tel:312-858-0611" class="block text-white hover:text-gray-200 font-medium py-2">
-                        Call
+                        (312) 858-0611
                     </a>
                 </div>
             </div>
@@ -346,17 +358,6 @@
                         <div>2117 W Hubbard St.</div>
                         <div>Chicago, IL 60612</div>
                         <div>ILCC License #241666</div>
-                    </div>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-                    <div class="space-y-2">
-                        <a href="#services" class="block text-gray-400 hover:text-white transition-colors">Services</a>
-                        <a href="{{ '/blog' | relative_url }}" class="block text-gray-400 hover:text-white transition-colors">Blog</a>
-                        <a href="#areas" class="block text-gray-400 hover:text-white transition-colors">Service Areas</a>
-                        <a href="#faq" class="block text-gray-400 hover:text-white transition-colors">FAQ</a>
-                        <a href="tel:312-858-0611" class="block text-gray-400 hover:text-white transition-colors">Contact</a>
                     </div>
                 </div>
                 
@@ -427,7 +428,7 @@
             });
         });
         
-        // FAQ functionality
+        // FAQ functionality - FIXED
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
                 const faqItem = question.parentElement;
@@ -438,12 +439,21 @@
                 answer.classList.toggle('hidden');
                 question.classList.toggle('active');
                 
+                // Rotate icon when active
+                if (question.classList.contains('active')) {
+                    icon.style.transform = 'rotate(90deg)';
+                } else {
+                    icon.style.transform = 'rotate(0deg)';
+                }
+                
                 // Close other FAQs
                 document.querySelectorAll('.faq-item').forEach(otherItem => {
                     if (otherItem !== faqItem) {
                         const otherAnswer = otherItem.querySelector('.faq-answer');
+                        const otherIcon = otherItem.querySelector('.faq-question i');
                         otherAnswer.classList.add('hidden');
                         otherItem.querySelector('.faq-question').classList.remove('active');
+                        otherIcon.style.transform = 'rotate(0deg)';
                     }
                 });
             });
