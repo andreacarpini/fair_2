@@ -27,6 +27,10 @@ permalink: /book-now/
                         </div>
                         <div class="step">
                             <div class="step-number">3</div>
+                            <div class="step-label">Inventory</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
                             <div class="step-label">Get Quote</div>
                         </div>
                     </div>
@@ -40,6 +44,8 @@ permalink: /book-now/
                                 <option value="">Select move type</option>
                                 <option value="residential">Residential Move</option>
                                 <option value="commercial">Commercial Move</option>
+                                <option value="same-building">Same Building Move</option>
+                                <option value="furniture-rearrangement">Furniture Rearrangement</option>
                                 <option value="packing">Packing Service Only</option>
                                 <option value="storage">Storage Service</option>
                                 <option value="long-distance">Long Distance Move</option>
@@ -64,51 +70,46 @@ permalink: /book-now/
                         
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="fromZip">Moving from ZIP code</label>
+                                <label for="fromZip">Moving from ZIP code *</label>
                                 <input type="text" id="fromZip" name="fromZip" pattern="[0-9]{5}" maxlength="5" placeholder="60601" required>
                             </div>
                             <div class="form-group">
-                                <label for="toZip">Moving to ZIP code</label>
+                                <label for="toZip">Moving to ZIP code *</label>
                                 <input type="text" id="toZip" name="toZip" pattern="[0-9]{5}" maxlength="5" placeholder="60657" required>
                             </div>
                         </div>
                         
                         <div class="form-group">
-                            <label for="moveDate">Preferred moving date</label>
-                            <input type="date" id="moveDate" name="moveDate" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="stairs">Are there stairs involved?</label>
-                            <select id="stairs" name="stairs" required>
-                                <option value="">Select option</option>
-                                <option value="none">No stairs (elevator/ground floor)</option>
-                                <option value="origin-only">Stairs at origin only</option>
-                                <option value="destination-only">Stairs at destination only</option>
-                                <option value="both">Stairs at both locations</option>
+                            <label for="stairsOrigin">Stairs at origin location *</label>
+                            <select id="stairsOrigin" name="stairsOrigin" required>
+                                <option value="">Select stairs</option>
+                                <option value="none">No stairs (ground floor/elevator)</option>
+                                <option value="elevator">Elevator building</option>
+                                <option value="1-flight">1 flight of stairs</option>
+                                <option value="2-flights">2 flights of stairs</option>
+                                <option value="3-flights">3 flights of stairs</option>
+                                <option value="4-flights">4 flights of stairs</option>
+                                <option value="4plus-flights">4+ flights of stairs</option>
                             </select>
                         </div>
                         
                         <div class="form-group">
-                            <label for="additionalServices">Additional services needed (optional)</label>
-                            <div class="checkbox-group">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="additionalServices" value="packing">
-                                    <span>Packing service</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="additionalServices" value="storage">
-                                    <span>Storage service</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="additionalServices" value="specialty">
-                                    <span>Specialty items (piano, artwork, etc.)</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="additionalServices" value="unpacking">
-                                    <span>Unpacking service</span>
-                                </label>
-                            </div>
+                            <label for="stairsDestination">Stairs at destination location *</label>
+                            <select id="stairsDestination" name="stairsDestination" required>
+                                <option value="">Select stairs</option>
+                                <option value="none">No stairs (ground floor/elevator)</option>
+                                <option value="elevator">Elevator building</option>
+                                <option value="1-flight">1 flight of stairs</option>
+                                <option value="2-flights">2 flights of stairs</option>
+                                <option value="3-flights">3 flights of stairs</option>
+                                <option value="4-flights">4 flights of stairs</option>
+                                <option value="4plus-flights">4+ flights of stairs</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="moveDate">Preferred moving date *</label>
+                            <input type="date" id="moveDate" name="moveDate" required>
                         </div>
                         
                         <button type="button" class="btn btn-primary" onclick="nextStep()">Continue</button>
@@ -119,28 +120,213 @@ permalink: /book-now/
                         
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="firstName">First Name</label>
+                                <label for="firstName">First Name *</label>
                                 <input type="text" id="firstName" name="firstName" required>
                             </div>
                             <div class="form-group">
-                                <label for="lastName">Last Name</label>
+                                <label for="lastName">Last Name *</label>
                                 <input type="text" id="lastName" name="lastName" required>
                             </div>
                         </div>
                         
                         <div class="form-group">
-                            <label for="email">Email Address</label>
+                            <label for="email">Email Address *</label>
                             <input type="email" id="email" name="email" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="phone">Phone Number</label>
+                            <label for="phone">Phone Number *</label>
                             <input type="tel" id="phone" name="phone" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="address">Current Address</label>
+                            <label for="address">Current Address *</label>
                             <input type="text" id="address" name="address" placeholder="123 Main St, Chicago, IL" required>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" onclick="prevStep()">Back</button>
+                            <button type="button" class="btn btn-primary" onclick="nextStep()">Continue</button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-step" id="step3">
+                        <h3>Inventory (Optional)</h3>
+                        <p>Help us provide a more accurate quote by telling us what you'll be moving.</p>
+                        
+                        <div class="inventory-toggle">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="addInventory" name="addInventory">
+                                <span>Add inventory list</span>
+                            </label>
+                        </div>
+                        
+                        <div id="inventorySection" class="inventory-section" style="display: none;">
+                            <div class="inventory-categories">
+                                <div class="category-card">
+                                    <h4>Bedroom / Nursery</h4>
+                                    <div class="inventory-items">
+                                        <div class="item-row">
+                                            <span>King Bed</span>
+                                            <input type="number" min="0" name="inventory[bed-king]" value="0">
+                                        </div>
+                                        <div class="item-row">
+                                            <span>Queen Bed</span>
+                                            <input type="number" min="0" name="inventory[bed-queen]" value="0">
+                                        </div>
+                                        <div class="item-row">
+                                            <span>Double Bed</span>
+                                            <input type="number" min="0" name="inventory[bed-double]" value="0">
+                                        </div>
+                                        <div class="item-row">
+                                            <span>Twin Bed</span>
+                                            <input type="number" min="0" name="inventory[bed-twin]" value="0">
+                                        </div>
+                                        <div class="item-row">
+                                            <span>Dresser</span>
+                                            <input type="number" min="0" name="inventory[dresser]" value="0">
+                                        </div>
+                                        <div class="item-row">
+                                            <span>Nightstand</span>
+                                            <input type="number" min="0" name="inventory[nightstand]" value="0">
+                                        </div>
+                                        <div class="item-row">
+                                            <span>Wardrobe / Armoire</span>
+                                            <input type="number" min="0" name="inventory[wardrobe]" value="0">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="category-card">
+                                    <h4>Living Room / Family Room</h4>
+                                    <div class="inventory-items">
+                                        <div class="item-row">
+                                            <span>Sofa (3-seat)</span>
+                                            <input type="number" min="0" name="inventory[sofa-3seat]" value="0">
+                                        </div>
+                                        <div class="item-row">
+                                            <span>Sofa (2-seat)</span>
+                                            <input type="number" min="0" name="inventory[sofa-2seat]" value="0">
+                                        </div>
+                                        <div class="item-row">
+                                            <span>Sectional Sofa</span>
+                                            <input type="number" min="0" name="inventory[sectional]" value="0">
+                                        </div>
+                                        <div class="item-row">
+                                            <span>Recliner</span>
+                                            <input type="number" min="0" name="inventory[recliner]" value="0">
+                                        </div>
+                                        <div class="item-row">
+                                            <span>Coffee Table</span>
+                                            <input type="number" min="0" name="inventory[coffee-table]" value="0">
+                                        </div>
+                                        <div class="item-row">
+                                            <span>TV Stand / Entertainment Center</span>
+                                            <input type="number" min="0" name="inventory[tv-stand]" value="0">
+                                        </div>
+                                        <div class="item-row">
+                                            <span>Bookshelf</span>
+                                            <input type="number" min="0" name="inventory[bookshelf]" value="0">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="category-card">
+                                    <h4>Dining Room / Kitchen</h4>
+                                    <div class="inventory-items">
+                                        <div class="item-row">
+                                            <span>Dining Table</span>
+                                            <input type="number" min="0" name="inventory[dining-table]" value="0">
+                                        </div>
+                                        <div class="item-row">
+                                            <span>Dining Chairs</span>
+                                            <input type="number" min="0" name="inventory[dining-chairs]" value="0">
+                                        </div>
+                                        <div class="item-row">
+                                            <span>China Cabinet</span>
+                                            <input type="number" min="0" name="inventory[china-cabinet]" value="0">
+                                        </div>
+                                        <div class="item-row">
+                                            <span>Kitchen Island</span>
+                                            <input type="number" min="0" name="inventory[kitchen-island]" value="0">
+                                        </div>
+                                        <div class="item-row">
+                                            <span>Buffet / Sideboard</span>
+                                            <input type="number" min="0" name="inventory[buffet]" value="0">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="category-card">
+                                    <h4>Office</h4>
+                                    <div class="inventory-items">
+                                        <div class="item-row">
+                                            <span>Desk</span>
+                                            <input type="number" min="0" name="inventory[desk]" value="0">
+                                        </div>
+                                        <div class="item-row">
+                                            <span>Office Chair</span>
+                                            <input type="number" min="0" name="inventory[office-chair]" value="0">
+                                        </div>
+                                        <div class="item-row">
+                                            <span>File Cabinet</span>
+                                            <input type="number" min="0" name="inventory[file-cabinet]" value="0">
+                                        </div>
+                                        <div class="item-row">
+                                            <span>Bookshelf</span>
+                                            <input type="number" min="0" name="inventory[office-bookshelf]" value="0">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="category-card">
+                                    <h4>Appliances</h4>
+                                    <div class="inventory-items">
+                                        <div class="item-row">
+                                            <span>Refrigerator</span>
+                                            <input type="number" min="0" name="inventory[refrigerator]" value="0">
+                                        </div>
+                                        <div class="item-row">
+                                            <span>Washer</span>
+                                            <input type="number" min="0" name="inventory[washer]" value="0">
+                                        </div>
+                                        <div class="item-row">
+                                            <span>Dryer</span>
+                                            <input type="number" min="0" name="inventory[dryer]" value="0">
+                                        </div>
+                                        <div class="item-row">
+                                            <span>Dishwasher</span>
+                                            <input type="number" min="0" name="inventory[dishwasher]" value="0">
+                                        </div>
+                                        <div class="item-row">
+                                            <span>Microwave</span>
+                                            <input type="number" min="0" name="inventory[microwave]" value="0">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="category-card">
+                                    <h4>Boxes & Custom Items</h4>
+                                    <div class="inventory-items">
+                                        <div class="item-row">
+                                            <span>Large Boxes</span>
+                                            <input type="number" min="0" name="inventory[boxes-large]" value="0">
+                                        </div>
+                                        <div class="item-row">
+                                            <span>Medium Boxes</span>
+                                            <input type="number" min="0" name="inventory[boxes-medium]" value="0">
+                                        </div>
+                                        <div class="item-row">
+                                            <span>Small Boxes</span>
+                                            <input type="number" min="0" name="inventory[boxes-small]" value="0">
+                                        </div>
+                                        <div class="item-row">
+                                            <span>Wardrobe Boxes</span>
+                                            <input type="number" min="0" name="inventory[boxes-wardrobe]" value="0">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         
                         <div class="form-group">
@@ -150,11 +336,11 @@ permalink: /book-now/
                         
                         <div class="form-actions">
                             <button type="button" class="btn btn-secondary" onclick="prevStep()">Back</button>
-                            <button type="button" class="btn btn-primary" onclick="nextStep()">Get My Quote</button>
+                            <button type="button" class="btn btn-primary" onclick="nextStep()">Continue</button>
                         </div>
                     </div>
                     
-                    <div class="form-step" id="step3">
+                    <div class="form-step" id="step4">
                         <h3>Your Moving Quote</h3>
                         
                         <div class="booking-summary">
@@ -176,8 +362,20 @@ permalink: /book-now/
                                 <span id="summaryToZip">-</span>
                             </div>
                             <div class="summary-item">
+                                <span>Stairs (Origin):</span>
+                                <span id="summaryStairsOrigin">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Stairs (Destination):</span>
+                                <span id="summaryStairsDest">-</span>
+                            </div>
+                            <div class="summary-item">
                                 <span>Move Date:</span>
                                 <span id="summaryMoveDate">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Inventory Items:</span>
+                                <span id="summaryInventory">-</span>
                             </div>
                             <div class="summary-item total">
                                 <span>Estimated Total:</span>
@@ -197,7 +395,9 @@ permalink: /book-now/
                         
                         <div class="form-actions">
                             <button type="button" class="btn btn-secondary" onclick="prevStep()">Back</button>
-                            <button type="submit" class="btn btn-primary">Confirm & Book</button>
+                            <button type="submit" class="btn btn-primary quote-btn">
+                                <span class="gradient-text">Request Quote</span>
+                            </button>
                         </div>
                     </div>
                 </form>
@@ -206,190 +406,18 @@ permalink: /book-now/
     </div>
 </div>
 
-<script>
-let currentStep = 1;
-
-function nextStep() {
-    if (validateCurrentStep()) {
-        document.getElementById(`step${currentStep}`).classList.remove('active');
-        document.querySelectorAll('.step')[currentStep - 1].classList.remove('active');
-        document.querySelectorAll('.step')[currentStep - 1].classList.add('completed');
-        
-        currentStep++;
-        
-        document.getElementById(`step${currentStep}`).classList.add('active');
-        document.querySelectorAll('.step')[currentStep - 1].classList.add('active');
-        
-        if (currentStep === 3) {
-            generateQuote();
-        }
-    }
-}
-
-function prevStep() {
-    document.getElementById(`step${currentStep}`).classList.remove('active');
-    document.querySelectorAll('.step')[currentStep - 1].classList.remove('active');
-    
-    currentStep--;
-    
-    document.getElementById(`step${currentStep}`).classList.add('active');
-    document.querySelectorAll('.step')[currentStep - 1].classList.add('active');
-    document.querySelectorAll('.step')[currentStep - 1].classList.remove('completed');
-}
-
-function validateCurrentStep() {
-    const currentStepElement = document.getElementById(`step${currentStep}`);
-    const requiredFields = currentStepElement.querySelectorAll('[required]');
-    let isValid = true;
-    
-    requiredFields.forEach(field => {
-        if (!field.value.trim()) {
-            field.classList.add('error');
-            isValid = false;
-        } else {
-            field.classList.remove('error');
-        }
-    });
-    
-    if (!isValid) {
-        showNotification('Please fill in all required fields.', 'error');
-    }
-    
-    return isValid;
-}
-
-function generateQuote() {
-    const formData = new FormData(document.getElementById('bookingForm'));
-    const data = Object.fromEntries(formData.entries());
-    
-    // Update summary
-    document.getElementById('summaryMoveType').textContent = formatMoveType(data.moveType);
-    document.getElementById('summaryHomeSize').textContent = formatHomeSize(data.homeSize);
-    document.getElementById('summaryFromZip').textContent = data.fromZip;
-    document.getElementById('summaryToZip').textContent = data.toZip;
-    document.getElementById('summaryMoveDate').textContent = formatDate(data.moveDate);
-    
-    // Calculate estimated price
-    const basePrice = calculateBasePrice(data.moveType, data.homeSize);
-    const additionalServices = formData.getAll('additionalServices');
-    const additionalPrice = additionalServices.length * 100;
-    const stairsMultiplier = data.stairs === 'both' ? 1.2 : data.stairs === 'none' ? 1 : 1.1;
-    
-    const total = Math.round(basePrice * stairsMultiplier + additionalPrice);
-    document.getElementById('summaryTotal').textContent = `$${total}`;
-}
-
-function formatMoveType(type) {
-    const types = {
-        'residential': 'Residential Move',
-        'commercial': 'Commercial Move',
-        'packing': 'Packing Service Only',
-        'storage': 'Storage Service',
-        'long-distance': 'Long Distance Move',
-        'specialty': 'Specialty Items'
-    };
-    return types[type] || type;
-}
-
-function formatHomeSize(size) {
-    const sizes = {
-        'studio': 'Studio Apartment',
-        '1-bedroom': '1 Bedroom',
-        '2-bedroom': '2 Bedrooms',
-        '3-bedroom': '3 Bedrooms',
-        '4-bedroom': '4+ Bedrooms',
-        'office-small': 'Small Office (1-10 employees)',
-        'office-medium': 'Medium Office (11-50 employees)',
-        'office-large': 'Large Office (50+ employees)'
-    };
-    return sizes[size] || size;
-}
-
-function formatDate(dateString) {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', { 
-        weekday: 'long', 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric' 
-    });
-}
-
-function calculateBasePrice(moveType, homeSize) {
-    const prices = {
-        'residential': {
-            'studio': 299,
-            '1-bedroom': 349,
-            '2-bedroom': 399,
-            '3-bedroom': 599,
-            '4-bedroom': 799
-        },
-        'commercial': {
-            'office-small': 599,
-            'office-medium': 1299,
-            'office-large': 1999
-        },
-        'packing': 199,
-        'storage': 99,
-        'long-distance': 999,
-        'specialty': 299
-    };
-    
-    if (prices[moveType] && prices[moveType][homeSize]) {
-        return prices[moveType][homeSize];
-    }
-    
-    return prices[moveType] || 299;
-}
-
-function showNotification(message, type = 'info') {
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.textContent = message;
-    
-    Object.assign(notification.style, {
-        position: 'fixed',
-        top: '20px',
-        right: '20px',
-        padding: '1rem 1.5rem',
-        borderRadius: '0.5rem',
-        color: 'white',
-        fontWeight: '500',
-        zIndex: '9999',
-        transform: 'translateX(100%)',
-        transition: 'transform 0.3s ease',
-        maxWidth: '300px'
-    });
-    
-    const colors = {
-        success: '#10b981',
-        error: '#ef4444',
-        warning: '#f59e0b',
-        info: '#3b82f6'
-    };
-    notification.style.backgroundColor = colors[type] || colors.info;
-    
-    document.body.appendChild(notification);
-    
-    setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
-    }, 100);
-    
-    setTimeout(() => {
-        notification.style.transform = 'translateX(100%)';
-        setTimeout(() => {
-            document.body.removeChild(notification);
-        }, 300);
-    }, 5000);
-}
-
-// Set minimum date to today
-const moveDateInput = document.getElementById('moveDate');
-if (moveDateInput) {
-    const today = new Date().toISOString().split('T')[0];
-    moveDateInput.setAttribute('min', today);
-}
-</script>
+<!-- Inventory Modal -->
+<div id="inventoryModal" class="inventory-modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Add Inventory Items</h3>
+            <button type="button" class="modal-close" onclick="closeInventoryModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+            <!-- Inventory content would go here -->
+        </div>
+    </div>
+</div>
 
 <style>
 .booking-page {
@@ -415,7 +443,7 @@ if (moveDateInput) {
 }
 
 .booking-form-wrapper {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
@@ -496,6 +524,7 @@ if (moveDateInput) {
     border-radius: 0.5rem;
     font-size: 1rem;
     transition: border-color 0.3s ease;
+    background-color: white;
 }
 
 .form-group input:focus,
@@ -515,7 +544,8 @@ if (moveDateInput) {
     gap: 1rem;
 }
 
-.checkbox-group {
+.checkbox-group,
+.inventory-toggle {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -540,55 +570,146 @@ if (moveDateInput) {
     margin-top: 2rem;
 }
 
-.booking-summary {
-    background-color: #f8fafc;
-    border-radius: 0.5rem;
+// Inventory Section
+.inventory-section {
+    margin-top: 2rem;
     padding: 2rem;
+    background: #f8fafc;
+    border-radius: 0.5rem;
+    border: 2px solid #e5e7eb;
+}
+
+.inventory-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.category-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+    h4 {
+        font-size: 1.125rem;
+        margin-bottom: 1rem;
+        color: #1f2937;
+        border-bottom: 2px solid #2563eb;
+        padding-bottom: 0.5rem;
+    }
+}
+
+.inventory-items {
+    .item-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #f3f4f6;
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        span {
+            color: #374151;
+            font-size: 0.875rem;
+        }
+
+        input {
+            width: 60px;
+            padding: 0.25rem;
+            text-align: center;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.25rem;
+
+            &:focus {
+                border-color: #2563eb;
+            }
+        }
+    }
+}
+
+// Booking Summary
+.booking-summary {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     margin-bottom: 2rem;
-}
 
-.booking-summary h4 {
-    margin-bottom: 1.5rem;
-    color: #1f2937;
-    font-size: 1.25rem;
-}
+    h4 {
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+        color: #1f2937;
+    }
 
-.summary-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.75rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid #e5e7eb;
-}
+    .summary-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid #f3f4f6;
 
-.summary-item.total {
-    border-top: 2px solid #2563eb;
-    border-bottom: none;
-    padding-top: 1rem;
-    font-weight: 600;
-    font-size: 1.25rem;
-    color: #2563eb;
+        &.total {
+            border-top: 2px solid #2563eb;
+            border-bottom: none;
+            padding-top: 1rem;
+            font-weight: 600;
+            font-size: 1.25rem;
+            color: #2563eb;
+        }
+    }
 }
 
 .quote-notes {
-    background-color: #eff6ff;
+    background: #eff6ff;
     border-radius: 0.5rem;
     padding: 1.5rem;
     margin-bottom: 2rem;
+
+    ul {
+        margin: 0;
+        padding-left: 1.5rem;
+    }
+
+    li {
+        margin-bottom: 0.5rem;
+    }
 }
 
-.quote-notes ul {
-    margin: 0;
-    padding-left: 1.5rem;
+// Quote Button with Animated Gradient
+.quote-btn {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(45deg, #2563eb, #1d4ed8, #2563eb);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+    border: none;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 16px rgba(37, 99, 235, 0.3);
+    }
+
+    .gradient-text {
+        position: relative;
+        z-index: 1;
+        font-weight: 600;
+    }
 }
 
-.quote-notes li {
-    margin-bottom: 0.5rem;
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
-@media (max-width: 640px) {
-    .form-row {
-        grid-template-columns: 1fr;
+@media (max-width: 768px) {
+    .booking-form-wrapper {
+        padding: 0 1rem;
     }
     
     .step-indicator {
@@ -602,8 +723,346 @@ if (moveDateInput) {
         justify-content: center;
     }
     
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
     .form-actions {
         flex-direction: column;
     }
+    
+    .inventory-categories {
+        grid-template-columns: 1fr;
+    }
 }
 </style>
+
+<script>
+let currentStep = 1;
+let inventoryData = {};
+
+// Load ZIP codes from sessionStorage if available
+window.addEventListener('DOMContentLoaded', function() {
+    const fromZip = sessionStorage.getItem('fromZip');
+    const toZip = sessionStorage.getItem('toZip');
+    
+    if (fromZip) {
+        document.getElementById('fromZip').value = fromZip;
+    }
+    if (toZip) {
+        document.getElementById('toZip').value = toZip;
+    }
+    
+    // Set minimum date to today
+    const moveDateInput = document.getElementById('moveDate');
+    if (moveDateInput) {
+        const today = new Date().toISOString().split('T')[0];
+        moveDateInput.setAttribute('min', today);
+    }
+    
+    // Inventory toggle
+    const addInventoryCheckbox = document.getElementById('addInventory');
+    if (addInventoryCheckbox) {
+        addInventoryCheckbox.addEventListener('change', function() {
+            const inventorySection = document.getElementById('inventorySection');
+            if (this.checked) {
+                inventorySection.style.display = 'block';
+            } else {
+                inventorySection.style.display = 'none';
+            }
+        });
+    }
+});
+
+function nextStep() {
+    if (validateCurrentStep()) {
+        document.getElementById(`step${currentStep}`).classList.remove('active');
+        document.querySelectorAll('.step')[currentStep - 1].classList.remove('active');
+        document.querySelectorAll('.step')[currentStep - 1].classList.add('completed');
+        
+        currentStep++;
+        
+        document.getElementById(`step${currentStep}`).classList.add('active');
+        document.querySelectorAll('.step')[currentStep - 1].classList.add('active');
+        
+        if (currentStep === 4) {
+            generateQuote();
+        }
+    }
+}
+
+function prevStep() {
+    document.getElementById(`step${currentStep}`).classList.remove('active');
+    document.querySelectorAll('.step')[currentStep - 1].classList.remove('active');
+    
+    currentStep--;
+    
+    document.getElementById(`step${currentStep}`).classList.add('active');
+    document.querySelectorAll('.step')[currentStep - 1].classList.add('active');
+    document.querySelectorAll('.step')[currentStep - 1].classList.remove('completed');
+}
+
+function validateCurrentStep() {
+    const currentStepElement = document.getElementById(`step${currentStep}`);
+    const requiredFields = currentStepElement.querySelectorAll('[required]');
+    let isValid = true;
+    
+    requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+            field.classList.add('error');
+            isValid = false;
+        } else {
+            field.classList.remove('error');
+        }
+    });
+    
+    if (!isValid) {
+        showNotification('Please fill in all required fields.', 'error');
+    }
+    
+    return isValid;
+}
+
+function generateQuote() {
+    const formData = new FormData(document.getElementById('bookingForm'));
+    const data = Object.fromEntries(formData.entries());
+    
+    // Update summary
+    document.getElementById('summaryMoveType').textContent = formatMoveType(data.moveType);
+    document.getElementById('summaryHomeSize').textContent = formatHomeSize(data.homeSize);
+    document.getElementById('summaryFromZip').textContent = data.fromZip;
+    document.getElementById('summaryToZip').textContent = data.toZip;
+    document.getElementById('summaryStairsOrigin').textContent = formatStairs(data.stairsOrigin);
+    document.getElementById('summaryStairsDest').textContent = formatStairs(data.stairsDestination);
+    document.getElementById('summaryMoveDate').textContent = formatDate(data.moveDate);
+    
+    // Count inventory items
+    let inventoryCount = 0;
+    const inventoryInputs = document.querySelectorAll('input[name^="inventory"]');
+    inventoryInputs.forEach(input => {
+        inventoryCount += parseInt(input.value) || 0;
+    });
+    document.getElementById('summaryInventory').textContent = inventoryCount > 0 ? `${inventoryCount} items` : 'Not provided';
+    
+    // Calculate estimated price
+    const basePrice = calculateBasePrice(data.moveType, data.homeSize);
+    const stairsMultiplier = getStairsMultiplier(data.stairsOrigin, data.stairsDestination);
+    const inventoryMultiplier = inventoryCount > 0 ? 1 + (inventoryCount * 0.01) : 1;
+    
+    const total = Math.round(basePrice * stairsMultiplier * inventoryMultiplier);
+    document.getElementById('summaryTotal').textContent = `$${total}`;
+}
+
+function formatMoveType(type) {
+    const types = {
+        'residential': 'Residential Move',
+        'commercial': 'Commercial Move',
+        'same-building': 'Same Building Move',
+        'furniture-rearrangement': 'Furniture Rearrangement',
+        'packing': 'Packing Service Only',
+        'storage': 'Storage Service',
+        'long-distance': 'Long Distance Move',
+        'specialty': 'Specialty Items'
+    };
+    return types[type] || type;
+}
+
+function formatHomeSize(size) {
+    const sizes = {
+        'studio': 'Studio Apartment',
+        '1-bedroom': '1 Bedroom',
+        '2-bedroom': '2 Bedrooms',
+        '3-bedroom': '3 Bedrooms',
+        '4-bedroom': '4+ Bedrooms',
+        'office-small': 'Small Office (1-10 employees)',
+        'office-medium': 'Medium Office (11-50 employees)',
+        'office-large': 'Large Office (50+ employees)'
+    };
+    return sizes[size] || size;
+}
+
+function formatStairs(stairs) {
+    const stairsMap = {
+        'none': 'No stairs',
+        'elevator': 'Elevator',
+        '1-flight': '1 flight',
+        '2-flights': '2 flights',
+        '3-flights': '3 flights',
+        '4-flights': '4 flights',
+        '4plus-flights': '4+ flights'
+    };
+    return stairsMap[stairs] || stairs;
+}
+
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+    });
+}
+
+function calculateBasePrice(moveType, homeSize) {
+    const prices = {
+        'residential': {
+            'studio': 299,
+            '1-bedroom': 349,
+            '2-bedroom': 399,
+            '3-bedroom': 599,
+            '4-bedroom': 799
+        },
+        'commercial': {
+            'office-small': 599,
+            'office-medium': 1299,
+            'office-large': 1999
+        },
+        'same-building': 199,
+        'furniture-rearrangement': 149,
+        'packing': 199,
+        'storage': 99,
+        'long-distance': 999,
+        'specialty': 299
+    };
+    
+    if (prices[moveType] && prices[moveType][homeSize]) {
+        return prices[moveType][homeSize];
+    }
+    
+    return prices[moveType] || 299;
+}
+
+function getStairsMultiplier(stairsOrigin, stairsDestination) {
+    const getMultiplier = (stairs) => {
+        switch(stairs) {
+            case 'none': return 1;
+            case 'elevator': return 1.05;
+            case '1-flight': return 1.1;
+            case '2-flights': return 1.2;
+            case '3-flights': return 1.3;
+            case '4-flights': return 1.4;
+            case '4plus-flights': return 1.5;
+            default: return 1;
+        }
+    };
+    
+    const originMult = getMultiplier(stairsOrigin);
+    const destMult = getMultiplier(stairsDestination);
+    
+    return Math.max(originMult, destMult);
+}
+
+// Form submission
+document.getElementById('bookingForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    
+    // Add inventory data if available
+    if (document.getElementById('addInventory').checked) {
+        const inventoryInputs = document.querySelectorAll('input[name^="inventory"]');
+        inventoryInputs.forEach(input => {
+            if (parseInt(input.value) > 0) {
+                formData.set(input.name, input.value);
+            }
+        });
+    }
+    
+    // Show loading state
+    const submitBtn = document.querySelector('#step4 .quote-btn');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<span class="gradient-text">Sending...</span>';
+    submitBtn.disabled = true;
+    
+    // Send to Formspree (replace with your actual Formspree ID)
+    fetch('https://formspree.io/f/YOUR_FORM_ID', {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            showNotification('Thank you! We\'ll contact you within 1 hour.', 'success');
+            // Reset form after successful submission
+            setTimeout(() => {
+                resetForm();
+            }, 3000);
+        } else {
+            throw new Error('Form submission failed');
+        }
+    })
+    .catch(error => {
+        showNotification('Sorry, there was an error submitting your request. Please try again.', 'error');
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+    });
+});
+
+function resetForm() {
+    document.getElementById('bookingForm').reset();
+    currentStep = 1;
+    
+    // Reset steps
+    document.querySelectorAll('.form-step').forEach(step => step.classList.remove('active'));
+    document.querySelectorAll('.step').forEach(step => {
+        step.classList.remove('active', 'completed');
+    });
+    
+    document.getElementById('step1').classList.add('active');
+    document.querySelectorAll('.step')[0].classList.add('active');
+    
+    // Hide inventory section
+    document.getElementById('inventorySection').style.display = 'none';
+    
+    // Clear session storage
+    sessionStorage.removeItem('fromZip');
+    sessionStorage.removeItem('toZip');
+    
+    // Redirect to home page
+    window.location.href = '/';
+}
+
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.textContent = message;
+    
+    Object.assign(notification.style, {
+        position: 'fixed',
+        top: '20px',
+        right: '20px',
+        padding: '1rem 1.5rem',
+        borderRadius: '0.5rem',
+        color: 'white',
+        fontWeight: '500',
+        zIndex: '9999',
+        transform: 'translateX(100%)',
+        transition: 'transform 0.3s ease',
+        maxWidth: '300px'
+    });
+    
+    const colors = {
+        success: '#10b981',
+        error: '#ef4444',
+        warning: '#f59e0b',
+        info: '#3b82f6'
+    };
+    notification.style.backgroundColor = colors[type] || colors.info;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.style.transform = 'translateX(0)';
+    }, 100);
+    
+    setTimeout(() => {
+        notification.style.transform = 'translateX(100%)';
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 300);
+    }, 5000);
+}
+</script>

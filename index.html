@@ -7,14 +7,140 @@ title: Chicago Pro Movers | Professional Moving Services in Chicago
 <section class="hero">
     <div class="container">
         <div class="hero-content">
-            <h1>Chicago's Most Trusted Moving Company</h1>
-            <p class="hero-subtitle">We move, you relax. Join thousands of satisfied customers who've experienced stress-free moving with Chicago's premier moving service.</p>
-            <div class="hero-cta">
-                <a href="/book-now/" class="btn btn-primary">Get Free Quote</a>
-                <a href="tel:{{ site.contact.phone }}" class="btn btn-secondary">
-                    <i class="fas fa-phone"></i>
-                    Call {{ site.contact.phone }}
-                </a>
+            <div class="hero-left">
+                <h1>Chicago's Most Trusted Moving Company</h1>
+                <p class="hero-subtitle">We move, you relax. Join thousands of satisfied customers who've experienced stress-free moving with Chicago's premier moving service.</p>
+                
+                <form class="hero-mini-form" id="heroMiniForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="heroFromZip">Moving from ZIP</label>
+                            <input type="text" id="heroFromZip" name="fromZip" pattern="[0-9]{5}" maxlength="5" placeholder="60601" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="heroToZip">Moving to ZIP</label>
+                            <input type="text" id="heroToZip" name="toZip" pattern="[0-9]{5}" maxlength="5" placeholder="60657" required>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary quote-btn">
+                            <span class="gradient-text">Get Quote</span>
+                        </button>
+                        <a href="tel:{{ site.contact.phone }}" class="btn btn-secondary">
+                            <i class="fas fa-phone"></i>
+                            {{ site.contact.phone }}
+                        </a>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="hero-right">
+                <div class="hero-image">
+                    <div class="hero-placeholder">
+                        <div class="placeholder-content">
+                            <i class="fas fa-truck-moving"></i>
+                            <h3>Professional Chicago Movers</h3>
+                            <p>Licensed, Insured & Trusted</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Us Section -->
+<section class="about-short">
+    <div class="container">
+        <div class="about-content">
+            <h2>About Chicago Pro Movers</h2>
+            <p>Since 2010, we've been Chicago's trusted moving partner, helping over 15,000 families and businesses relocate with confidence. Our team of 50+ professional movers understands the unique challenges of moving in the Windy City - from navigating narrow staircases to dealing with unpredictable weather.</p>
+            <p><strong>Licensed, insured, and committed to your satisfaction.</strong> We treat your belongings like our own, ensuring everything arrives safely at your new home or office.</p>
+            <div class="stats-row">
+                <div class="stat">
+                    <div class="stat-number">15,000+</div>
+                    <div class="stat-label">Successful Moves</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">14</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Satisfaction Rate</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="how-it-works">
+    <div class="container">
+        <div class="section-header">
+            <h2>How It Works</h2>
+            <p>Moving made simple in 4 easy steps</p>
+        </div>
+        
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-image">
+                    <div class="abstract-composition step-1-comp">
+                        <div class="shape shape-1"></div>
+                        <div class="shape shape-2"></div>
+                        <div class="shape shape-3"></div>
+                    </div>
+                </div>
+                <div class="step-content">
+                    <div class="step-number">1</div>
+                    <h3>Get Your Quote</h3>
+                    <p>Tell us about your move online or call us. Get an instant, transparent quote with no hidden fees.</p>
+                </div>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-image">
+                    <div class="abstract-composition step-2-comp">
+                        <div class="shape shape-1"></div>
+                        <div class="shape shape-2"></div>
+                        <div class="shape shape-3"></div>
+                    </div>
+                </div>
+                <div class="step-content">
+                    <div class="step-number">2</div>
+                    <h3>Schedule Your Move</h3>
+                    <p>Choose your preferred date and time. We'll confirm all details and send you a confirmation.</p>
+                </div>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-image">
+                    <div class="abstract-composition step-3-comp">
+                        <div class="shape shape-1"></div>
+                        <div class="shape shape-2"></div>
+                        <div class="shape shape-3"></div>
+                    </div>
+                </div>
+                <div class="step-content">
+                    <div class="step-number">3</div>
+                    <h3>We Handle Everything</h3>
+                    <p>Our professional team arrives on time, handles your belongings with care, and transports everything safely.</p>
+                </div>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-image">
+                    <div class="abstract-composition step-4-comp">
+                        <div class="shape shape-1"></div>
+                        <div class="shape shape-2"></div>
+                        <div class="shape shape-3"></div>
+                    </div>
+                </div>
+                <div class="step-content">
+                    <div class="step-number">4</div>
+                    <h3>Enjoy Your New Space</h3>
+                    <p>Relax in your new home or office. We'll make sure everything is placed exactly where you want it.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -92,51 +218,162 @@ title: Chicago Pro Movers | Professional Moving Services in Chicago
     </div>
 </section>
 
+<!-- FAQ Section -->
+<section class="faq-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Frequently Asked Questions</h2>
+            <p>Everything you need to know about your move</p>
+        </div>
+        
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span class="faq-number">1.</span>
+                    How far in advance should I book my move?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>We recommend booking at least 2-3 weeks in advance, especially during peak moving season (May-September). However, we can often accommodate last-minute moves with 48-72 hours notice.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span class="faq-number">2.</span>
+                    What areas do you serve?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>We serve all of Chicago and most surrounding suburbs including Evanston, Oak Park, Cicero, Berwyn, and more. If you're unsure whether we serve your area, just give us a call or enter your ZIP code on our website.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span class="faq-number">3.</span>
+                    Are you licensed and insured?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes! We're fully licensed by the Illinois Commerce Commission (#123456) and insured. We also carry full DOT certification for interstate moves.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span class="faq-number">4.</span>
+                    Do you provide packing materials?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes, we provide all necessary packing materials including boxes, tape, bubble wrap, and packing paper. Materials are included with our packing service or available for purchase separately.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span class="faq-number">5.</span>
+                    Can you move pianos and other specialty items?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Absolutely! Our team includes specialists trained in moving pianos, artwork, antiques, and other valuable items. We have the equipment and expertise to handle these moves safely.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span class="faq-number">6.</span>
+                    What happens if something gets damaged?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>While we take every precaution to prevent damage, accidents can happen. We include basic valuation coverage with every move, and additional insurance options are available for extra protection.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span class="faq-number">7.</span>
+                    How do you charge for moving services?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Local moves are typically charged by the hour based on the number of movers and trucks needed. Long-distance moves are based on weight and distance. We provide transparent, binding quotes with no hidden fees.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span class="faq-number">8.</span>
+                    Do you offer storage services?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes! We offer both short-term and long-term storage in our secure, climate-controlled facilities. The first month is free when you use our moving services.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span class="faq-number">9.</span>
+                    Can you help with furniture assembly and disassembly?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes, furniture disassembly and reassembly is included with all our moves at no extra charge. Our movers bring all the necessary tools and expertise to handle this efficiently.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Service Areas Section -->
 <section class="areas">
     <div class="container">
         <div class="section-header">
-            <h2>We Serve All of Chicago</h2>
-            <p>From the Loop to the suburbs, we provide moving services across all Chicago neighborhoods and surrounding areas.</p>
+            <h2>We Serve All of Chicago & Suburbs</h2>
+            <p>From downtown to the suburbs, we provide moving services across Chicago and surrounding areas.</p>
         </div>
         
         <div class="areas-grid">
             <div class="area-card">
                 <h4>Downtown Chicago</h4>
-                <p>The Loop, River North, Streeterville</p>
+                <p>The Loop, River North, Streeterville, Gold Coast</p>
             </div>
             <div class="area-card">
                 <h4>North Side</h4>
-                <p>Lincoln Park, Lakeview, Wicker Park</p>
-            </div>
-            <div class="area-card">
-                <h4>South Side</h4>
-                <p>Hyde Park, Bridgeport, Bronzeville</p>
+                <p>Lincoln Park, Lakeview, Wicker Park, Bucktown</p>
             </div>
             <div class="area-card">
                 <h4>West Side</h4>
                 <p>West Loop, Ukrainian Village, Logan Square</p>
             </div>
             <div class="area-card">
+                <h4>South Side</h4>
+                <p>Hyde Park, Bridgeport, Pilsen, Chinatown</p>
+            </div>
+            <div class="area-card">
                 <h4>Northwest Side</h4>
                 <p>Portage Park, Belmont Cragin, Dunning</p>
             </div>
             <div class="area-card">
-                <h4>Southwest Side</h4>
-                <p>Garfield Ridge, Clearing, Ashburn</p>
+                <h4>Suburbs</h4>
+                <p>Evanston, Oak Park, Cicero, Berwyn</p>
             </div>
             <div class="area-card">
-                <h4>Far North Side</h4>
+                <h4>Far North</h4>
                 <p>Rogers Park, Edgewater, Uptown</p>
             </div>
             <div class="area-card">
-                <h4>Far South Side</h4>
+                <h4>Far South</h4>
                 <p>Morgan Park, Beverly, Mount Greenwood</p>
             </div>
         </div>
         
         <div class="text-center mt-8">
-            <a href="/areas/" class="btn btn-primary">View All Service Areas</a>
+            <a href="/areas/" class="btn btn-primary">View All Service Areas & ZIP Codes</a>
         </div>
     </div>
 </section>
@@ -149,7 +386,9 @@ title: Chicago Pro Movers | Professional Moving Services in Chicago
         
         <form class="zip-check-form cta-form">
             <input type="text" name="zip" placeholder="Enter your ZIP code" pattern="[0-9]{5}" maxlength="5" required>
-            <button type="submit" class="btn btn-primary">Check Availability</button>
+            <button type="submit" class="btn btn-primary quote-btn">
+                <span class="gradient-text">Check Availability</span>
+            </button>
         </form>
     </div>
 </section>

@@ -4,6 +4,22 @@
             <div class="footer-section">
                 <h3>Chicago Pro Movers</h3>
                 <p>Professional moving services in Chicago. Licensed, insured, and trusted by thousands of satisfied customers.</p>
+                
+                <div class="footer-mini-form">
+                    <h4>Get Free Quote</h4>
+                    <form class="footer-quote-form" id="footerQuoteForm">
+                        <div class="form-group">
+                            <input type="text" name="fromZip" placeholder="From ZIP" pattern="[0-9]{5}" maxlength="5" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="toZip" placeholder="To ZIP" pattern="[0-9]{5}" maxlength="5" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary quote-btn btn-block">
+                            <span class="gradient-text">Get Quote</span>
+                        </button>
+                    </form>
+                </div>
+                
                 <div class="social-links">
                     <a href="{{ site.social.facebook }}" aria-label="Facebook">
                         <i class="fab fa-facebook-f"></i>
@@ -33,13 +49,9 @@
             
             <div class="footer-section">
                 <h4>Service Areas</h4>
-                <ul>
-                    <li><a href="{{ '/areas/downtown/' }}">Downtown Chicago</a></li>
-                    <li><a href="{{ '/areas/north-side/' }}">North Side</a></li>
-                    <li><a href="{{ '/areas/south-side/' }}">South Side</a></li>
-                    <li><a href="{{ '/areas/west-side/' }}">West Side</a></li>
-                    <li><a href="{{ '/areas/suburbs/' }}">Chicago Suburbs</a></li>
-                </ul>
+                <div id="footerAreas" class="footer-areas">
+                    <!-- Areas will be populated by JavaScript -->
+                </div>
             </div>
             
             <div class="footer-section">
@@ -70,3 +82,154 @@
         </div>
     </div>
 </footer>
+
+<style>
+.footer-mini-form {
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    h4 {
+        margin-bottom: 1rem;
+        color: white;
+        font-size: 1rem;
+    }
+
+    .form-group {
+        margin-bottom: 0.75rem;
+
+        input {
+            width: 100%;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid transparent;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+
+            &:focus {
+                outline: none;
+                border-color: #2563eb;
+            }
+        }
+    }
+
+    .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+    }
+}
+
+.footer-areas {
+    .area-item {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #d1d5db;
+        text-decoration: none;
+        font-size: 0.875rem;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: #2563eb;
+        }
+    }
+}
+</style>
+
+<script>
+// Service areas data
+const serviceAreas = [
+    { name: 'Downtown Chicago', url: '/areas/#downtown' },
+    { name: 'Lincoln Park', url: '/areas/#north-side' },
+    { name: 'Lakeview', url: '/areas/#north-side' },
+    { name: 'Wicker Park', url: '/areas/#north-side' },
+    { name: 'West Loop', url: '/areas/#west-side' },
+    { name: 'Hyde Park', url: '/areas/#south-side' },
+    { name: 'Evanston', url: '/areas/#suburbs' },
+    { name: 'Oak Park', url: '/areas/#suburbs' },
+    { name: 'Berwyn', url: '/areas/#suburbs' },
+    { name: 'Cicero', url: '/areas/#suburbs' },
+    { name: 'Skokie', url: '/areas/#suburbs' },
+    { name: 'Glenview', url: '/areas/#suburbs' }
+];
+
+// Populate footer areas (show 6 random areas)
+function populateFooterAreas() {
+    const footerAreas = document.getElementById('footerAreas');
+    const shuffled = [...serviceAreas].sort(() => 0.5 - Math.random());
+    const selected = shuffled.slice(0, 6);
+    
+    footerAreas.innerHTML = selected.map(area => 
+        `<a href="${area.url}" class="area-item">${area.name}</a>`
+    ).join('');
+}
+
+// Footer quote form handling
+document.getElementById('footerQuoteForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const fromZip = this.querySelector('input[name="fromZip"]').value.trim();
+    const toZip = this.querySelector('input[name="toZip"]').value.trim();
+    
+    if (fromZip.length === 5 && toZip.length === 5) {
+        // Store ZIP codes and redirect to main booking form
+        sessionStorage.setItem('fromZip', fromZip);
+        sessionStorage.setItem('toZip', toZip);
+        window.location.href = '/book-now/';
+    } else {
+        showNotification('Please enter valid 5-digit ZIP codes.', 'error');
+    }
+});
+
+// Initialize footer areas on page load
+document.addEventListener('DOMContentLoaded', function() {
+    populateFooterAreas();
+});
+
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.textContent = message;
+    
+    Object.assign(notification.style, {
+        position: 'fixed',
+        top: '20px',
+        right: '20px',
+        padding: '1rem 1.5rem',
+        borderRadius: '0.5rem',
+        color: 'white',
+        fontWeight: '500',
+        zIndex: '9999',
+        transform: 'translateX(100%)',
+        transition: 'transform 0.3s ease',
+        maxWidth: '300px'
+    });
+    
+    const colors = {
+        success: '#10b981',
+        error: '#ef4444',
+        warning: '#f59e0b',
+        info: '#3b82f6'
+    };
+    notification.style.backgroundColor = colors[type] || colors.info;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.style.transform = 'translateX(0)';
+    }, 100);
+    
+    setTimeout(() => {
+        notification.style.transform = 'translateX(100%)';
+        setTimeout(() => {
+            if (document.body.contains(notification)) {
+                document.body.removeChild(notification);
+            }
+        }, 300);
+    }, 5000);
+}
+
+// Refresh footer areas every 30 seconds
+setInterval(populateFooterAreas, 30000);
+</script>

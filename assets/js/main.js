@@ -1,6 +1,46 @@
 // Main JavaScript for Chicago Pro Movers
 document.addEventListener('DOMContentLoaded', function() {
     
+    // Hero mini form handling
+    const heroMiniForm = document.getElementById('heroMiniForm');
+    if (heroMiniForm) {
+        heroMiniForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const fromZip = document.getElementById('heroFromZip').value.trim();
+            const toZip = document.getElementById('heroToZip').value.trim();
+            
+            if (fromZip.length === 5 && toZip.length === 5) {
+                // Store ZIP codes in sessionStorage to pass to main form
+                sessionStorage.setItem('fromZip', fromZip);
+                sessionStorage.setItem('toZip', toZip);
+                
+                // Redirect to booking page
+                window.location.href = '/book-now/';
+            } else {
+                showNotification('Please enter valid 5-digit ZIP codes.', 'error');
+                
+                // Highlight error fields
+                if (fromZip.length !== 5) {
+                    document.getElementById('heroFromZip').classList.add('error');
+                }
+                if (toZip.length !== 5) {
+                    document.getElementById('heroToZip').classList.add('error');
+                }
+            }
+        });
+        
+        // Remove error class when typing
+        ['heroFromZip', 'heroToZip'].forEach(id => {
+            const input = document.getElementById(id);
+            if (input) {
+                input.addEventListener('input', function() {
+                    this.classList.remove('error');
+                });
+            }
+        });
+    }
+    
     // Mobile menu toggle
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const mobileMenu = document.querySelector('.mobile-menu');
