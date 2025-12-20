@@ -939,19 +939,22 @@
 </section>
 
 
-<section class="pb-12 bg-white px-6">
-    <div class="max-w-7xl mx-auto px-6 text-center border-t border-gray-200 pt-12">
-        <h2 class="text-4xl font-bold text-gray-900 mb-12">Get Your Free Quote Today</h2>
-        
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <button id="open-quote-modal" class="quote-btn text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-lg transition-all duration-300 text-center flex-1 max-w-md">
-                <i class="fas fa-calculator mr-2"></i>
-                Get Free Quote
-            </button>
-            <a href="tel:312-858-0611" class="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-600 hover:text-white transition-colors text-center flex-1 max-w-md">
-                <i class="fas fa-phone mr-2"></i>
-                (312) 858-0611
-            </a>
+<section class="pb-12 bg-white">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+        <div class="border-t border-gray-200 pt-12">
+            <h2 class="text-4xl font-bold text-gray-900 mb-12">Get Your Free Quote Today</h2>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <!-- Remove flex-1 on mobile, keep it on larger screens -->
+                <button id="open-quote-modal" class="quote-btn text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-lg transition-all duration-300 text-center w-full sm:flex-1 sm:max-w-md">
+                    <i class="fas fa-calculator mr-2"></i>
+                    Get Free Quote
+                </button>
+                <a href="tel:312-858-0611" class="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-600 hover:text-white transition-colors text-center w-full sm:flex-1 sm:max-w-md">
+                    <i class="fas fa-phone mr-2"></i>
+                    (312) 858-0611
+                </a>
+            </div>
         </div>
     </div>
 </section>
