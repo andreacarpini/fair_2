@@ -226,10 +226,6 @@
             color: white;
         }
         
-        .navbar a:hover {
-            color: rgba(255,255,255,0.8);
-        }
-        
         /* Mobile menu */
         .mobile-menu {
             transform: translateX(100%);
@@ -240,7 +236,7 @@
         }
         
         .mobile-menu.active {
-            transform: translateX(0);
+            transform: translateX(-16px);
         }
         
         /* Smooth scrolling */
@@ -294,12 +290,14 @@
                     <a href="/" class="text-white hover:text-gray-200 font-medium transition-colors">Home</a>
                     <a href="#faq" class="text-white hover:text-gray-200 font-medium transition-colors">FAQ</a>
                     <a href="/chicago-movers-jekyll/blog" class="text-white hover:text-gray-200 font-medium transition-colors">Blog</a>
-                    <button id="open-quote-modal-nav" class="quote-btn text-white px-6 py-2 rounded-lg font-medium transition-all">
-                        Get Quote
-                    </button>
-                    <a href="tel:312-858-0611" class="text-white hover:text-gray-200 font-medium transition-colors">
-                        (312) 858-0611
-                    </a>
+                    <button id="open-quote-modal-nav" class="quote-btn text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 inline-flex items-center">
+    <i class="fas fa-calculator mr-2"></i>
+    Get Quote
+</button>
+<a href="tel:312-858-0611" class="border-2 border-white text-white px-6 py-2 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-300 inline-flex items-center justify-center">
+    <i class="fas fa-phone mr-2"></i>
+    (312) 858-0611
+</a>
                 </div>
                 
                 <!-- Mobile Menu Button -->
@@ -312,28 +310,30 @@
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-64 h-900 shadow-xl md:hidden rounded-lg">
-            <div class="p-6">
-                <div class="flex justify-between items-center mb-8">
-                    <span class="text-lg font-semibold text-white">Menu</span>
-                    <button id="close-menu" class="text-white hover:text-gray-200 p-2">
-                        <i class="fas fa-times text-xl"></i>
-                    </button>
-                </div>
-                <div class="space-y-4">
-                    <a href="/" class="block text-white hover:text-gray-200 font-medium py-2">Home</a>
-                    <a href="#faq" class="block text-white hover:text-gray-200 font-medium py-2">FAQ</a>
-                    <a href="/chicago-movers-jekyll/blog" class="block text-white hover:text-gray-200 font-medium py-2">Blog</a>
-                    <button id="open-quote-modal-mobile" class="block quote-btn text-white px-6 py-3 rounded-lg font-medium text-center transition-all w-full">
-                        Get Quote
-                    </button>
-                    <a href="tel:312-858-0611" class="block text-white hover:text-gray-200 font-medium py-2">
-                        (312) 858-0611
-                    </a>
-                </div>
-            </div>
+<div id="mobile-menu" class="mobile-menu fixed top-4 right-0 w-64 h-900 shadow-xl md:hidden rounded-lg transform translate-x-full transition-transform duration-300 ease-in-out">
+    <div class="p-6">
+        <div class="flex justify-between items-center mb-8">
+            <span class="text-lg font-semibold text-white">Menu</span>
+            <button id="close-menu" class="text-white hover:text-gray-200 p-2">
+                <i class="fas fa-times text-xl"></i>
+            </button>
         </div>
-    </nav>
+        <div class="space-y-4">
+            <a href="/" class="block text-white hover:text-gray-200 font-medium py-2">Home</a>
+            <a href="#faq" class="block text-white hover:text-gray-200 font-medium py-2">FAQ</a>
+            <a href="/chicago-movers-jekyll/blog" class="block text-white hover:text-gray-200 font-medium py-2">Blog</a>
+            <button id="open-quote-modal-nav" class="quote-btn text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 inline-flex items-center justify-center w-full">
+                <i class="fas fa-calculator mr-2"></i>
+                Get Quote
+            </button>
+            <a href="tel:312-858-0611" class="border-2 border-white text-white px-6 py-2 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-300 inline-flex items-center justify-center w-full">
+                <i class="fas fa-phone mr-2"></i>
+                (312) 858-0611
+            </a>
+        </div>
+    </div>
+</div>
+</nav>
     
     <!-- Main Content -->
     <!-- Hero Section -->
@@ -386,26 +386,26 @@
 <section class="py-12 bg-white">
     <div class="max-w-7xl mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="flex items-start space-x-4">
-                <i class="fas fa-shield-alt text-3xl text-gray-600"></i>
+            <div class="flex items-center space-x-4">
+                <i class="fas fa-shield-alt text-2xl text-gray-600"></i>
                 <div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Licensed & Insured</h3>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">Licensed & Insured</h3>
                     <p class="text-gray-600">ILCC License #241666.</p>
                 </div>
             </div>
             
-            <div class="flex items-start space-x-4">
-                <i class="fas fa-users text-3xl text-gray-600"></i>
+            <div class="flex items-center space-x-4">
+                <i class="fas fa-users text-2xl text-gray-600"></i>
                 <div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Trusted</h3>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">Trusted</h3>
                     <p class="text-gray-600">Reliable vetted pros.</p>
                 </div>
             </div>
             
-            <div class="flex items-start space-x-4">
-                <i class="fas fa-star text-3xl text-gray-600"></i>
+            <div class="flex items-center space-x-4">
+                <i class="fas fa-star text-2xl text-gray-600"></i>
                 <div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Experienced</h3>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">Experienced</h3>
                     <p class="text-gray-600">We handle moves of all sizes.</p>
                 </div>
             </div>
@@ -416,7 +416,7 @@
 <!-- Customer Reviews -->
 <section class="py-12 bg-gray-50">
     <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-16">
+        <div class="text-center mb-12">
             <h2 class="text-4xl font-bold text-gray-900 mb-4">Here's What Our Customers Are Saying</h2>
         </div>
         
@@ -483,8 +483,9 @@
         </div>
         
         <div class="text-center">
-            <button id="show-more-reviews" class="quote-btn bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
+            <button id="show-more-reviews" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
                 Show More Reviews
+                <i class="fas fa-plus ml-2"></i>
             </button>
         </div>
     </div>
@@ -493,7 +494,7 @@
 <!-- Services Section -->
 <section id="services" class="py-12 bg-white">
     <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-16">
+        <div class="text-center mb-12">
             <h2 class="text-4xl font-bold text-gray-900 mb-4">We’ve Got You Covered for Every Type of Move.</h2>
         </div>
         
@@ -505,39 +506,42 @@
         <span class="text-sm font-semibold">Our go to service</span>
     </div>
     <div class="isometric-illustration mb-6">
-        <div class="bg-blue-600 w-16 h-16 rounded-xl flex items-center justify-center">
+        <div class="bg-blue-600 w-12 h-12 rounded-xl flex items-center justify-center">
             <i class="fas fa-home text-2xl text-white"></i>
         </div>
     </div>
     <h3 class="text-2xl font-bold text-gray-900 mb-4">Residential Moving</h3>
     <p class="text-gray-700 mb-4">Complete home moving services for apartments, condos, and houses across Chicago.</p>
     <div class="border-t border-gray-300 pt-4 mb-6">
-        <p class="text-sm text-gray-600"><span class="fas fa-check-circle mr-3"></span>Studio & 1-Bedroom Moves<br>
-        <span class="fas fa-check-circle mr-3"></span>Family Home Relocations<br>
-        <span class="fas fa-check-circle mr-3"></span>High-Rise Building Moves<br>
-        <span class="fas fa-check-circle mr-3"></span>Packing & Unpacking Services</p>
+        <p class="text-sm text-gray-600"><span class="fas fa-check-circle mr-3 mb-2"></span>Studio & 1-Bedroom Moves<br>
+        <span class="fas fa-check-circle mr-3 mb-2"></span>Family Home Relocations<br>
+        <span class="fas fa-check-circle mr-3 mb-2"></span>High-Rise Building Moves<br>
+        <span class="fas fa-check-circle mr-3 mb-2"></span>Packing & Unpacking Services</p>
     </div>
     <button class="bg-blue-600 hover:bg-blue-700 text-white w-full py-3 rounded-lg font-semibold transition-colors">
         Request Quote
+        <i class="fas fa-arrow-right ml-2"></i>
     </button>
 </div>            
             <!-- Commercial & Office -->
             <div class="service-card bg-gray-50 rounded-xl p-8 shadow-lg">
                 <div class="isometric-illustration mb-6">
-                    <div class="bg-blue-600 w-16 h-16 rounded-xl flex items-center justify-center auto-float">
+                    <div class="bg-blue-600 w-12 h-12 rounded-xl flex items-center justify-center auto-float">
                         <i class="fas fa-building text-2xl text-white"></i>
                     </div>
                 </div>
                 <h3 class="text-2xl font-bold text-gray-900 mb-4">Commercial & Office</h3>
                 <p class="text-gray-700 mb-4">Professional office and business relocation services with minimal downtime.</p>
                 <div class="border-t border-gray-300 pt-4 mb-6">
-                    <p class="text-sm text-gray-600"><span class="fas fa-check-circle mr-3"></span>Office Relocations<br>
-                    <span class="fas fa-check-circle mr-3"></span>Retail Store Moves<br>
-                    <span class="fas fa-check-circle mr-3"></span>Equipment Transport<br>
-                    <span class="fas fa-check-circle mr-3"></span>Weekend & After-Hours</p>
+                    <p class="text-sm text-gray-600"><span class="fas fa-check-circle mr-3 mb-2"></span>Office Relocations<br>
+                    <span class="fas fa-check-circle mr-3 mb-2"></span>Retail Store Moves<br>
+                    <span class="fas fa-check-circle mr-3 mb-2"></span>Equipment Transport<br>
+                    <span class="fas fa-check-circle mr-3 mb-2"></span>Weekend & After-Hours</br></p>
                 </div>
                 <button class="bg-blue-600 hover:bg-blue-700 text-white w-full py-3 rounded-lg font-semibold transition-colors">
                     Request Quote
+                    <i class="fas fa-arrow-right ml-2"></i>
+
                 </button>
             </div>
             
@@ -547,100 +551,110 @@
         <span class="text-sm font-semibold">Our go to service</span>
     </div>
     <div class="isometric-illustration mb-6">
-        <div class="bg-blue-600 w-16 h-16 rounded-xl flex items-center justify-center">
+        <div class="bg-blue-600 w-12 h-12 rounded-xl flex items-center justify-center">
             <i class="fas fa-box text-2xl text-white"></i>
         </div>
     </div>
                 <h3 class="text-2xl font-bold text-gray-900 mb-4">Packing & Unpacking</h3>
                 <p class="text-gray-700 mb-4">Professional packing services to protect your belongings during the move.</p>
                 <div class="border-t border-gray-300 pt-4 mb-6">
-                    <p class="text-sm text-gray-600"><span class="fas fa-check-circle mr-3"></span>Full Packing Service<br>
-                    <span class="fas fa-check-circle mr-3"></span>Fragile Item Protection<br>
-                    <span class="fas fa-check-circle mr-3"></span>Quality Packing Materials<br>
-                    <span class="fas fa-check-circle mr-3"></span>Unpacking & Setup</p>
+                    <p class="text-sm text-gray-600"><span class="fas fa-check-circle mr-3 mb-2"></span>Full Packing Service<br>
+                    <span class="fas fa-check-circle mr-3 mb-2"></span>Fragile Item Protection<br>
+                    <span class="fas fa-check-circle mr-3 mb-2"></span>Quality Packing Materials<br>
+                    <span class="fas fa-check-circle mr-3 mb-2"></span>Unpacking & Setup</p>
                 </div>
                 <button class="bg-blue-600 hover:bg-blue-700 text-white w-full py-3 rounded-lg font-semibold transition-colors">
                     Request Quote
+                        <i class="fas fa-arrow-right ml-2"></i>
+
                 </button>
             </div>
             
             <!-- Long Distance -->
             <div class="service-card bg-gray-50 rounded-xl p-8 shadow-lg">
                 <div class="isometric-illustration mb-6">
-                    <div class="bg-blue-600 w-16 h-16 rounded-xl flex items-center justify-center auto-float">
+                    <div class="bg-blue-600 w-12 h-12 rounded-xl flex items-center justify-center auto-float">
                         <i class="fas fa-route text-2xl text-white"></i>
                     </div>
                 </div>
                 <h3 class="text-2xl font-bold text-gray-900 mb-4">Long Distance</h3>
                 <p class="text-gray-700 mb-4">Interstate and cross-country moving services with guaranteed delivery.</p>
                 <div class="border-t border-gray-300 pt-4 mb-6">
-                    <p class="text-sm text-gray-600"><span class="fas fa-check-circle mr-3"></span>Interstate Moves<br>
-                    <span class="fas fa-check-circle mr-3"></span>Cross-Country Relocations<br>
-                    <span class="fas fa-check-circle mr-3"></span>Tracking & Updates<br>
-                    <span class="fas fa-check-circle mr-3"></span>Guaranteed Delivery</p>
+                    <p class="text-sm text-gray-600"><span class="fas fa-check-circle mr-3 mb-2"></span>Interstate Moves<br>
+                    <span class="fas fa-check-circle mr-3 mb-2"></span>Cross-Country Relocations<br>
+                    <span class="fas fa-check-circle mr-3 mb-2"></span>Tracking & Updates<br>
+                    <span class="fas fa-check-circle mr-3 mb-2"></span>Guaranteed Delivery</p>
                 </div>
                 <button class="bg-blue-600 hover:bg-blue-700 text-white w-full py-3 rounded-lg font-semibold transition-colors">
                     Request Quote
+                    <i class="fas fa-arrow-right ml-2"></i>
+
                 </button>
             </div>
             
             <!-- Local Moving -->
             <div class="service-card bg-gray-50 rounded-xl p-8 shadow-lg">
                 <div class="isometric-illustration mb-6">
-                    <div class="bg-blue-600 w-16 h-16 rounded-xl flex items-center justify-center auto-float">
+                    <div class="bg-blue-600 w-12 h-12 rounded-xl flex items-center justify-center auto-float">
                         <i class="fas fa-map-marker-alt text-2xl text-white"></i>
                     </div>
                 </div>
                 <h3 class="text-2xl font-bold text-gray-900 mb-4">Local Moving</h3>
                 <p class="text-gray-700 mb-4">Same-day local moves within Chicago and surrounding suburbs.</p>
                 <div class="border-t border-gray-300 pt-4 mb-6">
-                    <p class="text-sm text-gray-600"><span class="fas fa-check-circle mr-3"></span>Same-Day Service<br>
-                    <span class="fas fa-check-circle mr-3"></span>Chicago Neighborhoods<br>
-                    <span class="fas fa-check-circle mr-3"></span>Suburban Moves<br>
-                    <span class="fas fa-check-circle mr-3"></span>Flexible Scheduling</p>
+                    <p class="text-sm text-gray-600"><span class="fas fa-check-circle mr-3 mb-2"></span>Same-Day Service<br>
+                    <span class="fas fa-check-circle mr-3 mb-2"></span>Chicago Neighborhoods<br>
+                    <span class="fas fa-check-circle mr-3 mb-2"></span>Suburban Moves<br>
+                    <span class="fas fa-check-circle mr-3 mb-2"></span>Flexible Scheduling</p>
                 </div>
                 <button class="bg-blue-600 hover:bg-blue-700 text-white w-full py-3 rounded-lg font-semibold transition-colors">
                     Request Quote
+                    <i class="fas fa-arrow-right ml-2"></i>
+
                 </button>
             </div>
             
             <!-- Loading & Unloading -->
             <div class="service-card bg-gray-50 rounded-xl p-8 shadow-lg">
                 <div class="isometric-illustration mb-6">
-                    <div class="bg-blue-600 w-16 h-16 rounded-xl flex items-center justify-center auto-float">
+                    <div class="bg-blue-600 w-12 h-12 rounded-xl flex items-center justify-center auto-float">
                         <i class="fas fa-dolly text-2xl text-white"></i>
                     </div>
                 </div>
                 <h3 class="text-2xl font-bold text-gray-900 mb-4">Loading & Unloading</h3>
                 <p class="text-gray-700 mb-4">Professional loading and unloading services for your rental truck or container.</p>
                 <div class="border-t border-gray-300 pt-4 mb-6">
-                    <p class="text-sm text-gray-600"><span class="fas fa-check-circle mr-3"></span>Truck Loading<br>
-                    <span class="fas fa-check-circle mr-3"></span>Container Loading<br>
-                    <span class="fas fa-check-circle mr-3"></span>Heavy Item Handling<br>
-                    <span class="fas fa-check-circle mr-3"></span>Professional Equipment</p>
+                    <p class="text-sm text-gray-600"><span class="fas fa-check-circle mr-3 mb-2"></span>Truck Loading<br>
+                    <span class="fas fa-check-circle mr-3 mb-2"></span>Container Loading<br>
+                    <span class="fas fa-check-circle mr-3 mb-2"></span>Heavy Item Handling<br>
+                    <span class="fas fa-check-circle mr-3 mb-2"></span>Professional Equipment</p>
                 </div>
                 <button class="bg-blue-600 hover:bg-blue-700 text-white w-full py-3 rounded-lg font-semibold transition-colors">
                     Request Quote
+                    <i class="fas fa-arrow-right ml-2"></i>
+
                 </button>
             </div>
             
             <!-- Storage Solutions -->
             <div class="service-card bg-gray-50 rounded-xl p-8 shadow-lg">
                 <div class="isometric-illustration mb-6">
-                    <div class="bg-blue-600 w-16 h-16 rounded-xl flex items-center justify-center auto-float">
+                    <div class="bg-blue-600 w-12 h-12 rounded-xl flex items-center justify-center auto-float">
                         <i class="fas fa-warehouse text-2xl text-white"></i>
                     </div>
                 </div>
                 <h3 class="text-2xl font-bold text-gray-900 mb-4">Storage Solutions</h3>
                 <p class="text-gray-700 mb-4">Secure, climate-controlled storage facilities for short and long-term needs.</p>
                 <div class="border-t border-gray-300 pt-4 mb-6">
-                    <p class="text-sm text-gray-600"><span class="fas fa-check-circle mr-3"></span>Climate Controlled<br>
-                    <span class="fas fa-check-circle mr-3"></span>24/7 Security<br>
-                    <span class="fas fa-check-circle mr-3"></span>Flexible Terms<br>
-                    <span class="fas fa-check-circle mr-3"></span>Easy Access</p>
+                    <p class="text-sm text-gray-600"><span class="fas fa-check-circle mr-3 mb-2"></span>Climate Controlled<br>
+                    <span class="fas fa-check-circle mr-3 mb-2"></span>24/7 Security<br>
+                    <span class="fas fa-check-circle mr-3 mb-2"></span>Flexible Terms<br>
+                    <span class="fas fa-check-circle mr-3 mb-2"></span>Easy Access</p>
                 </div>
                 <button class="bg-blue-600 hover:bg-blue-700 text-white w-full py-3 rounded-lg font-semibold transition-colors">
                     Request Quote
+                    <i class="fas fa-arrow-right ml-2"></i>
+
                 </button>
             </div>
         </div>
@@ -650,7 +664,7 @@
 <!-- How It Works Section -->
 <section class="py-12 bg-gray-50">
     <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-16">
+        <div class="text-center mb-12">
             <h2 class="text-4xl font-bold text-gray-900 mb-4">How It Works?</h2>
         </div>
         
@@ -661,7 +675,7 @@
                         <i class="fas fa-calculator text-3xl text-white"></i>
                     </div>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3">Get Quote</h3>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">1. Get Quote</h3>
                 <p class="text-gray-600">Call or fill out our form for a free, no-obligation quote tailored to your move.</p>
             </div>
             
@@ -671,7 +685,7 @@
                         <i class="fas fa-calendar-check text-3xl text-white"></i>
                     </div>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3">Schedule</h3>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">2. Schedule</h3>
                 <p class="text-gray-600">Choose your preferred moving date and time. We work around your schedule.</p>
             </div>
             
@@ -681,7 +695,7 @@
                         <i class="fas fa-truck text-3xl text-white"></i>
                     </div>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3">Move Day</h3>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">3. Move Day</h3>
                 <p class="text-gray-600">Our professional team arrives on time and handles every aspect of your move.</p>
             </div>
             
@@ -691,7 +705,7 @@
                         <i class="fas fa-home text-3xl text-white"></i>
                     </div>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3">Settle In</h3>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">4. Settle In</h3>
                 <p class="text-gray-600">Enjoy your new home! We can help with unpacking and furniture setup too.</p>
             </div>
         </div>
@@ -701,7 +715,7 @@
 <!-- FAQ Section -->
 <section id="faq" class="py-12 bg-white">
     <div class="max-w-4xl mx-auto px-6">
-        <div class="text-center mb-16">
+        <div class="text-center mb-12">
             <h2 class="text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
         </div>
         
@@ -712,7 +726,7 @@
     
     <!-- The Text -->
     <span class="flex-grow">How much does it cost to move in Chicago?</span>
-                                        <i class="fas fa-chevron-right ml-3 text-blue-600"></i>
+                                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
                 </button>
                 <div class="faq-answer hidden px-6 pb-6 text-gray-700">
                     <p>Our local moves start at $299 for studio apartments and vary based on home size, distance, and services needed. Contact us for a free, detailed quote tailored to your specific move.</p>
@@ -723,7 +737,7 @@
                 <button class="faq-question w-full text-left p-6 font-semibold text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
                     <span class="mr-4 flex-shrink-0">2.</span>
                     <span class="flex-grow">Are you licensed and insured?</span>
-                                        <i class="fas fa-chevron-right ml-3 text-blue-600"></i>
+                                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
 
                 </button>
                 <div class="faq-answer hidden px-6 pb-6 text-gray-700">
@@ -736,7 +750,7 @@
                     <span class="mr-4 flex-shrink-0">3.</span>
                     <span class="flex-grow">How far in advance should I book my move?</span>
                     
-                                        <i class="fas fa-chevron-right ml-3 text-blue-600"></i>
+                                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
 
                 </button>
                 <div class="faq-answer hidden px-6 pb-6 text-gray-700">
@@ -749,7 +763,7 @@
                     <span class="mr-4 flex-shrink-0">4.</span>
                     <span class="flex-grow">Do you provide packing materials?</span>
                     
-                                        <i class="fas fa-chevron-right ml-3 text-blue-600"></i>
+                                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
 
                 </button>
                 <div class="faq-answer hidden px-6 pb-6 text-gray-700">
@@ -762,7 +776,7 @@
                    <span class="mr-4 flex-shrink-0">5.</span>
                    <span class="flex-grow">Can you move pianos and other heavy items?</span> 
                    
-                                        <i class="fas fa-chevron-right ml-3 text-blue-600"></i>
+                                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
 
                 </button>
                 <div class="faq-answer hidden px-6 pb-6 text-gray-700">
@@ -775,7 +789,7 @@
                     <span class="mr-4 flex-shrink-0">6.</span>
                     <span class="flex-grow">What areas do you serve?</span>
                     
-                                        <i class="fas fa-chevron-right ml-3 text-blue-600"></i>
+                                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
 
                 </button>
                 <div class="faq-answer hidden px-6 pb-6 text-gray-700">
@@ -788,7 +802,7 @@
                     <span class="mr-4 flex-shrink-0">7.</span>
                     <span class="flex-grow">What payment methods do you accept?</span>
                     
-                                        <i class="fas fa-chevron-right ml-3 text-blue-600"></i>
+                                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
 
                 </button>
                 <div class="faq-answer hidden px-6 pb-6 text-gray-700">
@@ -800,7 +814,7 @@
                 <button class="faq-question w-full text-left p-6 font-semibold text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
                     <span class="mr-4 flex-shrink-0">8.</span>
                     <span class="flex-grow">What payment methods do you accept?</span>
-                                        <i class="fas fa-chevron-right ml-3 text-blue-600"></i>
+                                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
 
                 </button>
                 <div class="faq-answer hidden px-6 pb-6 text-gray-700">
@@ -812,7 +826,7 @@
                 <button class="faq-question w-full text-left p-6 font-semibold text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
                     <span class="mr-4 flex-shrink-0">9.</span>
                     <span class="flex-grow">What happens if something gets damaged?</span>
-                                        <i class="fas fa-chevron-right ml-3 text-blue-600"></i>
+                                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
 
                 </button>
                 <div class="faq-answer hidden px-6 pb-6 text-gray-700">
@@ -826,7 +840,7 @@
 <!-- Service Areas Section -->
 <section id="areas" class="py-12 bg-gray-50">
     <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-16">
+        <div class="text-center mb-12">
             <h2 class="text-4xl font-bold text-gray-900 mb-4">Service Areas We Serve</h2>
         </div>
         
@@ -838,6 +852,7 @@
             <p class="text-gray-600 mb-6">And many more areas! We serve all of Chicago and surrounding suburbs.</p>
             <button id="refresh-areas" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
                 Show More Areas
+                <i class="fas fa-sync ml-2"></i>
             </button>
         </div>
     </div>
@@ -846,7 +861,7 @@
 <!-- Final CTA Section -->
 <section class="py-12 bg-white">
     <div class="max-w-7xl mx-auto px-6 text-center">
-        <h2 class="text-4xl font-bold text-gray-900 mb-8">Get Your Free Quote Today</h2>
+        <h2 class="text-4xl font-bold text-gray-900 mb-12">Get Your Free Quote Today</h2>
         
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <button id="open-quote-modal" class="quote-btn text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-lg transition-all duration-300 text-center">
@@ -1009,9 +1024,16 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <p class="text-gray-700 mb-3">"Best moving experience I've ever had. The team was professional, fast, and careful with all my belongings."</p>
-                        <div class="font-semibold text-gray-900">David K.</div>
-                        <div class="text-sm text-gray-600">Lakeview</div>
+                <p class="text-gray-700 mb-4">"Fairplay Moving made our move from Lincoln Park to Wicker Park seamless. Professional, efficient, and reasonably priced. Highly recommend!"</p>
+                <div class="flex items-center">
+                    <div class="bg-gray-600 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                        <span class="text-white font-semibold">SM</span>
+                    </div>
+                    <div>
+                        <div class="font-semibold text-gray-900">Sarah M.</div>
+                        <div class="text-sm text-gray-600">Lincoln Park → Wicker Park</div>
+                    </div>
+                </div>
                     </div>
                     
                     <div class="bg-gray-50 rounded-lg p-6">
@@ -1022,9 +1044,16 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <p class="text-gray-700 mb-3">"Fairplay moved our piano with no issues. Very impressed with their attention to detail and professionalism."</p>
-                        <div class="font-semibold text-gray-900">Lisa T.</div>
-                        <div class="text-sm text-gray-600">Evanston</div>
+                <p class="text-gray-700 mb-4">"Moved our 3-bedroom house from Hyde Park to Oak Park. The team was careful with our furniture and finished ahead of schedule. Great service!"</p>
+                <div class="flex items-center">
+                    <div class="bg-gray-600 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                        <span class="text-white font-semibold">MR</span>
+                    </div>
+                    <div>
+                        <div class="font-semibold text-gray-900">Michael R.</div>
+                        <div class="text-sm text-gray-600">Hyde Park → Oak Park</div>
+                    </div>
+                </div>
                     </div>
                     
                     <!-- Add more reviews as needed -->
