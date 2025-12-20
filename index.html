@@ -1,155 +1,750 @@
 ---
 layout: default
-title: Chicago Pro Movers | Professional Moving Services in Chicago
+title: Fairplay Moving Inc. | Professional Movers in Chicago
+description: Professional moving services in Chicago. Licensed and insured movers serving residential and commercial clients. Get a free quote today!
 ---
 
 <!-- Hero Section -->
-<section class="hero">
-    <div class="container">
-        <div class="hero-content">
-            <h1>Chicago's Most Trusted Moving Company</h1>
-            <p class="hero-subtitle">We move, you relax. Join thousands of satisfied customers who've experienced stress-free moving with Chicago's premier moving service.</p>
-            <div class="hero-cta">
-                <a href="/book-now/" class="btn btn-primary">Get Free Quote</a>
-                <a href="tel:{{ site.contact.phone }}" class="btn btn-secondary">
-                    <i class="fas fa-phone"></i>
-                    Call {{ site.contact.phone }}
-                </a>
-            </div>
+<section class="hero_container">
+  <div class="hero_mainHero">
+    <div class="hero_heroLeft">
+      <h1 class="hero_h1">
+        Chicago's Most 
+        <span class="hero_highlight">Trusted</span> 
+        Moving Company
+      </h1>
+      
+      <div class="hero_properties">
+        <div class="hero_property">
+          <svg class="hero_propertyIcon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+          </svg>
+          Licensed & Insured Movers
         </div>
+        <div class="hero_property">
+          <svg class="hero_propertyIcon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+          </svg>
+          Serving All Chicago Areas
+        </div>
+        <div class="hero_property">
+          <svg class="hero_propertyIcon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+          </svg>
+          Free Moving Quotes
+        </div>
+        <div class="hero_property">
+          <svg class="hero_propertyIcon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+          </svg>
+          Professional Packing Services
+        </div>
+      </div>
     </div>
+    
+    <div class="hero_heroRight">
+      <!-- Quote Selector Form -->
+      <div class="selector_container">
+        <div class="selector_buttonsWrapper">
+          <div class="selector_fieldsContainer">
+            <div class="selector_field">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <div class="selector_field_placeholder">From ZIP</div>
+              <input type="text" class="selector_field_input" placeholder="60601" pattern="[0-9]*" maxlength="5" name="from_zip">
+            </div>
+            
+            <div class="selector_divider"></div>
+            
+            <div class="selector_field">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <div class="selector_field_placeholder">To ZIP</div>
+              <input type="text" class="selector_field_input" placeholder="60657" pattern="[0-9]*" maxlength="5" name="to_zip">
+            </div>
+            
+            <div class="selector_divider"></div>
+            
+            <div class="selector_field">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+              <div class="selector_field_placeholder">Move Date</div>
+              <input type="date" class="selector_field_input" name="move_date">
+            </div>
+          </div>
+          
+          <div class="selector_bookButtonWrapper">
+            <div class="selector_book_button">
+              <div class="selector_book_button_internal">
+                <span class="selector_book_from">Request Quote</span>
+                <svg class="selector_arrow" viewBox="0 0 448 512" fill="currentColor">
+                  <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- Services Section -->
-<section class="services">
-    <div class="container">
-        <div class="section-header">
-            <h2>Our Moving Services</h2>
-            <p>From studio apartments to large homes, we handle moves of all sizes with professional care and attention to detail.</p>
+<section id="services" class="section_container" style="background-color: var(--background-gray-0);">
+  <div class="section_wrapper">
+    <h2 class="section_headerText">
+      Our <span class="section_highlight">Moving</span> Services
+    </h2>
+    
+    <div class="services_content">
+      <div class="service_card">
+        <div class="service_icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9,22 9,12 15,12 15,22"/>
+          </svg>
         </div>
-        
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-home"></i>
-                </div>
-                <h3>Residential Moving</h3>
-                <p>Complete home moving services for apartments, condos, and houses. We handle your belongings with care.</p>
-                <div class="service-price">Starting at $299</div>
-                <a href="/services/residential/" class="btn btn-outline">Learn More</a>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-building"></i>
-                </div>
-                <h3>Commercial Moving</h3>
-                <p>Office relocations, retail moves, and business transitions. Minimize downtime with our efficient service.</p>
-                <div class="service-price">Starting at $599</div>
-                <a href="/services/commercial/" class="btn btn-outline">Learn More</a>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-box-open"></i>
-                </div>
-                <h3>Packing Services</h3>
-                <p>Professional packing and unpacking services. We bring all materials and ensure everything is safely packed.</p>
-                <div class="service-price">Starting at $199</div>
-                <a href="/services/packing/" class="btn btn-outline">Learn More</a>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-warehouse"></i>
-                </div>
-                <h3>Storage Solutions</h3>
-                <p>Secure, climate-controlled storage facilities. Short-term and long-term storage options available.</p>
-                <div class="service-price">Starting at $99/month</div>
-                <a href="/services/storage/" class="btn btn-outline">Learn More</a>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-road"></i>
-                </div>
-                <h3>Long Distance</h3>
-                <p>Interstate moving services to any state. Licensed and insured for moves across the country.</p>
-                <div class="service-price">Get Quote</div>
-                <a href="/services/long-distance/" class="btn btn-outline">Learn More</a>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-truck-loading"></i>
-                </div>
-                <h3>Specialty Items</h3>
-                <p>Piano moving, artwork, antiques, and other valuable items. White-glove service for your precious belongings.</p>
-                <div class="service-price">Get Quote</div>
-                <a href="/services/specialty/" class="btn btn-outline">Learn More</a>
-            </div>
+        <h3 class="service_title">Residential Moving</h3>
+        <p class="service_description">
+          Professional home moving services for apartments, condos, and houses. We handle everything from studio apartments to large family homes with care and efficiency.
+        </p>
+      </div>
+      
+      <div class="service_card">
+        <div class="service_icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+          </svg>
         </div>
+        <h3 class="service_title">Commercial Moving</h3>
+        <p class="service_description">
+          Business relocation services for offices, retail spaces, and commercial facilities. Minimize downtime with our efficient commercial moving solutions.
+        </p>
+      </div>
+      
+      <div class="service_card">
+        <div class="service_icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+        </div>
+        <h3 class="service_title">Packing Services</h3>
+        <p class="service_description">
+          Full-service packing and unpacking with high-quality materials. Our professional packers ensure your belongings are safe and secure during transit.
+        </p>
+      </div>
+      
+      <div class="service_card">
+        <div class="service_icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 12l2 2 4-4"/>
+            <circle cx="21" cy="12" r="9"/>
+          </svg>
+        </div>
+        <h3 class="service_title">Loading & Unloading</h3>
+        <p class="service_description">
+          Professional loading and unloading services. We handle the heavy lifting while you focus on other aspects of your move.
+        </p>
+      </div>
+      
+      <div class="service_card">
+        <div class="service_icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </div>
+        <h3 class="service_title">Furniture Moving</h3>
+        <p class="service_description">
+          Specialized furniture moving and rearrangement services. From single pieces to entire households, we move your furniture safely.
+        </p>
+      </div>
+      
+      <div class="service_card">
+        <div class="service_icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <h3 class="service_title">Same Building Moves</h3>
+        <p class="service_description">
+          Moving within the same building? We specialize in same-building relocations, making your move seamless and stress-free.
+        </p>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- Service Areas Section -->
-<section class="areas">
-    <div class="container">
-        <div class="section-header">
-            <h2>We Serve All of Chicago</h2>
-            <p>From the Loop to the suburbs, we provide moving services across all Chicago neighborhoods and surrounding areas.</p>
+<!-- About Section -->
+<section id="about" class="section_container">
+  <div class="section_wrapper">
+    <h2 class="section_headerText">
+      Why Choose <span class="section_highlight">Fairplay</span> Moving?
+    </h2>
+    
+    <div class="about_content">
+      <div class="about_contentLeft">
+        <div class="about_section">
+          <div class="about_sectionContent">
+            <h4>Licensed & Insured</h4>
+            <p>
+              We are fully licensed and insured moving company in Illinois. Our ILCC License #241666 ensures you're working with legitimate professionals who protect your belongings.
+            </p>
+          </div>
         </div>
         
-        <div class="areas-grid">
-            <div class="area-card">
-                <h4>Downtown Chicago</h4>
-                <p>The Loop, River North, Streeterville</p>
-            </div>
-            <div class="area-card">
-                <h4>North Side</h4>
-                <p>Lincoln Park, Lakeview, Wicker Park</p>
-            </div>
-            <div class="area-card">
-                <h4>South Side</h4>
-                <p>Hyde Park, Bridgeport, Bronzeville</p>
-            </div>
-            <div class="area-card">
-                <h4>West Side</h4>
-                <p>West Loop, Ukrainian Village, Logan Square</p>
-            </div>
-            <div class="area-card">
-                <h4>Northwest Side</h4>
-                <p>Portage Park, Belmont Cragin, Dunning</p>
-            </div>
-            <div class="area-card">
-                <h4>Southwest Side</h4>
-                <p>Garfield Ridge, Clearing, Ashburn</p>
-            </div>
-            <div class="area-card">
-                <h4>Far North Side</h4>
-                <p>Rogers Park, Edgewater, Uptown</p>
-            </div>
-            <div class="area-card">
-                <h4>Far South Side</h4>
-                <p>Morgan Park, Beverly, Mount Greenwood</p>
-            </div>
+        <div class="about_section">
+          <div class="about_sectionContent">
+            <h4>Local Chicago Experts</h4>
+            <p>
+              Based in Chicago at 2117 W Hubbard St, we know the city inside and out. From downtown high-rises to suburban homes, we navigate Chicago's unique moving challenges with ease.
+            </p>
+          </div>
         </div>
         
-        <div class="text-center mt-8">
-            <a href="/areas/" class="btn btn-primary">View All Service Areas</a>
+        <div class="about_section">
+          <div class="about_sectionContent">
+            <h4>Professional Team</h4>
+            <p>
+              Our experienced moving professionals are trained to handle all types of moves with care and efficiency. We treat your belongings as if they were our own.
+            </p>
+          </div>
         </div>
+        
+        <div class="about_section">
+          <div class="about_sectionContent">
+            <h4>Transparent Pricing</h4>
+            <p>
+              No hidden fees or surprise charges. We provide clear, upfront quotes so you know exactly what to expect. Contact us at (312) 858-0611 for a free estimate.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="about_contentRight">
+        <div class="about_sectionWithIcon">
+          <div class="about_iconWrapper">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <div class="about_sectionContent">
+            <h4>Reliable Service</h4>
+            <p>We show up on time and complete your move efficiently.</p>
+          </div>
+        </div>
+        
+        <div class="about_sectionWithIcon">
+          <div class="about_iconWrapper">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <div class="about_sectionContent">
+            <h4>Careful Handling</h4>
+            <p>Your belongings are protected with quality materials and techniques.</p>
+          </div>
+        </div>
+        
+        <div class="about_sectionWithIcon">
+          <div class="about_iconWrapper">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <div class="about_sectionContent">
+            <h4>Competitive Rates</h4>
+            <p>Quality moving services at fair, competitive prices.</p>
+          </div>
+        </div>
+        
+        <div class="about_sectionWithIcon">
+          <div class="about_iconWrapper">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <div class="about_sectionContent">
+            <h4>Customer Focused</h4>
+            <p>Your satisfaction is our top priority on every move.</p>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- CTA Section -->
-<section class="cta">
-    <div class="container">
-        <h2>Ready to Move?</h2>
-        <p>Get your free moving quote in seconds. Just enter your ZIP code to get started.</p>
+<!-- Advanced Quote Form Section -->
+<section id="quote" class="section_container" style="background-color: var(--background-gray-0);">
+  <div class="section_wrapper">
+    <h2 class="section_headerText">
+      Get Your <span class="section_highlight">Moving</span> Quote
+    </h2>
+    
+    <div class="quoteForm_container">
+      <div class="quoteForm_header">
+        <h2>Moving Quote Request</h2>
+        <p>Tell us about your move and we'll provide a detailed quote</p>
+      </div>
+      
+      <div class="quoteForm_body">
+        <div class="quoteForm_progress">
+          <div class="quoteForm_progressDot active"></div>
+          <div class="quoteForm_progressDot"></div>
+          <div class="quoteForm_progressDot"></div>
+          <div class="quoteForm_progressDot"></div>
+        </div>
         
-        <form class="zip-check-form cta-form">
-            <input type="text" name="zip" placeholder="Enter your ZIP code" pattern="[0-9]{5}" maxlength="5" required>
-            <button type="submit" class="btn btn-primary">Check Availability</button>
+        <form class="quoteForm_form" action="https://formspree.io/f/YOUR_FORMSPREE_FORM_ID" method="POST">
+          <!-- Step 1: Basic Move Info -->
+          <div class="quoteForm_step active" data-step="1">
+            <h3 class="quoteForm_stepTitle">Move Details</h3>
+            <div class="quoteForm_fields">
+              <div class="quoteForm_fieldRow">
+                <div class="quoteForm_fieldGroup">
+                  <label for="move_date">Move Date</label>
+                  <input type="date" id="move_date" name="move_date" required>
+                </div>
+                <div class="quoteForm_fieldGroup">
+                  <label for="move_size">Move Size</label>
+                  <select id="move_size" name="move_size" required>
+                    <option value="">Select size</option>
+                    <option value="studio">Studio Apartment</option>
+                    <option value="1-bedroom">1 Bedroom</option>
+                    <option value="2-bedroom">2 Bedroom</option>
+                    <option value="3-bedroom">3 Bedroom</option>
+                    <option value="4-bedroom">4+ Bedroom</option>
+                    <option value="office">Office/Commercial</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div class="quoteForm_fieldRow">
+                <div class="quoteForm_fieldGroup">
+                  <label for="from_zip">From ZIP Code</label>
+                  <input type="text" id="from_zip" name="from_zip" pattern="[0-9]{5}" maxlength="5" required>
+                </div>
+                <div class="quoteForm_fieldGroup">
+                  <label for="to_zip">To ZIP Code</label>
+                  <input type="text" id="to_zip" name="to_zip" pattern="[0-9]{5}" maxlength="5" required>
+                </div>
+              </div>
+              
+              <div class="quoteForm_fieldRow">
+                <div class="quoteForm_fieldGroup">
+                  <label for="from_stairs">Stairs at Origin</label>
+                  <select id="from_stairs" name="from_stairs" required>
+                    <option value="">Select option</option>
+                    <option value="none">No stairs</option>
+                    <option value="elevator">Elevator</option>
+                    <option value="1-flight">1 Flight</option>
+                    <option value="2-flights">2 Flights</option>
+                    <option value="3-flights">3 Flights</option>
+                    <option value="4-flights">4 Flights</option>
+                    <option value="4-plus">4+ Flights</option>
+                  </select>
+                </div>
+                <div class="quoteForm_fieldGroup">
+                  <label for="to_stairs">Stairs at Destination</label>
+                  <select id="to_stairs" name="to_stairs" required>
+                    <option value="">Select option</option>
+                    <option value="none">No stairs</option>
+                    <option value="elevator">Elevator</option>
+                    <option value="1-flight">1 Flight</option>
+                    <option value="2-flights">2 Flights</option>
+                    <option value="3-flights">3 Flights</option>
+                    <option value="4-flights">4 Flights</option>
+                    <option value="4-plus">4+ Flights</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Step 2: Services Needed -->
+          <div class="quoteForm_step" data-step="2">
+            <h3 class="quoteForm_stepTitle">Services Needed</h3>
+            <div class="quoteForm_fields">
+              <div class="quoteForm_fieldGroup">
+                <label>Select all services you need:</label>
+                <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 8px;">
+                  <label style="display: flex; align-items: center; gap: 8px; font-weight: normal;">
+                    <input type="checkbox" name="services[]" value="moving" style="width: 16px; height: 16px;">
+                    Moving (Transportation)
+                  </label>
+                  <label style="display: flex; align-items: center; gap: 8px; font-weight: normal;">
+                    <input type="checkbox" name="services[]" value="packing" style="width: 16px; height: 16px;">
+                    Packing Services
+                  </label>
+                  <label style="display: flex; align-items: center; gap: 8px; font-weight: normal;">
+                    <input type="checkbox" name="services[]" value="loading" style="width: 16px; height: 16px;">
+                    Loading/Unloading
+                  </label>
+                  <label style="display: flex; align-items: center; gap: 8px; font-weight: normal;">
+                    <input type="checkbox" name="services[]" value="commercial" style="width: 16px; height: 16px;">
+                    Commercial Moving
+                  </label>
+                  <label style="display: flex; align-items: center; gap: 8px; font-weight: normal;">
+                    <input type="checkbox" name="services[]" value="furniture" style="width: 16px; height: 16px;">
+                    Furniture Rearrangement
+                  </label>
+                  <label style="display: flex; align-items: center; gap: 8px; font-weight: normal;">
+                    <input type="checkbox" name="services[]" value="same-building" style="width: 16px; height: 16px;">
+                    Same Building Move
+                  </label>
+                </div>
+              </div>
+              
+              <div class="quoteForm_fieldGroup">
+                <label for="special_requirements">Special Requirements or Notes</label>
+                <textarea id="special_requirements" name="special_requirements" rows="4" placeholder="Tell us about any special items, access restrictions, or specific needs..."></textarea>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Step 3: Contact Information -->
+          <div class="quoteForm_step" data-step="3">
+            <h3 class="quoteForm_stepTitle">Contact Information</h3>
+            <div class="quoteForm_fields">
+              <div class="quoteForm_fieldRow">
+                <div class="quoteForm_fieldGroup">
+                  <label for="first_name">First Name</label>
+                  <input type="text" id="first_name" name="first_name" required>
+                </div>
+                <div class="quoteForm_fieldGroup">
+                  <label for="last_name">Last Name</label>
+                  <input type="text" id="last_name" name="last_name" required>
+                </div>
+              </div>
+              
+              <div class="quoteForm_fieldRow">
+                <div class="quoteForm_fieldGroup">
+                  <label for="email">Email Address</label>
+                  <input type="email" id="email" name="email" required>
+                </div>
+                <div class="quoteForm_fieldGroup">
+                  <label for="phone">Phone Number</label>
+                  <input type="tel" id="phone" name="phone" required>
+                </div>
+              </div>
+              
+              <div class="quoteForm_fieldGroup">
+                <label for="preferred_contact">Preferred Contact Method</label>
+                <select id="preferred_contact" name="preferred_contact" required>
+                  <option value="">Select method</option>
+                  <option value="phone">Phone</option>
+                  <option value="email">Email</option>
+                  <option value="both">Both</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Step 4: Inventory (Optional) -->
+          <div class="quoteForm_step" data-step="4">
+            <h3 class="quoteForm_stepTitle">Inventory (Optional)</h3>
+            <div class="quoteForm_fields">
+              <div class="inventory_container">
+                <div class="inventory_header">
+                  <div class="inventory_title">Add Items for More Accurate Quote</div>
+                  <button type="button" class="inventory_toggle">Add Inventory</button>
+                </div>
+                
+                <div class="inventory_categories">
+                  <!-- Bedroom/Nursery -->
+                  <div class="inventory_category">
+                    <div class="inventory_categoryHeader">
+                      <span>Bedroom / Nursery</span>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6,9 12,15 18,9"/>
+                      </svg>
+                    </div>
+                    <div class="inventory_items">
+                      <div class="inventory_item">
+                        <input type="checkbox" id="bed_king" value="bed_king">
+                        <label for="bed_king">King Size Bed</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="bed_queen" value="bed_queen">
+                        <label for="bed_queen">Queen Size Bed</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="bed_full" value="bed_full">
+                        <label for="bed_full">Full Size Bed</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="bed_twin" value="bed_twin">
+                        <label for="bed_twin">Twin Bed</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="dresser_large" value="dresser_large">
+                        <label for="dresser_large">Large Dresser</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="dresser_small" value="dresser_small">
+                        <label for="dresser_small">Small Dresser</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="nightstand" value="nightstand">
+                        <label for="nightstand">Nightstand</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="wardrobe" value="wardrobe">
+                        <label for="wardrobe">Wardrobe/Armoire</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="crib" value="crib">
+                        <label for="crib">Baby Crib</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="changing_table" value="changing_table">
+                        <label for="changing_table">Changing Table</label>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Living Room / Family Room -->
+                  <div class="inventory_category">
+                    <div class="inventory_categoryHeader">
+                      <span>Living Room / Family Room</span>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6,9 12,15 18,9"/>
+                      </svg>
+                    </div>
+                    <div class="inventory_items">
+                      <div class="inventory_item">
+                        <input type="checkbox" id="sofa_sectional" value="sofa_sectional">
+                        <label for="sofa_sectional">Sectional Sofa</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="sofa_3seat" value="sofa_3seat">
+                        <label for="sofa_3seat">3-Seat Sofa</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="sofa_love" value="sofa_love">
+                        <label for="sofa_love">Love Seat</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="coffee_table" value="coffee_table">
+                        <label for="coffee_table">Coffee Table</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="end_table" value="end_table">
+                        <label for="end_table">End Table</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="tv_stand" value="tv_stand">
+                        <label for="tv_stand">TV Stand</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="bookshelf" value="bookshelf">
+                        <label for="bookshelf">Bookshelf</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="entertainment_center" value="entertainment_center">
+                        <label for="entertainment_center">Entertainment Center</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="recliner" value="recliner">
+                        <label for="recliner">Recliner/Chair</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="ottoman" value="ottoman">
+                        <label for="ottoman">Ottoman</label>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Office -->
+                  <div class="inventory_category">
+                    <div class="inventory_categoryHeader">
+                      <span>Office</span>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6,9 12,15 18,9"/>
+                      </svg>
+                    </div>
+                    <div class="inventory_items">
+                      <div class="inventory_item">
+                        <input type="checkbox" id="desk_executive" value="desk_executive">
+                        <label for="desk_executive">Executive Desk</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="desk_regular" value="desk_regular">
+                        <label for="desk_regular">Regular Desk</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="office_chair" value="office_chair">
+                        <label for="office_chair">Office Chair</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="filing_cabinet" value="filing_cabinet">
+                        <label for="filing_cabinet">Filing Cabinet</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="bookshelf_large" value="bookshelf_large">
+                        <label for="bookshelf_large">Large Bookshelf</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="computer" value="computer">
+                        <label for="computer">Computer/Desktop</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="printer" value="printer">
+                        <label for="printer">Printer/Scanner</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="office_credenza" value="office_credenza">
+                        <label for="office_credenza">Credenza</label>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Dining Room -->
+                  <div class="inventory_category">
+                    <div class="inventory_categoryHeader">
+                      <span>Dining Room</span>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6,9 12,15 18,9"/>
+                      </svg>
+                    </div>
+                    <div class="inventory_items">
+                      <div class="inventory_item">
+                        <input type="checkbox" id="dining_table" value="dining_table">
+                        <label for="dining_table">Dining Table</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="dining_chairs" value="dining_chairs">
+                        <label for="dining_chairs">Dining Chairs (set)</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="china_cabinet" value="china_cabinet">
+                        <label for="china_cabinet">China Cabinet</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="buffet" value="buffet">
+                        <label for="buffet">Buffet/Sideboard</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="bar_stools" value="bar_stools">
+                        <label for="bar_stools">Bar Stools</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="wine_rack" value="wine_rack">
+                        <label for="wine_rack">Wine Rack</label>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Appliances -->
+                  <div class="inventory_category">
+                    <div class="inventory_categoryHeader">
+                      <span>Appliances</span>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6,9 12,15 18,9"/>
+                      </svg>
+                    </div>
+                    <div class="inventory_items">
+                      <div class="inventory_item">
+                        <input type="checkbox" id="fridge" value="fridge">
+                        <label for="fridge">Refrigerator</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="washer" value="washer">
+                        <label for="washer">Washing Machine</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="dryer" value="dryer">
+                        <label for="dryer">Dryer</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="dishwasher" value="dishwasher">
+                        <label for="dishwasher">Dishwasher</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="stove" value="stove">
+                        <label for="stove">Stove/Oven</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="microwave" value="microwave">
+                        <label for="microwave">Microwave</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="freezer" value="freezer">
+                        <label for="freezer">Freezer</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="ac_unit" value="ac_unit">
+                        <label for="ac_unit">AC Unit</label>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Boxes & Custom Items -->
+                  <div class="inventory_category">
+                    <div class="inventory_categoryHeader">
+                      <span>Boxes & Custom Items</span>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6,9 12,15 18,9"/>
+                      </svg>
+                    </div>
+                    <div class="inventory_items">
+                      <div class="inventory_item">
+                        <input type="checkbox" id="boxes_small" value="boxes_small">
+                        <label for="boxes_small">Small Boxes (approx.)</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="boxes_medium" value="boxes_medium">
+                        <label for="boxes_medium">Medium Boxes (approx.)</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="boxes_large" value="boxes_large">
+                        <label for="boxes_large">Large Boxes (approx.)</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="wardrobe_boxes" value="wardrobe_boxes">
+                        <label for="wardrobe_boxes">Wardrobe Boxes</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="mirror_picture" value="mirror_picture">
+                        <label for="mirror_picture">Mirrors/Pictures</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="lamp" value="lamp">
+                        <label for="lamp">Lamps</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="rug" value="rug">
+                        <label for="rug">Rugs</label>
+                      </div>
+                      <div class="inventory_item">
+                        <input type="checkbox" id="plants" value="plants">
+                        <label for="plants">Plants</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="quoteForm_navigation">
+            <button type="button" class="quoteForm_backButton" style="display: none;">Back</button>
+            <div></div>
+            <button type="button" class="quoteForm_nextButton">Next</button>
+          </div>
         </form>
+      </div>
     </div>
+  </div>
 </section>
