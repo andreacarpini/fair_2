@@ -35,7 +35,7 @@
             font-family: 'Inter', sans-serif;
         }
         
-        /* iPhone text sizing */
+        /* iPhone text sizing and padding */
         @media only screen and (max-device-width: 480px) {
             html {
                 -webkit-text-size-adjust: none;
@@ -58,6 +58,11 @@
             .text-lg {
                 font-size: 0.875rem !important;
             }
+            /* Increased side padding for iPhone */
+            .px-4, .px-6, .sm\\:px-6 {
+                padding-left: 1.5rem !important;
+                padding-right: 1.5rem !important;
+            }
         }
         
         /* Gradient text */
@@ -79,6 +84,7 @@
             background-size: 400% 400%;
             animation: gradientShift 3s ease-in-out infinite;
             transition: all 0.3s ease;
+            border: none;
         }
         
         .quote-btn:hover {
@@ -111,6 +117,13 @@
         .isometric-illustration > div {
             transform: rotateX(10deg) rotateY(-10deg);
             box-shadow: 20px 20px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        /* Hover float effect for isometric illustrations */
+        .hover-float:hover > div {
+            transform: rotateX(5deg) rotateY(-5deg) translateY(-10px);
+            box-shadow: 25px 25px 50px rgba(0,0,0,0.15);
         }
         
         /* Scroll reveal animations */
@@ -128,19 +141,32 @@
         /* FAQ styles */
         .faq-question.active i {
             transform: rotate(90deg);
+            transition: transform 0.3s ease;
         }
         
         .faq-answer {
             transition: all 0.3s ease;
         }
         
-        /* Navigation styles */
+        /* Transparent navigation */
         .navbar {
-            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-            position: relative;
+            background: transparent;
+            position: absolute;
             top: 0;
             width: 100%;
             z-index: 50;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        /* Navigation text auto-adjust for visibility */
+        .navbar a {
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .navbar a:hover {
+            color: rgba(255,255,255,0.8);
         }
         
         /* Mobile menu */
@@ -164,6 +190,40 @@
         button:focus {
             outline: 2px solid #3b82f6;
             outline-offset: 2px;
+        }
+        
+        /* Ensure FAQ items are visible */
+        .faq-item {
+            border: 1px solid #e5e7eb;
+            overflow: hidden;
+        }
+        
+        .faq-answer:not(.hidden) {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Service cards visibility */
+        .service-card {
+            opacity: 1;
+            transform: none;
+        }
+        
+        /* Modal backdrop */
+        .fixed.inset-0 {
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
         }
     </style>
 </head>
@@ -335,13 +395,49 @@
                 document.querySelectorAll('.faq-item').forEach(otherItem => {
                     if (otherItem !== faqItem) {
                         const otherAnswer = otherItem.querySelector('.faq-answer');
-                        const otherIcon = otherItem.querySelector('.faq-question i');
                         otherAnswer.classList.add('hidden');
                         otherItem.querySelector('.faq-question').classList.remove('active');
                     }
                 });
             });
         });
+        
+        // Quote modal functionality
+        const openQuoteBtn = document.getElementById('open-quote-modal');
+        const openQuoteBtn2 = document.getElementById('open-quote-modal-2');
+        const quoteModal = document.getElementById('quote-modal');
+        const closeQuoteBtn = document.getElementById('close-quote-modal');
+        
+        function openQuoteModal() {
+            quoteModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeQuoteModal() {
+            quoteModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        
+        if (openQuoteBtn && quoteModal) {
+            openQuoteBtn.addEventListener('click', openQuoteModal);
+        }
+        
+        if (openQuoteBtn2 && quoteModal) {
+            openQuoteBtn2.addEventListener('click', openQuoteModal);
+        }
+        
+        if (closeQuoteBtn && quoteModal) {
+            closeQuoteBtn.addEventListener('click', closeQuoteModal);
+        }
+        
+        // Close modal when clicking outside
+        if (quoteModal) {
+            quoteModal.addEventListener('click', (e) => {
+                if (e.target === quoteModal) {
+                    closeQuoteModal();
+                }
+            });
+        }
         
         // Reviews modal functionality
         const showMoreBtn = document.getElementById('show-more-reviews');
@@ -368,6 +464,80 @@
             });
         }
         
+        // Service areas - random display
+        const allAreas = [
+            { name: "The Loop", area: "Downtown Chicago" },
+            { name: "Lincoln Park", area: "North Side" },
+            { name: "Lakeview", area: "North Side" },
+            { name: "Wicker Park", area: "West Side" },
+            { name: "Bucktown", area: "West Side" },
+            { name: "Hyde Park", area: "South Side" },
+            { name: "Logan Square", area: "Northwest Side" },
+            { name: "Andersonville", area: "North Side" },
+            { name: "Evanston", area: "North Suburb" },
+            { name: "Oak Park", area: "West Suburb" },
+            { name: "Cicero", area: "West Suburb" },
+            { name: "Berwyn", area: "West Suburb" },
+            { name: "Forest Park", area: "West Suburb" },
+            { name: "River North", area: "Downtown" },
+            { name: "Streeterville", area: "Downtown" },
+            { name: "Gold Coast", area: "Downtown" },
+            { name: "Old Town", area: "North Side" },
+            { name: "Roscoe Village", area: "North Side" },
+            { name: "North Center", area: "North Side" },
+            { name: "Avondale", area: "Northwest Side" },
+            { name: "Irving Park", area: "Northwest Side" },
+            { name: "Portage Park", area: "Northwest Side" },
+            { name: "Jefferson Park", area: "Northwest Side" },
+            { name: "Mayfair", area: "Northwest Side" },
+            { name: "Albany Park", area: "North Side" },
+            { name: "North Park", area: "North Side" },
+            { name: "Rogers Park", area: "North Side" },
+            { name: "West Ridge", area: "North Side" },
+            { name: "Lincoln Square", area: "North Side" },
+            { name: "Uptown", area: "North Side" },
+            { name: "Edgewater", area: "North Side" },
+            { name: "Bronzeville", area: "South Side" },
+            { name: "Bridgeport", area: "South Side" },
+            { name: "Chinatown", area: "South Side" },
+            { name: "Pilsen", area: "South Side" },
+            { name: "Little Italy", area: "West Side" },
+            { name: "Greektown", area: "West Side" },
+            { name: "West Loop", area: "Downtown" },
+            { name: "South Loop", area: "Downtown" },
+            { name: "Printer's Row", area: "Downtown" },
+            { name: "Museum Campus", area: "Downtown" },
+            { name: "Grant Park", area: "Downtown" },
+            { name: "Millennium Park", area: "Downtown" }
+        ];
+        
+        function displayRandomAreas() {
+            const areasContainer = document.getElementById('service-areas');
+            if (!areasContainer) return;
+            
+            // Shuffle array and take first 12
+            const shuffled = [...allAreas].sort(() => 0.5 - Math.random());
+            const selected = shuffled.slice(0, 12);
+            
+            areasContainer.innerHTML = selected.map(area => `
+                <div class="bg-white rounded-lg p-4 text-center shadow-sm">
+                    <h4 class="font-semibold text-gray-900 mb-2">${area.name}</h4>
+                    <p class="text-sm text-gray-600">${area.area}</p>
+                </div>
+            `).join('');
+        }
+        
+        // Display areas on load
+        document.addEventListener('DOMContentLoaded', () => {
+            displayRandomAreas();
+            
+            // Refresh areas button
+            const refreshBtn = document.getElementById('refresh-areas');
+            if (refreshBtn) {
+                refreshBtn.addEventListener('click', displayRandomAreas);
+            }
+        });
+        
         // Scroll reveal animation
         const observerOptions = {
             threshold: 0.1,
@@ -389,7 +559,7 @@
         
         // Add scroll-reveal class to elements that should animate
         document.addEventListener('DOMContentLoaded', () => {
-            const elementsToAnimate = document.querySelectorAll('.service-card, .area-card, .faq-item');
+            const elementsToAnimate = document.querySelectorAll('.service-card, .faq-item');
             elementsToAnimate.forEach(el => {
                 el.classList.add('scroll-reveal');
             });
