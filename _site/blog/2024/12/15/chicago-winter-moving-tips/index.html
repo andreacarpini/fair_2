@@ -271,6 +271,26 @@
             padding-top: 100px;
             z-index: 2;
         }
+        #moving-image {
+    will-change: transform; /* Optimizes animations */
+    backface-visibility: hidden; /* Prevents flickering */
+}
+
+/* Optional: Add a subtle floating animation when not scrolling */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Apply floating animation when not scrolling (optional) */
+#moving-image {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Pause floating animation on hover (optional) */
+#moving-image:hover {
+    animation-play-state: paused;
+}
         
     </style>
 </head>
@@ -800,5 +820,41 @@
             }
         });
     </script>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const image = document.getElementById('moving-image');
+    const container = document.getElementById('parallax-image');
+    
+    // Only apply parallax on desktop (lg and above)
+    function handleParallax() {
+        if (window.innerWidth >= 1024) { // lg breakpoint
+            const speed = 0.3; // Adjust this value to change parallax speed (lower = slower)
+            const scrollY = window.scrollY || window.pageYOffset;
+            
+            // Calculate the vertical movement
+            const yPos = -(scrollY * speed);
+            
+            // Apply the transform
+            image.style.transform = `translateY(${yPos}px)`;
+            
+            // Optional: Add slight rotation for 3D effect (remove if not needed)
+            // const rotation = scrollY * 0.01;
+            // image.style.transform = `translateY(${yPos}px) rotate(${rotation}deg)`;
+        } else {
+            // Reset transform on mobile
+            image.style.transform = 'translateY(0)';
+        }
+    }
+    
+    // Listen to scroll events
+    window.addEventListener('scroll', handleParallax, { passive: true });
+    
+    // Listen to resize events to handle screen size changes
+    window.addEventListener('resize', handleParallax);
+    
+    // Initialize
+    handleParallax();
+});
+</script>
 </body>
 </html>
