@@ -738,7 +738,7 @@ description: "Licensed and insured moving company in Chicago. Local and long-dis
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Stairs at From Location</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Stairs at Pickup</label>
                             <select name="from_stairs" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                                 <option value="no">No Stairs</option>
                                 <option value="elevator">Elevator</option>
@@ -749,7 +749,7 @@ description: "Licensed and insured moving company in Chicago. Local and long-dis
                             </select>
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Stairs at To Location</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Stairs at Destination</label>
                             <select name="to_stairs" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                                 <option value="no">No Stairs</option>
                                 <option value="elevator">Elevator</option>
@@ -762,15 +762,21 @@ description: "Licensed and insured moving company in Chicago. Local and long-dis
                     </div>
                     
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Home Size</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Moving Size *</label>
                         <select name="home_size" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                            <option value="">Select home size</option>
+                            <option value="">Select Home Size</option>
+                            <option value="room">Room or Less</option>
                             <option value="studio">Studio</option>
                             <option value="1br">1 Bedroom</option>
                             <option value="2br">2 Bedroom</option>
                             <option value="3br">3 Bedroom</option>
                             <option value="4br">4+ Bedroom</option>
-                            <option value="office">Office/Commercial</option>
+                            <option value=""five_by_ten>Storage Unit 5x10</option>
+                            <option value="five_by_fifteen">Storage Unit 5x15</option>
+                            <option value="ten_by_ten">Storage Unit 10x10</option>
+                            <option value="ten_by_fifteen">Storage Unit 10x15</option>
+                            <option value="ten_by_twenty">Storage Unit 10x20</option>
+                            <option value="office">Office / Commercial</option>
                         </select>
                     </div>
                     
@@ -792,12 +798,21 @@ description: "Licensed and insured moving company in Chicago. Local and long-dis
                             </label>
                             <label class="flex items-center">
                                 <input type="checkbox" name="services" value="storage" class="mr-2">
-                                <span class="text-sm">Storage</span>
+                                <span class="text-sm">Storage Solution</span>
                             </label>
                             <label class="flex items-center">
                                 <input type="checkbox" name="services" value="loading" class="mr-2">
-                                <span class="text-sm">Loading Only</span>
+                                <span class="text-sm">Loading / Unloading Only</span>
                             </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" name="services" value="rearrangement" class="mr-2">
+                                <span class="text-sm">Rearrangement Only</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" name="services" value="same_building" class="mr-2">
+                                <span class="text-sm">Same Building Move</span>
+                            </label>
+
                         </div>
                     </div>
                     
