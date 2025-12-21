@@ -321,6 +321,7 @@
     top: 0;
     width: auto;
 }     
+
     </style>
 </head>
 <body class="bg-gray-50">
@@ -949,28 +950,45 @@ if (quoteForm) {
         });
     });
     
-    // Date input improvements for mobile
-    const dateInput = quoteForm.querySelector('input[type="date"]');
-    if (dateInput) {
-        // Set min date to today
-        const today = new Date().toISOString().split('T')[0];
-        dateInput.min = today;
-        
-        // Add placeholder text
-        dateInput.addEventListener('focus', function() {
-            if (!this.value) {
-                this.type = 'date';
-            }
-        });
-        
-        dateInput.addEventListener('blur', function() {
-            if (!this.value) {
-                this.type = 'text';
-                this.placeholder = 'Select date';
-            }
-        });
+// Date picker control
+const dateInput = document.getElementById('move-date-input');
+const datePlaceholder = document.getElementById('date-placeholder');
+
+if (dateInput && datePlaceholder) {
+    // Set min date to today
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.min = today;
+    
+    // Hide/show placeholder based on value
+    function updateDateDisplay() {
+        if (dateInput.value) {
+            datePlaceholder.style.display = 'none';
+            dateInput.style.color = '#1f2937';
+        } else {
+            datePlaceholder.style.display = 'block';
+            dateInput.style.color = 'transparent';
+        }
     }
     
+    // Initial check
+    updateDateDisplay();
+    
+    // Update on change
+    dateInput.addEventListener('change', updateDateDisplay);
+    dateInput.addEventListener('input', updateDateDisplay);
+    
+    // Also update when modal opens (in case it was reset)
+    const quoteModal = document.getElementById('quote-modal');
+    if (quoteModal) {
+        // When modal opens, check date field
+        const modalTriggers = document.querySelectorAll('[id^="open-quote-modal"]');
+        modalTriggers.forEach(trigger => {
+            trigger.addEventListener('click', function() {
+                setTimeout(updateDateDisplay, 100);
+            });
+        });
+    }
+}
     // Form submission
     quoteForm.addEventListener('submit', async function(e) {
         e.preventDefault();
