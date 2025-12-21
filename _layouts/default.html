@@ -281,7 +281,30 @@
     animation: float 6s ease-in-out infinite;
     transform-style: preserve-3d;
 }
-        
+
+   #quote-modal input[type="date"] {
+    position: relative;
+    /* FIX: Force iOS to respect the container width */
+    -webkit-appearance: none; 
+    min-width: 0; 
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Optional: If the calendar icon disappears after adding -webkit-appearance: none, 
+   you can use this to ensure it remains clickable across the whole field */
+#quote-modal input[type="date"]::-webkit-calendar-picker-indicator {
+    background: transparent;
+    bottom: 0;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+}     
     </style>
 </head>
 <body class="bg-gray-50">
