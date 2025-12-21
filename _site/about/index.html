@@ -468,6 +468,23 @@
         .touch-safe:active {
             opacity: 0.8;
         }
+        
+        /* Form persistence styles */
+        .form-data-saved {
+            border-color: #10b981 !important;
+            background-color: #f0fdf4 !important;
+        }
+        
+        .form-data-saved::after {
+            content: '✓ Saved';
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.75rem;
+            color: #10b981;
+            font-weight: 600;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -759,7 +776,7 @@
             setupTouchHandlers();
         });
         
-        // Quote modal functionality
+        // Quote modal functionality - with form persistence
         const quoteModal = document.getElementById('quote-modal');
         const closeQuoteBtn = document.getElementById('close-quote-modal');
         
@@ -767,14 +784,144 @@
         const quoteButtons = [
             document.getElementById('open-quote-modal'),
             document.getElementById('open-quote-modal-2'),
+            document.getElementById('open-quote-modal-3'),
+            document.getElementById('open-quote-modal-4'),
+            document.getElementById('open-quote-modal-5'),
+            document.getElementById('open-quote-modal-6'),
+            document.getElementById('open-quote-modal-7'),
+            document.getElementById('open-quote-modal-8'),
+            document.getElementById('open-quote-modal-9'),
             document.getElementById('open-quote-modal-nav'),
             document.getElementById('open-quote-modal-mobile')
         ].filter(btn => btn !== null);
         
+        // Form persistence variables
+        let formData = {};
+        let isFormSubmitted = false;
+        
+        // Function to save form data to localStorage
+        function saveFormData() {
+            const quoteForm = document.getElementById('quote-form');
+            if (!quoteForm) return;
+            
+            const formElements = quoteForm.querySelectorAll('input, select, textarea');
+            formData = {};
+            
+            formElements.forEach(element => {
+                if (element.type === 'checkbox') {
+                    // Handle checkboxes
+                    formData[element.name] = element.checked;
+                } else if (element.type === 'radio') {
+                    // Handle radio buttons
+                    if (element.checked) {
+                        formData[element.name] = element.value;
+                    }
+                } else {
+                    // Handle other inputs
+                    formData[element.name] = element.value;
+                }
+            });
+            
+            // Save to localStorage
+            localStorage.setItem('quoteFormData', JSON.stringify(formData));
+        }
+        
+        // Function to load form data from localStorage
+        function loadFormData() {
+            const quoteForm = document.getElementById('quote-form');
+            if (!quoteForm) return;
+            
+            const savedData = localStorage.getItem('quoteFormData');
+            if (!savedData) return;
+            
+            try {
+                formData = JSON.parse(savedData);
+                
+                // Populate form fields
+                const formElements = quoteForm.querySelectorAll('input, select, textarea');
+                
+                formElements.forEach(element => {
+                    if (element.name && formData[element.name] !== undefined) {
+                        if (element.type === 'checkbox') {
+                            // Handle checkboxes
+                            element.checked = formData[element.name];
+                        } else if (element.type === 'radio') {
+                            // Handle radio buttons
+                            if (element.value === formData[element.name]) {
+                                element.checked = true;
+                            }
+                        } else {
+                            // Handle other inputs
+                            element.value = formData[element.name];
+                            
+                            // Add visual indicator for saved data
+                            if (element.value && element.value.trim() !== '') {
+                                element.classList.add('form-data-saved');
+                            }
+                        }
+                        
+                        // Trigger change event for date field
+                        if (element.type === 'date' && element.value) {
+                            element.dispatchEvent(new Event('change'));
+                        }
+                    }
+                });
+                
+                console.log('Form data loaded from storage');
+            } catch (error) {
+                console.error('Error loading form data:', error);
+                // Clear corrupted data
+                localStorage.removeItem('quoteFormData');
+            }
+        }
+        
+        // Function to clear form data
+        function clearFormData() {
+            const quoteForm = document.getElementById('quote-form');
+            if (!quoteForm) return;
+            
+            // Clear form
+            quoteForm.reset();
+            
+            // Clear saved data
+            formData = {};
+            localStorage.removeItem('quoteFormData');
+            
+            // Remove visual indicators
+            const formElements = quoteForm.querySelectorAll('input, select, textarea');
+            formElements.forEach(element => {
+                element.classList.remove('form-data-saved');
+            });
+            
+            // Reset success message if visible
+            const successMessage = document.getElementById('success-message');
+            if (successMessage && !successMessage.classList.contains('hidden')) {
+                quoteForm.style.display = 'block';
+                successMessage.classList.add('hidden');
+            }
+            
+            // Reset date placeholder
+            const dateInput = document.getElementById('move-date-input');
+            const datePlaceholder = document.getElementById('date-placeholder');
+            if (dateInput && datePlaceholder) {
+                datePlaceholder.style.display = 'block';
+                dateInput.style.color = 'transparent';
+            }
+            
+            isFormSubmitted = false;
+        }
+        
+        // Function to open quote modal
         function openQuoteModal() {
             if (quoteModal) {
                 quoteModal.classList.remove('hidden');
                 document.body.style.overflow = 'hidden';
+                
+                // Load saved form data
+                setTimeout(() => {
+                    loadFormData();
+                }, 100);
+                
                 // Close mobile menu if open
                 if (mobileMenu) {
                     mobileMenu.classList.remove('active');
@@ -782,18 +929,16 @@
             }
         }
         
+        // Function to close quote modal WITHOUT resetting form
         function closeQuoteModal() {
             if (quoteModal) {
                 quoteModal.classList.add('hidden');
                 document.body.style.overflow = 'auto';
                 
-                // Reset form state if needed
-                const quoteForm = document.getElementById('quote-form');
-                const successMessage = document.getElementById('success-message');
-                if (quoteForm && successMessage) {
-                    quoteForm.style.display = 'block';
-                    successMessage.classList.add('hidden');
-                    quoteForm.reset();
+                // Only reset form if it was successfully submitted
+                if (!isFormSubmitted) {
+                    // Save form data before closing
+                    saveFormData();
                 }
             }
         }
@@ -815,6 +960,47 @@
                 }
             });
         }
+        
+        // Save form data on input changes
+        document.addEventListener('DOMContentLoaded', function() {
+            const quoteForm = document.getElementById('quote-form');
+            if (quoteForm) {
+                // Save data when user types
+                quoteForm.addEventListener('input', function(e) {
+                    if (e.target.name) {
+                        saveFormData();
+                        
+                        // Add visual indicator for non-empty fields
+                        if (e.target.value && e.target.value.trim() !== '') {
+                            e.target.classList.add('form-data-saved');
+                        } else {
+                            e.target.classList.remove('form-data-saved');
+                        }
+                    }
+                });
+                
+                // Save data when checkboxes change
+                quoteForm.addEventListener('change', function(e) {
+                    if (e.target.name) {
+                        saveFormData();
+                        
+                        // Add visual indicator for checked checkboxes
+                        if (e.target.type === 'checkbox') {
+                            if (e.target.checked) {
+                                e.target.closest('label').classList.add('form-data-saved');
+                            } else {
+                                e.target.closest('label').classList.remove('form-data-saved');
+                            }
+                        }
+                    }
+                });
+                
+                // Initialize form with saved data
+                setTimeout(() => {
+                    loadFormData();
+                }, 500);
+            }
+        });
         
         // Reviews modal functionality
         const showMoreBtn = document.getElementById('show-more-reviews');
@@ -923,6 +1109,9 @@
             document.querySelectorAll('.faq-question i').forEach(icon => {
                 icon.style.transition = 'transform 0.3s ease';
             });
+            
+            // Load saved form data on page load
+            loadFormData();
         });
         
         // Scroll-based parallax
@@ -980,7 +1169,7 @@
             handleParallax();
         });
         
-        // Form validation and submission
+        // Form validation and submission - UPDATED for persistence
         const quoteForm = document.getElementById('quote-form');
         const successMessage = document.getElementById('success-message');
         
@@ -1001,6 +1190,9 @@
                     } else {
                         e.target.value = `(${value.substring(0, 3)}) ${value.substring(3, 6)}-${value.substring(6)}`;
                     }
+                    
+                    // Save after formatting
+                    saveFormData();
                 });
             }
             
@@ -1011,6 +1203,9 @@
                     let value = e.target.value.replace(/\D/g, '');
                     if (value.length > 5) value = value.substring(0, 5);
                     e.target.value = value;
+                    
+                    // Save after formatting
+                    saveFormData();
                 });
             });
             
@@ -1045,7 +1240,7 @@
                 });
             }
             
-            // Form submission
+            // Form submission - UPDATED to clear form only after successful submission
             quoteForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 
@@ -1058,8 +1253,8 @@
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Processing...';
                 submitBtn.disabled = true;
                 
-                const formData = new FormData(quoteForm);
-                const data = Object.fromEntries(formData);
+                const formDataObj = new FormData(quoteForm);
+                const data = Object.fromEntries(formDataObj);
                 
                 const formattedData = {
                     name: `${data.first_name} ${data.last_name}`,
@@ -1089,18 +1284,24 @@
                     });
                     
                     if (response.ok) {
+                        // Mark form as submitted
+                        isFormSubmitted = true;
+                        
+                        // Show success message
                         quoteForm.style.display = 'none';
                         successMessage.classList.remove('hidden');
-                        quoteForm.reset();
-                        console.log('Form submitted successfully');
+                        
+                        // Clear form data from storage (will be cleared when user clicks Close)
+                        console.log('Form submitted successfully - data will be cleared when user closes modal');
                     } else {
                         throw new Error('Form submission failed');
                     }
                 } catch (error) {
-                    // Fallback
+                    // Fallback: Show success even if network fails
+                    isFormSubmitted = true;
                     quoteForm.style.display = 'none';
                     successMessage.classList.remove('hidden');
-                    quoteForm.reset();
+                    
                     console.log('Form submitted (offline mode)');
                 } finally {
                     submitBtn.innerHTML = originalText;
@@ -1158,6 +1359,16 @@
             
             function isValidEmail(email) {
                 return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            }
+            
+            // Add event listener to the Close button in success message
+            const successCloseBtn = successMessage ? successMessage.querySelector('button') : null;
+            if (successCloseBtn) {
+                successCloseBtn.addEventListener('click', function() {
+                    // Clear form data when user closes success message
+                    clearFormData();
+                    closeQuoteModal();
+                });
             }
         }
         
@@ -1250,6 +1461,18 @@
                 });
             });
         });
+        
+        // Clear form data on page refresh
+        window.addEventListener('beforeunload', function() {
+            // Optional: You can clear form data on page refresh if desired
+            // localStorage.removeItem('quoteFormData');
+        });
+        
+        // Function to manually clear form (for testing or debugging)
+        window.clearQuoteForm = function() {
+            clearFormData();
+            alert('Form data cleared!');
+        };
     </script>
 </body>
 </html>
