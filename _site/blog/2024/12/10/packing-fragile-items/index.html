@@ -271,25 +271,33 @@
             padding-top: 100px;
             z-index: 2;
         }
-        #moving-image {
-    will-change: transform; /* Optimizes animations */
-    backface-visibility: hidden; /* Prevents flickering */
+        
+
+        .parallax-image {
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden; /* Safari */
+    pointer-events: none; /* This prevents clicks from interfering with animations */
 }
 
-/* Optional: Add a subtle floating animation when not scrolling */
+.parallax-container {
+    pointer-events: auto; /* Container is still clickable */
+}
+
+/* Floating animation that won't stop on click */
 @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    0%, 100% { 
+        transform: translateY(0px) translate3d(0,0,0); 
+    }
+    50% { 
+        transform: translateY(-15px) translate3d(0,0,0); 
+    }
 }
 
-/* Apply floating animation when not scrolling (optional) */
-#moving-image {
+/* Apply floating animation with hardware acceleration */
+.parallax-image {
     animation: float 6s ease-in-out infinite;
-}
-
-/* Pause floating animation on hover (optional) */
-#moving-image:hover {
-    animation-play-state: paused;
+    transform-style: preserve-3d;
 }
         
     </style>
@@ -901,41 +909,81 @@
             }
         });
     </script>
-    <script>
+<!-- JavaScript for scroll-based parallax -->
+<script>
 document.addEventListener('DOMContentLoaded', function() {
     const image = document.getElementById('moving-image');
-    const container = document.getElementById('parallax-image');
+    let isScrolling;
+    let scrollPosition = 0;
+    let lastScrollY = 0;
+    let animationId = null;
+    
+    // Reset transform on image to prevent conflicts
+    image.style.transform = 'translate3d(0,0,0)';
     
     // Only apply parallax on desktop (lg and above)
     function handleParallax() {
-        if (window.innerWidth >= 1024) { // lg breakpoint
-            const speed = 0.3; // Adjust this value to change parallax speed (lower = slower)
-            const scrollY = window.scrollY || window.pageYOffset;
+        if (window.innerWidth >= 1024) {
+            const speed = 0.15; // Slower speed for subtle effect
+            const currentScrollY = window.scrollY || window.pageYOffset;
+            const scrollDiff = currentScrollY - lastScrollY;
             
-            // Calculate the vertical movement
-            const yPos = -(scrollY * speed);
+            // Apply parallax effect with momentum
+            scrollPosition += scrollDiff * speed;
             
-            // Apply the transform
-            image.style.transform = `translateY(${yPos}px)`;
+            // Smoothly animate to target position
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+            }
             
-            // Optional: Add slight rotation for 3D effect (remove if not needed)
-            // const rotation = scrollY * 0.01;
-            // image.style.transform = `translateY(${yPos}px) rotate(${rotation}deg)`;
+            function animate() {
+                // Apply the transform with 3D acceleration
+                image.style.transform = `translate3d(0, ${scrollPosition}px, 0)`;
+                animationId = null;
+            }
+            
+            animationId = requestAnimationFrame(animate);
+            lastScrollY = currentScrollY;
         } else {
             // Reset transform on mobile
-            image.style.transform = 'translateY(0)';
+            image.style.transform = 'translate3d(0,0,0)';
         }
     }
     
-    // Listen to scroll events
-    window.addEventListener('scroll', handleParallax, { passive: true });
+    // Debounced scroll handler for better performance
+    function debouncedParallax() {
+        window.clearTimeout(isScrolling);
+        isScrolling = setTimeout(function() {
+            handleParallax();
+        }, 10);
+    }
     
-    // Listen to resize events to handle screen size changes
+    // Use requestAnimationFrame for smoother scrolling
+    function scrollHandler() {
+        if (!animationId) {
+            animationId = requestAnimationFrame(handleParallax);
+        }
+    }
+    
+    // Set up event listeners
+    window.addEventListener('scroll', scrollHandler, { passive: true });
     window.addEventListener('resize', handleParallax);
     
     // Initialize
     handleParallax();
+    
+    // Ensure animation continues even if image is interacted with
+    image.addEventListener('click', function(e) {
+        // Don't stop propagation - let the click work normally
+        // The animation will continue because pointer-events: none prevents interference
+    }, false);
+    
+    // Prevent any focus-related interruptions
+    image.addEventListener('focus', function() {
+        this.blur();
+    });
 });
 </script>
+
 </body>
 </html>
