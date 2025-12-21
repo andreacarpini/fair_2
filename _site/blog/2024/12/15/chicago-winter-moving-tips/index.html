@@ -382,6 +382,81 @@
         margin-right: 10px;
     }
 }
+
+/* FAQ Tabs */
+.faq-tab {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    min-width: fit-content;
+    background: white;
+    border: 2px solid #d1d5db; /* gray-300 */
+    color: #374151; /* gray-700 */
+}
+
+.faq-tab.active {
+    border-color: #3b82f6; /* blue-500 */
+    color: #2563eb; /* blue-600 */
+    transform: none; /* Remove transform to prevent jiggle */
+}
+
+.faq-tab.active:hover {
+    border-color: #3b82f6; /* blue-500 */
+}
+
+.faq-tab:not(.active):hover {
+    border-color: #3b82f6; /* blue-500 */
+    color: #2563eb; /* blue-600 */
+}
+
+.faq-tab.active i {
+    color: #2563eb; /* blue-600 */
+}
+
+.faq-tab-content {
+    display: none;
+}
+
+.faq-tab-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* FAQ items spacing - restored original spacing */
+.faq-item {
+    margin-bottom: 1rem;
+}
+
+/* Remove margin from last FAQ item */
+.faq-item:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* Mobile-specific styles for horizontal scrolling */
+@media (max-width: 640px) {
+    #faq .flex {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+        padding-bottom: 0.5rem;
+    }
+    
+    #faq .flex::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Edge */
+    }
+    
+    .faq-tab {
+        flex-shrink: 0;
+        padding: 0.75rem 1.25rem;
+        font-size: 0.95rem;
+    }
+}
+
     </style>
 </head>
 <body class="bg-gray-50">
@@ -672,39 +747,6 @@
             });
         });
         
-        // FAQ functionality - CORRECTED
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const faqItem = question.closest('.faq-item');
-                const answer = faqItem.querySelector('.faq-answer');
-                const icon = question.querySelector('i');
-                
-                // Toggle current FAQ
-                answer.classList.toggle('open');
-                question.classList.toggle('active');
-                
-                if (icon) {
-                    icon.style.transform = answer.classList.contains('open') ? 'rotate(90deg)' : 'rotate(0deg)';
-                    icon.style.transition = 'transform 0.3s ease';
-                }
-                
-                // Close other FAQs
-                document.querySelectorAll('.faq-item').forEach(otherItem => {
-                    if (otherItem !== faqItem) {
-                        const otherAnswer = otherItem.querySelector('.faq-answer');
-                        const otherQuestion = otherItem.querySelector('.faq-question');
-                        const otherIcon = otherQuestion.querySelector('i');
-                        
-                        otherAnswer.classList.remove('open');
-                        otherQuestion.classList.remove('active');
-                        
-                        if (otherIcon) {
-                            otherIcon.style.transform = 'rotate(0deg)';
-                        }
-                    }
-                });
-            });
-        });
         
         // Quote modal functionality
         const openQuoteBtn = document.getElementById('open-quote-modal');
@@ -1287,6 +1329,160 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+
+// FAQ Tab Functionality - COMPLETE VERSION
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize FAQ tabs
+    const tabs = document.querySelectorAll('.faq-tab');
+    const tabContents = document.querySelectorAll('.faq-tab-content');
+    
+    // Function to activate a tab
+    function activateTab(tabId) {
+        // Update active tab visual
+        tabs.forEach(tab => {
+            tab.classList.remove('active');
+            tab.classList.remove('border-blue-600');
+            tab.classList.add('border-gray-300');
+        });
+        
+        const activeTab = document.querySelector(`.faq-tab[data-tab="${tabId}"]`);
+        if (activeTab) {
+            activeTab.classList.add('active');
+            activeTab.classList.add('border-blue-600');
+            activeTab.classList.remove('border-gray-300');
+        }
+        
+        // Show active tab content
+        tabContents.forEach(content => {
+            content.classList.remove('active');
+            content.classList.add('hidden');
+        });
+        
+        const activeContent = document.getElementById(`${tabId}-tab`);
+        if (activeContent) {
+            activeContent.classList.add('active');
+            activeContent.classList.remove('hidden');
+        }
+        
+        // Close all FAQ answers when switching tabs
+        document.querySelectorAll('.faq-answer').forEach(answer => {
+            answer.classList.remove('open');
+        });
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.classList.remove('active');
+            const icon = question.querySelector('i');
+            if (icon) {
+                icon.style.transform = 'rotate(0deg)';
+            }
+        });
+    }
+    
+    // Add click event to tabs
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            const tabId = this.getAttribute('data-tab');
+            activateTab(tabId);
+            
+            // Store active tab in localStorage for persistence
+            localStorage.setItem('activeFaqTab', tabId);
+        });
+        
+        // Add touch support for mobile
+        tab.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            const tabId = this.getAttribute('data-tab');
+            activateTab(tabId);
+            localStorage.setItem('activeFaqTab', tabId);
+        });
+    });
+    
+    // Restore active tab from localStorage or default to first
+    const savedTab = localStorage.getItem('activeFaqTab') || 'reservation';
+    const defaultTab = document.querySelector(`.faq-tab[data-tab="${savedTab}"]`) ? savedTab : 'reservation';
+    activateTab(defaultTab);
+    
+    // FAQ toggle functionality (preserve existing behavior but updated for tabs)
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+            const faqItem = question.closest('.faq-item');
+            const answer = faqItem.querySelector('.faq-answer');
+            const icon = question.querySelector('i');
+            
+            // Toggle current FAQ
+            const isOpening = !answer.classList.contains('open');
+            answer.classList.toggle('open');
+            question.classList.toggle('active');
+            
+            if (icon) {
+                icon.style.transform = isOpening ? 'rotate(90deg)' : 'rotate(0deg)';
+                icon.style.transition = 'transform 0.3s ease';
+            }
+            
+            // Close other FAQs in the same tab
+            const activeTabContent = document.querySelector('.faq-tab-content.active');
+            if (activeTabContent) {
+                activeTabContent.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== faqItem) {
+                        const otherAnswer = otherItem.querySelector('.faq-answer');
+                        const otherQuestion = otherItem.querySelector('.faq-question');
+                        const otherIcon = otherQuestion.querySelector('i');
+                        
+                        otherAnswer.classList.remove('open');
+                        otherQuestion.classList.remove('active');
+                        
+                        if (otherIcon) {
+                            otherIcon.style.transform = 'rotate(0deg)';
+                        }
+                    }
+                });
+            }
+        });
+    });
+    
+    // Add keyboard navigation for tabs
+    document.addEventListener('keydown', function(e) {
+        if (!document.querySelector('.faq-tab.active')) return;
+        
+        const activeTab = document.querySelector('.faq-tab.active');
+        const tabsArray = Array.from(tabs);
+        const currentIndex = tabsArray.indexOf(activeTab);
+        
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+            e.preventDefault();
+            const nextIndex = (currentIndex + 1) % tabsArray.length;
+            tabsArray[nextIndex].click();
+        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+            e.preventDefault();
+            const prevIndex = (currentIndex - 1 + tabsArray.length) % tabsArray.length;
+            tabsArray[prevIndex].click();
+        }
+    });
+    
+    // Add scroll indicator for mobile tabs
+    function updateTabScrollIndicator() {
+        const tabsContainer = document.querySelector('#faq .flex');
+        if (!tabsContainer) return;
+        
+        const hasScroll = tabsContainer.scrollWidth > tabsContainer.clientWidth;
+        
+        if (hasScroll && window.innerWidth < 768) {
+            tabsContainer.style.paddingRight = '20px';
+            // Add gradient fade effect on scrollable container
+            if (!document.querySelector('.scroll-fade')) {
+                const fadeEl = document.createElement('div');
+                fadeEl.className = 'scroll-fade absolute right-0 top-0 bottom-0 w-6 bg-gradient-to-l from-white to-transparent pointer-events-none';
+                tabsContainer.parentElement.style.position = 'relative';
+                tabsContainer.parentElement.appendChild(fadeEl);
+            }
+        }
+    }
+    
+    // Check on load and resize
+    updateTabScrollIndicator();
+    window.addEventListener('resize', updateTabScrollIndicator);
+});
+
 </script>
 </body>
 </html>

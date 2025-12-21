@@ -353,126 +353,273 @@ description: "Licensed and insured moving company in Chicago. Local and long-dis
 <section id="faq" class="py-12 bg-white">
     <div class="max-w-4xl mx-auto px-6">
         <div class="text-center mb-12">
-            <h2 class="text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">Questions? Answers.</h2>
+            <p class="text-lg text-gray-600">Everything you need to know about your move</p>
         </div>
         
+<!-- Tabs Navigation - Horizontal scroll on mobile -->
+<div class="mb-8 overflow-x-auto">
+    <div class="flex space-x-2 min-w-max pb-2">
+        <button class="faq-tab active px-5 py-3 font-semibold rounded-lg transition-all duration-300 whitespace-nowrap border-2 border-blue-500 bg-white" data-tab="reservation">
+            <i class="fas fa-calendar-check mr-2"></i>Reservation
+        </button>
+        <button class="faq-tab px-5 py-3 font-semibold text-gray-700 hover:text-blue-600 transition-colors whitespace-nowrap border-2 border-gray-300 hover:border-blue-500 rounded-lg bg-white" data-tab="before-moving">
+            <i class="fas fa-clipboard-list mr-2"></i>Before Moving
+        </button>
+        <button class="faq-tab px-5 py-3 font-semibold text-gray-700 hover:text-blue-600 transition-colors whitespace-nowrap border-2 border-gray-300 hover:border-blue-500 rounded-lg bg-white" data-tab="moving-day">
+            <i class="fas fa-truck-moving mr-2"></i>Moving Day
+        </button>
+    </div>
+</div>
+
+        <!-- Tab Content -->
         <div class="space-y-4">
-            <div class="faq-item bg-gray-50 rounded-lg shadow-lg">
-                <button class="faq-question w-full text-left p-6 font-semibold text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
-                    <span class="mr-4 flex-shrink-0">1.</span> 
-    
-    <!-- The Text -->
-    <span class="flex-grow">How much does it cost to move in Chicago?</span>
-                                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
-                </button>
-                <div class="faq-answer hidden px-6 pb-6 text-gray-700">
-                    <p>Our local moves start at $299 for studio apartments and vary based on home size, distance, and services needed. Contact us for a free, detailed quote tailored to your specific move.</p>
+            <!-- Reservation Tab -->
+            <div id="reservation-tab" class="faq-tab-content active">
+                <!-- Question 1 -->
+                <div class="faq-item bg-gray-50 rounded-lg shadow-lg">
+                    <button class="faq-question w-full text-left p-6 font-semibold text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                        <span class="mr-4 flex-shrink-0">1.</span>
+                        <span class="flex-grow">How far in advance should I book my move?</span>
+                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-gray-700">
+                        <p>We recommend booking at least 2-3 weeks in advance, especially during peak moving season (May-September). For weekends and summer months, we suggest booking 4-6 weeks ahead. However, we can often accommodate last-minute moves depending on availability.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 2 -->
+                <div class="faq-item bg-gray-50 rounded-lg shadow-lg">
+                    <button class="faq-question w-full text-left p-6 font-semibold text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                        <span class="mr-4 flex-shrink-0">2.</span>
+                        <span class="flex-grow">How do I get a quote and is there a deposit?</span>
+                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-gray-700">
+                        <p>You can get a free, no-obligation quote by calling <a href="tel:312-858-0611" class="text-blue-600 hover:underline">(312) 858-0611</a> or using our online form. We provide transparent pricing with no hidden fees. A small deposit secures your date, with the balance due upon completion of the move. We accept cash, check, and all major credit cards.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 3 -->
+                <div class="faq-item bg-gray-50 rounded-lg shadow-lg">
+                    <button class="faq-question w-full text-left p-6 font-semibold text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                        <span class="mr-4 flex-shrink-0">3.</span>
+                        <span class="flex-grow">Can I change or cancel my reservation?</span>
+                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-gray-700">
+                        <p>Yes, you can reschedule your move up to 48 hours before your scheduled date at no charge. Cancellations with full deposit refund are accepted up to 72 hours before the move. Last-minute changes may incur a fee depending on crew scheduling.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 4 -->
+                <div class="faq-item bg-gray-50 rounded-lg shadow-lg">
+                    <button class="faq-question w-full text-left p-6 font-semibold text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                        <span class="mr-4 flex-shrink-0">4.</span>
+                        <span class="flex-grow">What information do you need for a quote?</span>
+                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-gray-700">
+                        <p>We need: pickup and delivery addresses/ZIP codes, home size (studio, 1BR, 2BR, etc.), number of stairs or elevator access, any specialty items (piano, safe, pool table), preferred moving date, and which services you need (packing, loading, storage).</p>
+                    </div>
+                </div>
+                
+                <!-- Question 5 -->
+                <div class="faq-item bg-gray-50 rounded-lg shadow-lg">
+                    <button class="faq-question w-full text-left p-6 font-semibold text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                        <span class="mr-4 flex-shrink-0">5.</span>
+                        <span class="flex-grow">Do you offer weekend and holiday moving?</span>
+                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-gray-700">
+                        <p>Yes, we offer weekend and holiday moving services. Weekend rates may be slightly higher due to higher demand. We recommend booking weekend slots well in advance as they fill up quickly.</p>
+                    </div>
                 </div>
             </div>
             
-            <div class="faq-item bg-gray-50 rounded-lg shadow-lg">
-                <button class="faq-question w-full text-left p-6 font-semibold text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
-                    <span class="mr-4 flex-shrink-0">2.</span>
-                    <span class="flex-grow">Are you licensed and insured?</span>
-                                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
-
-                </button>
-                <div class="faq-answer hidden px-6 pb-6 text-gray-700">
-                    <p>Yes, Fairplay Moving Inc. is fully licensed and insured. Our ILCC license number is #241666. We carry comprehensive insurance to protect your belongings during the move.</p>
+            <!-- Before Moving Tab -->
+            <div id="before-moving-tab" class="faq-tab-content hidden">
+                <!-- Question 1 -->
+                <div class="faq-item bg-gray-50 rounded-lg shadow-lg">
+                    <button class="faq-question w-full text-left p-6 font-semibold text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                        <span class="mr-4 flex-shrink-0">1.</span>
+                        <span class="flex-grow">What should I do to prepare for moving day?</span>
+                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-gray-700">
+                        <p>1. Sort and declutter before we arrive<br>
+                        2. Pack personal items, jewelry, and important documents separately<br>
+                        3. Disconnect and prepare appliances<br>
+                        4. Arrange for parking permits if needed<br>
+                        5. Label boxes by room<br>
+                        6. Set aside items you'll need immediately at the new place</p>
+                    </div>
+                </div>
+                
+                <!-- Question 2 -->
+                <div class="faq-item bg-gray-50 rounded-lg shadow-lg">
+                    <button class="faq-question w-full text-left p-6 font-semibold text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                        <span class="mr-4 flex-shrink-0">2.</span>
+                        <span class="flex-grow">What items should I not pack or move myself?</span>
+                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-gray-700">
+                        <p>Do not pack: hazardous materials, flammable items, aerosols, propane tanks, paint thinners, ammunition, or perishable food. Leave these for separate disposal. Valuable items like jewelry, cash, passports, and medications should be moved personally.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 3 -->
+                <div class="faq-item bg-gray-50 rounded-lg shadow-lg">
+                    <button class="faq-question w-full text-left p-6 font-semibold text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                        <span class="mr-4 flex-shrink-0">3.</span>
+                        <span class="flex-grow">Do you provide packing materials?</span>
+                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-gray-700">
+                        <p>Yes, we provide high-quality packing materials including boxes in various sizes, packing tape, bubble wrap, packing paper, furniture pads, and mattress bags. You can purchase these separately or they're included with our full packing service.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 4 -->
+                <div class="faq-item bg-gray-50 rounded-lg shadow-lg">
+                    <button class="faq-question w-full text-left p-6 font-semibold text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                        <span class="mr-4 flex-shrink-0">4.</span>
+                        <span class="flex-grow">How should I label my boxes?</span>
+                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-gray-700">
+                        <p>Label each box with: Room destination (Kitchen, Master Bedroom, etc.), Contents (Fragile, Books, Kitchenware), and Your name. Use color-coded stickers for different rooms to make unloading faster. Mark "OPEN FIRST" boxes with essentials you'll need immediately.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 5 -->
+                <div class="faq-item bg-gray-50 rounded-lg shadow-lg">
+                    <button class="faq-question w-full text-left p-6 font-semibold text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                        <span class="mr-4 flex-shrink-0">5.</span>
+                        <span class="flex-grow">What about parking and building access?</span>
+                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-gray-700">
+                        <p>You're responsible for obtaining any necessary parking permits and reserving elevator time if moving to/from a high-rise. We need at least 30 feet of clear parking space for our truck. Please notify building management about our arrival time and get any required certificates of insurance.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 6 -->
+                <div class="faq-item bg-gray-50 rounded-lg shadow-lg">
+                    <button class="faq-question w-full text-left p-6 font-semibold text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                        <span class="mr-4 flex-shrink-0">6.</span>
+                        <span class="flex-grow">Should I disassemble furniture before you arrive?</span>
+                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-gray-700">
+                        <p>No, our crew will disassemble and reassemble standard furniture (beds, tables, shelving units) as part of our service. For specialty items or complex assembly, please inform us in advance so we can allocate appropriate time and tools.</p>
+                    </div>
                 </div>
             </div>
             
-            <div class="faq-item bg-gray-50 rounded-lg shadow-lg">
-                <button class="faq-question w-full text-left p-6 font-semibold text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
-                    <span class="mr-4 flex-shrink-0">3.</span>
-                    <span class="flex-grow">How far in advance should I book my move?</span>
-                    
-                                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
-
-                </button>
-                <div class="faq-answer hidden px-6 pb-6 text-gray-700">
-                    <p>We recommend booking at least 2-3 weeks in advance, especially during peak moving season (May-September). However, we can often accommodate last-minute moves depending on availability.</p>
+            <!-- Moving Day Tab -->
+            <div id="moving-day-tab" class="faq-tab-content hidden">
+                <!-- Question 1 -->
+                <div class="faq-item bg-gray-50 rounded-lg shadow-lg">
+                    <button class="faq-question w-full text-left p-6 font-semibold text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                        <span class="mr-4 flex-shrink-0">1.</span>
+                        <span class="flex-grow">What time will the movers arrive?</span>
+                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-gray-700">
+                        <p>Our crew typically arrives between 8:00 AM and 10:00 AM. We'll call you 30-60 minutes before arrival. For exact timing, we provide a 2-hour arrival window when you book. Early morning starts (7:00 AM) are available by special request.</p>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="faq-item bg-gray-50 rounded-lg shadow-lg">
-                <button class="faq-question w-full text-left p-6 font-semibold text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
-                    <span class="mr-4 flex-shrink-0">4.</span>
-                    <span class="flex-grow">Do you provide packing materials?</span>
-                    
-                                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
-
-                </button>
-                <div class="faq-answer hidden px-6 pb-6 text-gray-700">
-                    <p>Yes, we provide high-quality packing materials including boxes, tape, bubble wrap, and packing paper. We can also handle the packing for you with our professional packing services.</p>
+                
+                <!-- Question 2 -->
+                <div class="faq-item bg-gray-50 rounded-lg shadow-lg">
+                    <button class="faq-question w-full text-left p-6 font-semibold text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                        <span class="mr-4 flex-shrink-0">2.</span>
+                        <span class="flex-grow">How long will my move take?</span>
+                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-gray-700">
+                        <p>Average move times: Studio: 3-5 hours | 1BR: 4-6 hours | 2BR: 5-8 hours | 3BR: 7-10 hours | 4BR+: 8-12+ hours. Times vary based on distance, stairs/elevator access, amount of belongings, and traffic. We provide a time estimate with your quote.</p>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="faq-item bg-gray-50 rounded-lg shadow-lg">
-                <button class="faq-question w-full text-left p-6 font-semibold text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
-                   <span class="mr-4 flex-shrink-0">5.</span>
-                   <span class="flex-grow">Can you move pianos and other heavy items?</span> 
-                   
-                                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
-
-                </button>
-                <div class="faq-answer hidden px-6 pb-6 text-gray-700">
-                    <p>Absolutely! We have specialized equipment and experienced teams for moving pianos, safes, large furniture, and other heavy or specialty items. Let us know about these items when requesting your quote.</p>
+                
+                <!-- Question 3 -->
+                <div class="faq-item bg-gray-50 rounded-lg shadow-lg">
+                    <button class="faq-question w-full text-left p-6 font-semibold text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                        <span class="mr-4 flex-shrink-0">3.</span>
+                        <span class="flex-grow">Should I be present during the move?</span>
+                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-gray-700">
+                        <p>Yes, we require someone 18+ to be present at both locations to supervise, answer questions, and sign paperwork. If you can't be present, you must authorize a representative in writing and ensure they understand your preferences.</p>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="faq-item bg-gray-50 rounded-lg shadow-lg">
-                <button class="faq-question w-full text-left p-6 font-semibold text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
-                    <span class="mr-4 flex-shrink-0">6.</span>
-                    <span class="flex-grow">What areas do you serve?</span>
-                    
-                                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
-
-                </button>
-                <div class="faq-answer hidden px-6 pb-6 text-gray-700">
-                    <p>We serve all of Chicago and the surrounding suburbs, including Evanston, Oak Park, Cicero, Berwyn, Forest Park, and more. We also handle long-distance moves to and from the Chicago area.</p>
+                
+                <!-- Question 4 -->
+                <div class="faq-item bg-gray-50 rounded-lg shadow-lg">
+                    <button class="faq-question w-full text-left p-6 font-semibold text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                        <span class="mr-4 flex-shrink-0">4.</span>
+                        <span class="flex-grow">How do you handle fragile and valuable items?</span>
+                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-gray-700">
+                        <p>We use specialized techniques: glass/mirrors go in picture boxes with cardboard corners, artwork is wrapped in glassine paper and crated, electronics are packed in original boxes when possible, and fragile items are marked and loaded last. We recommend moving extremely valuable items yourself.</p>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="faq-item bg-gray-50 rounded-lg shadow-lg">
-                <button class="faq-question w-full text-left p-6 font-semibold text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
-                    <span class="mr-4 flex-shrink-0">7.</span>
-                    <span class="flex-grow">What payment methods do you accept?</span>
-                    
-                                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
-
-                </button>
-                <div class="faq-answer hidden px-6 pb-6 text-gray-700">
-                    <p>Yes, we offer secure, climate-controlled storage facilities for both short-term and long-term needs. Our storage facilities are monitored 24/7 for your peace of mind.</p>
+                
+                <!-- Question 5 -->
+                <div class="faq-item bg-gray-50 rounded-lg shadow-lg">
+                    <button class="faq-question w-full text-left p-6 font-semibold text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                        <span class="mr-4 flex-shrink-0">5.</span>
+                        <span class="flex-grow">What if there's bad weather on moving day?</span>
+                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-gray-700">
+                        <p>We move rain or shine! We have protective covers for furniture and equipment for wet conditions. In extreme weather (blizzards, thunderstorms with lightning, extreme heat warnings), we may reschedule for safety. We'll contact you if weather affects your move.</p>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="faq-item bg-gray-50 rounded-lg shadow-lg">
-                <button class="faq-question w-full text-left p-6 font-semibold text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
-                    <span class="mr-4 flex-shrink-0">8.</span>
-                    <span class="flex-grow">What payment methods do you accept?</span>
-                                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
-
-                </button>
-                <div class="faq-answer hidden px-6 pb-6 text-gray-700">
-                    <p>We accept cash, check, and all major credit cards. Payment is due upon completion of the move. We also offer financing options for larger moves.</p>
+                
+                <!-- Question 6 -->
+                <div class="faq-item bg-gray-50 rounded-lg shadow-lg">
+                    <button class="faq-question w-full text-left p-6 font-semibold text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                        <span class="mr-4 flex-shrink-0">6.</span>
+                        <span class="flex-grow">Can I provide food/drinks for the crew?</span>
+                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-gray-700">
+                        <p>While not required, providing water (especially on hot days) is always appreciated. Some customers offer snacks or lunch for full-day moves. Our crews bring their own food but appreciate the gesture. Please don't offer alcoholic beverages.</p>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="faq-item bg-gray-50 rounded-lg shadow-lg">
-                <button class="faq-question w-full text-left p-6 font-semibold text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
-                    <span class="mr-4 flex-shrink-0">9.</span>
-                    <span class="flex-grow">What happens if something gets damaged?</span>
-                                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
-
-                </button>
-                <div class="faq-answer hidden px-6 pb-6 text-gray-700">
-                    <p>While we take every precaution to protect your belongings, accidents can happen. We're fully insured and will work with you to resolve any damage claims quickly and fairly. We also offer additional valuation coverage for extra protection.</p>
+                
+                <!-- Question 7 -->
+                <div class="faq-item bg-gray-50 rounded-lg shadow-lg">
+                    <button class="faq-question w-full text-left p-6 font-semibold text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                        <span class="mr-4 flex-shrink-0">7.</span>
+                        <span class="flex-grow">What happens if something gets damaged?</span>
+                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-gray-700">
+                        <p>While rare due to our careful handling, if damage occurs: 1) Note it on the Bill of Lading before signing, 2) Take photos, 3) Contact us within 24 hours. We're fully insured and will process claims promptly. We also offer additional valuation coverage for extra protection.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 8 -->
+                <div class="faq-item bg-gray-50 rounded-lg shadow-lg">
+                    <button class="faq-question w-full text-left p-6 font-semibold text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                        <span class="mr-4 flex-shrink-0">8.</span>
+                        <span class="flex-grow">How does payment work?</span>
+                        <i class="fas fa-chevron-right ml-4 text-blue-600"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-gray-700">
+                        <p>Payment is due upon completion of the move. We accept cash, Zelle, and all major credit cards (Visa, MasterCard, American Express, Discover). For large moves, we offer financing options. We'll provide a final invoice showing hours worked and any additional services.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+
 
 <!-- What To Expect Section -->
 <section id="what-to-expect" class="py-12 bg-gray-50">
@@ -600,7 +747,7 @@ description: "Licensed and insured moving company in Chicago. Local and long-dis
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
+                    <i class="fas fa-star"></i>
                 </div>
                 <p class="text-gray-600 text-sm mt-1">4.8 · 450+ Reviews</p>
             </div>
@@ -717,7 +864,6 @@ description: "Licensed and insured moving company in Chicago. Local and long-dis
                             <p class="text-sm font-medium text-gray-900">Fast Response</p>
                                                         <p class="text-xs text-gray-600">Mon-Sat: 8am-6pm</p>
 
-                            <p class="text-xs text-gray-600">We'll get back to you within 2 hours</p>
 
                         </div>
                     </div>
@@ -872,7 +1018,7 @@ description: "Licensed and insured moving company in Chicago. Local and long-dis
                         
 <!-- Moving Date - JavaScript Controlled -->
 <div class="mb-6">
-    <label class="block text-sm font-medium text-gray-700 mb-2">Moving Date</label>
+    <label class="block text-sm font-medium text-gray-700 mb-2">Preferred Moving Date</label>
     <div class="relative">
         <input type="date" 
                name="move_date" 
@@ -954,7 +1100,7 @@ description: "Licensed and insured moving company in Chicago. Local and long-dis
                     </div>
                     <h4 class="text-xl font-semibold text-gray-900 mb-2">Quote Request Sent!</h4>
                     <p class="text-xs text-gray-600">Mon-Sat: 8am-6pm</p>
-                    <p class="text-gray-600 mb-4">We'll get back to you within 2 hours.</p>
+                    <p class="text-gray-600 mb-4">We'll get back to you within 12 hours.</p>
                     <button onclick="closeQuoteModal()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">
                         Close
                     </button>
