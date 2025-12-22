@@ -725,766 +725,837 @@
         </div>
     </footer>
     
-    <script>
-        // Mobile menu toggle with improved touch handling
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeMenu = document.getElementById('close-menu');
+<script>
+    // Mobile menu toggle with improved touch handling
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMenu = document.getElementById('close-menu');
+    
+    // Add touch-safe class to all interactive elements
+    document.querySelectorAll('button, a, .touch-safe').forEach(el => {
+        el.classList.add('touch-safe');
+    });
+    
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', openMobileMenu);
+        closeMenu.addEventListener('click', closeMobileMenu);
         
-        // Add touch-safe class to all interactive elements
-        document.querySelectorAll('button, a, .touch-safe').forEach(el => {
-            el.classList.add('touch-safe');
-        });
+        function openMobileMenu() {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
         
-        if (mobileMenuBtn && mobileMenu) {
-            mobileMenuBtn.addEventListener('click', openMobileMenu);
-            closeMenu.addEventListener('click', closeMobileMenu);
-            
-            function openMobileMenu() {
-                mobileMenu.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-            
-            function closeMobileMenu() {
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
-            
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', (e) => {
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (mobileMenu && mobileMenu.classList.contains('active')) {
                 if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
                     closeMobileMenu();
                 }
-            });
-        }
+            }
+        });
         
-        // Smooth scrolling for anchor links
-        document.addEventListener('DOMContentLoaded', function() {
-            // Handle both relative and absolute anchor links
-            document.querySelectorAll('a[href^="#"], a[href*="#services"], a[href*="#faq"], a[href*="#about"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    const href = this.getAttribute('href');
-                    
-                    // Check if it's an anchor link (starts with #)
-                    if (href.startsWith('#')) {
+        // Also close on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+    }
+    
+    // Smooth scrolling for anchor links - UPDATED to close mobile menu
+    document.addEventListener('DOMContentLoaded', function() {
+        // Handle both relative and absolute anchor links
+        document.querySelectorAll('a[href^="#"], a[href*="#services"], a[href*="#faq"], a[href*="#about"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                
+                // Check if it's an anchor link (starts with #)
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        // ALWAYS close mobile menu if open
+                        if (mobileMenu && mobileMenu.classList.contains('active')) {
+                            mobileMenu.classList.remove('active');
+                            document.body.style.overflow = 'auto';
+                        }
+                    }
+                }
+                // Check if it's a relative URL with anchor
+                else if (href.includes('#')) {
+                    const [path, anchorId] = href.split('#');
+                    if (window.location.pathname.includes(path) || path === '/fair_2/') {
                         e.preventDefault();
-                        const target = document.querySelector(href);
+                        const target = document.querySelector('#' + anchorId);
                         if (target) {
                             target.scrollIntoView({
                                 behavior: 'smooth',
                                 block: 'start'
                             });
-                            // Close mobile menu if open
-                            if (mobileMenu) {
+                            // ALWAYS close mobile menu if open
+                            if (mobileMenu && mobileMenu.classList.contains('active')) {
                                 mobileMenu.classList.remove('active');
                                 document.body.style.overflow = 'auto';
                             }
                         }
                     }
-                    // Check if it's a relative URL with anchor
-                    else if (href.includes('#')) {
-                        const [path, anchor] = href.split('#');
-                        if (window.location.pathname.includes(path) || path === '/fair_2/') {
-                            e.preventDefault();
-                            const target = document.querySelector('#' + anchor);
-                            if (target) {
-                                target.scrollIntoView({
-                                    behavior: 'smooth',
-                                    block: 'start'
-                                });
-                            }
-                        }
+                }
+            });
+        });
+    });
+    
+    // Handle anchor links from other pages (like blog page)
+    function handleCrossPageAnchors() {
+        // Check if URL has an anchor
+        const hash = window.location.hash;
+        if (hash && hash.startsWith('#')) {
+            // Wait a bit for page to load
+            setTimeout(() => {
+                const target = document.querySelector(hash);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }, 500);
+        }
+    }
+    
+    // Close mobile menu when clicking any link inside it
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                // Close mobile menu with a slight delay for smooth transition
+                setTimeout(() => {
+                    if (mobileMenu && mobileMenu.classList.contains('active')) {
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = 'auto';
                     }
-                });
+                }, 300);
             });
         });
         
-        // Quote modal functionality - with form persistence
-        const quoteModal = document.getElementById('quote-modal');
-        const closeQuoteBtn = document.getElementById('close-quote-modal');
+        // Call cross-page anchor handler
+        handleCrossPageAnchors();
+    });
+    
+    // Improved iPhone touch handling for mobile menu
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuLinks = document.querySelectorAll('#mobile-menu a, #mobile-menu button');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('touchend', function(e) {
+                e.preventDefault();
+                this.click();
+                
+                // Close mobile menu after click
+                setTimeout(() => {
+                    if (mobileMenu && mobileMenu.classList.contains('active')) {
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    }
+                }, 300);
+            }, { passive: false });
+        });
+    });
+    
+    // Quote modal functionality - with form persistence
+    const quoteModal = document.getElementById('quote-modal');
+    const closeQuoteBtn = document.getElementById('close-quote-modal');
+    
+    // Get all quote buttons
+    const quoteButtons = [
+        document.getElementById('open-quote-modal'),
+        document.getElementById('open-quote-modal-2'),
+        document.getElementById('open-quote-modal-3'),
+        document.getElementById('open-quote-modal-4'),
+        document.getElementById('open-quote-modal-5'),
+        document.getElementById('open-quote-modal-6'),
+        document.getElementById('open-quote-modal-7'),
+        document.getElementById('open-quote-modal-8'),
+        document.getElementById('open-quote-modal-9'),
+        document.getElementById('open-quote-modal-nav'),
+        document.getElementById('open-quote-modal-mobile')
+    ].filter(btn => btn !== null);
+    
+    // Function to save form data to localStorage
+    function saveFormData() {
+        const quoteForm = document.getElementById('quote-form');
+        if (!quoteForm) return;
         
-        // Get all quote buttons
-        const quoteButtons = [
-            document.getElementById('open-quote-modal'),
-            document.getElementById('open-quote-modal-2'),
-            document.getElementById('open-quote-modal-3'),
-            document.getElementById('open-quote-modal-4'),
-            document.getElementById('open-quote-modal-5'),
-            document.getElementById('open-quote-modal-6'),
-            document.getElementById('open-quote-modal-7'),
-            document.getElementById('open-quote-modal-8'),
-            document.getElementById('open-quote-modal-9'),
-            document.getElementById('open-quote-modal-nav'),
-            document.getElementById('open-quote-modal-mobile')
-        ].filter(btn => btn !== null);
+        const formData = {};
+        const formElements = quoteForm.querySelectorAll('input, select, textarea');
         
-        // Function to save form data to localStorage
-        function saveFormData() {
-            const quoteForm = document.getElementById('quote-form');
-            if (!quoteForm) return;
-            
-            const formData = {};
-            const formElements = quoteForm.querySelectorAll('input, select, textarea');
-            
-            formElements.forEach(element => {
-                if (element.name) {
-                    if (element.type === 'checkbox') {
-                        // Handle checkboxes - save as array
-                        if (element.name.includes('[]')) {
-                            if (!formData[element.name]) {
-                                formData[element.name] = [];
-                            }
-                            if (element.checked) {
-                                formData[element.name].push(element.value);
-                            }
-                        } else {
-                            // Single checkbox
-                            formData[element.name] = element.checked;
+        formElements.forEach(element => {
+            if (element.name) {
+                if (element.type === 'checkbox') {
+                    // Handle checkboxes - save as array
+                    if (element.name.includes('[]')) {
+                        if (!formData[element.name]) {
+                            formData[element.name] = [];
                         }
-                    } else if (element.type === 'radio') {
-                        // Handle radio buttons
                         if (element.checked) {
-                            formData[element.name] = element.value;
+                            formData[element.name].push(element.value);
                         }
                     } else {
-                        // Handle other inputs
+                        // Single checkbox
+                        formData[element.name] = element.checked;
+                    }
+                } else if (element.type === 'radio') {
+                    // Handle radio buttons
+                    if (element.checked) {
                         formData[element.name] = element.value;
                     }
+                } else {
+                    // Handle other inputs
+                    formData[element.name] = element.value;
                 }
+            }
+        });
+        
+        // Save to localStorage
+        localStorage.setItem('quoteFormData', JSON.stringify(formData));
+    }
+    
+    // Function to load form data from localStorage
+    function loadFormData() {
+        const quoteForm = document.getElementById('quote-form');
+        if (!quoteForm) return;
+        
+        const savedData = localStorage.getItem('quoteFormData');
+        if (!savedData) return;
+        
+        try {
+            const formData = JSON.parse(savedData);
+            
+            // Populate form fields
+            const formElements = quoteForm.querySelectorAll('input, select, textarea');
+            
+            // First, reset checkboxes to unchecked state
+            quoteForm.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                checkbox.checked = false;
             });
             
-            // Save to localStorage
-            localStorage.setItem('quoteFormData', JSON.stringify(formData));
-        }
-        
-        // Function to load form data from localStorage
-        function loadFormData() {
-            const quoteForm = document.getElementById('quote-form');
-            if (!quoteForm) return;
-            
-            const savedData = localStorage.getItem('quoteFormData');
-            if (!savedData) return;
-            
-            try {
-                const formData = JSON.parse(savedData);
-                
-                // Populate form fields
-                const formElements = quoteForm.querySelectorAll('input, select, textarea');
-                
-                // First, reset checkboxes to unchecked state
-                quoteForm.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-                    checkbox.checked = false;
-                });
-                
-                formElements.forEach(element => {
-                    if (element.name && formData[element.name] !== undefined) {
-                        if (element.type === 'checkbox') {
-                            // Handle checkboxes
-                            if (element.name.includes('[]')) {
-                                // Checkbox array (services)
-                                const values = formData[element.name];
-                                if (Array.isArray(values) && values.includes(element.value)) {
-                                    element.checked = true;
-                                }
-                            } else {
-                                // Single checkbox
-                                element.checked = formData[element.name];
-                            }
-                        } else if (element.type === 'radio') {
-                            // Handle radio buttons
-                            if (element.value === formData[element.name]) {
+            formElements.forEach(element => {
+                if (element.name && formData[element.name] !== undefined) {
+                    if (element.type === 'checkbox') {
+                        // Handle checkboxes
+                        if (element.name.includes('[]')) {
+                            // Checkbox array (services)
+                            const values = formData[element.name];
+                            if (Array.isArray(values) && values.includes(element.value)) {
                                 element.checked = true;
                             }
                         } else {
-                            // Handle other inputs
-                            element.value = formData[element.name];
+                            // Single checkbox
+                            element.checked = formData[element.name];
                         }
-                        
-                        // Trigger change event for date field
-                        if (element.type === 'date' && element.value) {
-                            element.dispatchEvent(new Event('change'));
+                    } else if (element.type === 'radio') {
+                        // Handle radio buttons
+                        if (element.value === formData[element.name]) {
+                            element.checked = true;
                         }
+                    } else {
+                        // Handle other inputs
+                        element.value = formData[element.name];
                     }
-                });
-            } catch (error) {
-                console.error('Error loading form data:', error);
-                // Clear corrupted data
-                localStorage.removeItem('quoteFormData');
-            }
-        }
-        
-        // Function to clear form data
-        function clearFormData() {
-            // Clear saved data from localStorage
+                    
+                    // Trigger change event for date field
+                    if (element.type === 'date' && element.value) {
+                        element.dispatchEvent(new Event('change'));
+                    }
+                }
+            });
+        } catch (error) {
+            console.error('Error loading form data:', error);
+            // Clear corrupted data
             localStorage.removeItem('quoteFormData');
         }
+    }
+    
+    // Function to clear form data
+    function clearFormData() {
+        // Clear saved data from localStorage
+        localStorage.removeItem('quoteFormData');
+    }
+    
+    // Function to reset the visible form
+    function resetVisibleForm() {
+        const quoteForm = document.getElementById('quote-form');
+        if (!quoteForm) return;
         
-        // Function to reset the visible form
-        function resetVisibleForm() {
-            const quoteForm = document.getElementById('quote-form');
-            if (!quoteForm) return;
-            
-            // Clear form
-            quoteForm.reset();
-            
-            // Reset success message if visible
-            const successMessage = document.getElementById('success-message');
-            if (successMessage && !successMessage.classList.contains('hidden')) {
-                quoteForm.style.display = 'block';
-                successMessage.classList.add('hidden');
-            }
-            
-            // Reset date placeholder
-            const dateInput = document.getElementById('move-date-input');
-            const datePlaceholder = document.getElementById('date-placeholder');
-            if (dateInput && datePlaceholder) {
-                datePlaceholder.style.display = 'block';
-                dateInput.style.color = 'transparent';
-            }
+        // Clear form
+        quoteForm.reset();
+        
+        // Reset success message if visible
+        const successMessage = document.getElementById('success-message');
+        if (successMessage && !successMessage.classList.contains('hidden')) {
+            quoteForm.style.display = 'block';
+            successMessage.classList.add('hidden');
         }
         
-        // Function to open quote modal
-        function openQuoteModal() {
-            if (quoteModal) {
-                quoteModal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-                
-                // Load saved form data
-                setTimeout(() => {
-                    loadFormData();
-                }, 100);
-                
-                // Close mobile menu if open
-                if (mobileMenu) {
-                    mobileMenu.classList.remove('active');
-                }
-            }
+        // Reset date placeholder
+        const dateInput = document.getElementById('move-date-input');
+        const datePlaceholder = document.getElementById('date-placeholder');
+        if (dateInput && datePlaceholder) {
+            datePlaceholder.style.display = 'block';
+            dateInput.style.color = 'transparent';
         }
-        
-        // Function to close quote modal WITHOUT resetting form
-        function closeQuoteModal() {
-            if (quoteModal) {
-                // Save form data before closing
-                saveFormData();
-                
-                quoteModal.classList.add('hidden');
+    }
+    
+    // Function to open quote modal
+    function openQuoteModal() {
+        if (quoteModal) {
+            quoteModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            
+            // Load saved form data
+            setTimeout(() => {
+                loadFormData();
+            }, 100);
+            
+            // Close mobile menu if open
+            if (mobileMenu) {
+                mobileMenu.classList.remove('active');
                 document.body.style.overflow = 'auto';
             }
         }
-        
-        // Add event listeners for all quote buttons
-        quoteButtons.forEach(btn => {
-            if (btn) {
-                btn.addEventListener('click', openQuoteModal);
+    }
+    
+    // Function to close quote modal WITHOUT resetting form
+    function closeQuoteModal() {
+        if (quoteModal) {
+            // Save form data before closing
+            saveFormData();
+            
+            quoteModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+    }
+    
+    // Add event listeners for all quote buttons
+    quoteButtons.forEach(btn => {
+        if (btn) {
+            btn.addEventListener('click', openQuoteModal);
+        }
+    });
+    
+    if (closeQuoteBtn) {
+        closeQuoteBtn.addEventListener('click', closeQuoteModal);
+    }
+    
+    // Close modal when clicking outside
+    if (quoteModal) {
+        quoteModal.addEventListener('click', (e) => {
+            if (e.target === quoteModal) {
+                // Save form data before closing
+                saveFormData();
+                quoteModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
             }
         });
+    }
+    
+    // Save form data on input changes
+    document.addEventListener('DOMContentLoaded', function() {
+        const quoteForm = document.getElementById('quote-form');
+        if (quoteForm) {
+            // Save data when user types or changes selections
+            quoteForm.addEventListener('input', saveFormData);
+            quoteForm.addEventListener('change', saveFormData);
+            
+            // Clear form data on page load/refresh
+            clearFormData();
+            
+            // Reset the visible form
+            resetVisibleForm();
+        }
+    });
+    
+    // Reviews modal functionality
+    const showMoreBtn = document.getElementById('show-more-reviews');
+    const reviewsModal = document.getElementById('reviews-modal');
+    const closeReviewsBtn = document.getElementById('close-reviews');
+    
+    if (showMoreBtn && reviewsModal) {
+        showMoreBtn.addEventListener('click', () => {
+            reviewsModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
         
-        if (closeQuoteBtn) {
-            closeQuoteBtn.addEventListener('click', closeQuoteModal);
+        if (closeReviewsBtn) {
+            closeReviewsBtn.addEventListener('click', () => {
+                reviewsModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            });
         }
         
         // Close modal when clicking outside
-        if (quoteModal) {
-            quoteModal.addEventListener('click', (e) => {
-                if (e.target === quoteModal) {
-                    // Save form data before closing
-                    saveFormData();
-                    quoteModal.classList.add('hidden');
-                    document.body.style.overflow = 'auto';
-                }
-            });
-        }
-        
-        // Save form data on input changes
-        document.addEventListener('DOMContentLoaded', function() {
-            const quoteForm = document.getElementById('quote-form');
-            if (quoteForm) {
-                // Save data when user types or changes selections
-                quoteForm.addEventListener('input', saveFormData);
-                quoteForm.addEventListener('change', saveFormData);
-                
-                // Clear form data on page load/refresh
-                clearFormData();
-                
-                // Reset the visible form
-                resetVisibleForm();
+        reviewsModal.addEventListener('click', (e) => {
+            if (e.target === reviewsModal) {
+                reviewsModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
             }
         });
+    }
+    
+    // Service areas - random display
+    const allAreas = [
+        { name: "The Loop", area: "Downtown Chicago" },
+        { name: "Lincoln Park", area: "North Side" },
+        { name: "Lakeview", area: "North Side" },
+        { name: "Wicker Park", area: "West Side" },
+        { name: "Bucktown", area: "West Side" },
+        { name: "Hyde Park", area: "South Side" },
+        { name: "Logan Square", area: "Northwest Side" },
+        { name: "Andersonville", area: "North Side" },
+        { name: "Evanston", area: "North Suburb" },
+        { name: "Oak Park", area: "West Suburb" },
+        { name: "Cicero", area: "West Suburb" },
+        { name: "Berwyn", area: "West Suburb" },
+        { name: "Forest Park", area: "West Suburb" },
+        { name: "River North", area: "Downtown" },
+        { name: "Streeterville", area: "Downtown" },
+        { name: "Gold Coast", area: "Downtown" },
+        { name: "Old Town", area: "North Side" },
+        { name: "Roscoe Village", area: "North Side" },
+        { name: "North Center", area: "North Side" },
+        { name: "Avondale", area: "Northwest Side" },
+        { name: "Irving Park", area: "Northwest Side" },
+        { name: "Portage Park", area: "Northwest Side" },
+        { name: "Jefferson Park", area: "Northwest Side" },
+        { name: "Mayfair", area: "Northwest Side" },
+        { name: "Albany Park", area: "North Side" },
+        { name: "North Park", area: "North Side" },
+        { name: "Rogers Park", area: "North Side" },
+        { name: "West Ridge", area: "North Side" },
+        { name: "Lincoln Square", area: "North Side" },
+        { name: "Uptown", area: "North Side" },
+        { name: "Edgewater", area: "North Side" },
+        { name: "Bronzeville", area: "South Side" },
+        { name: "Bridgeport", area: "South Side" },
+        { name: "Chinatown", area: "South Side" },
+        { name: "Pilsen", area: "South Side" },
+        { name: "Little Italy", area: "West Side" },
+        { name: "Greektown", area: "West Side" },
+        { name: "West Loop", area: "Downtown" },
+        { name: "South Loop", area: "Downtown" },
+        { name: "Printer's Row", area: "Downtown" },
+        { name: "Museum Campus", area: "Downtown" },
+        { name: "Grant Park", area: "Downtown" },
+        { name: "Millennium Park", area: "Downtown" }
+    ];
+    
+    function displayRandomAreas() {
+        const areasContainer = document.getElementById('service-areas');
+        if (!areasContainer) return;
         
-        // Reviews modal functionality
-        const showMoreBtn = document.getElementById('show-more-reviews');
-        const reviewsModal = document.getElementById('reviews-modal');
-        const closeReviewsBtn = document.getElementById('close-reviews');
+        // Shuffle array and take first 12
+        const shuffled = [...allAreas].sort(() => 0.5 - Math.random());
+        const selected = shuffled.slice(0, 12);
         
-        if (showMoreBtn && reviewsModal) {
-            showMoreBtn.addEventListener('click', () => {
-                reviewsModal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-            });
-            
-            if (closeReviewsBtn) {
-                closeReviewsBtn.addEventListener('click', () => {
-                    reviewsModal.classList.add('hidden');
-                    document.body.style.overflow = 'auto';
-                });
-            }
-            
-            // Close modal when clicking outside
-            reviewsModal.addEventListener('click', (e) => {
-                if (e.target === reviewsModal) {
-                    reviewsModal.classList.add('hidden');
-                    document.body.style.overflow = 'auto';
-                }
-            });
+        areasContainer.innerHTML = selected.map(area => `
+            <div class="bg-white rounded-lg p-4 text-center shadow-md touch-safe">
+                <h4 class="font-semibold text-gray-900 mb-2">${area.name}</h4>
+                <p class="text-sm text-gray-600">${area.area}</p>
+            </div>
+        `).join('');
+    }
+    
+    // Initialize on load
+    document.addEventListener('DOMContentLoaded', () => {
+        displayRandomAreas();
+        
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Refresh areas button
+        const refreshBtn = document.getElementById('refresh-areas');
+        if (refreshBtn) {
+            refreshBtn.addEventListener('click', displayRandomAreas);
         }
         
-        // Service areas - random display
-        const allAreas = [
-            { name: "The Loop", area: "Downtown Chicago" },
-            { name: "Lincoln Park", area: "North Side" },
-            { name: "Lakeview", area: "North Side" },
-            { name: "Wicker Park", area: "West Side" },
-            { name: "Bucktown", area: "West Side" },
-            { name: "Hyde Park", area: "South Side" },
-            { name: "Logan Square", area: "Northwest Side" },
-            { name: "Andersonville", area: "North Side" },
-            { name: "Evanston", area: "North Suburb" },
-            { name: "Oak Park", area: "West Suburb" },
-            { name: "Cicero", area: "West Suburb" },
-            { name: "Berwyn", area: "West Suburb" },
-            { name: "Forest Park", area: "West Suburb" },
-            { name: "River North", area: "Downtown" },
-            { name: "Streeterville", area: "Downtown" },
-            { name: "Gold Coast", area: "Downtown" },
-            { name: "Old Town", area: "North Side" },
-            { name: "Roscoe Village", area: "North Side" },
-            { name: "North Center", area: "North Side" },
-            { name: "Avondale", area: "Northwest Side" },
-            { name: "Irving Park", area: "Northwest Side" },
-            { name: "Portage Park", area: "Northwest Side" },
-            { name: "Jefferson Park", area: "Northwest Side" },
-            { name: "Mayfair", area: "Northwest Side" },
-            { name: "Albany Park", area: "North Side" },
-            { name: "North Park", area: "North Side" },
-            { name: "Rogers Park", area: "North Side" },
-            { name: "West Ridge", area: "North Side" },
-            { name: "Lincoln Square", area: "North Side" },
-            { name: "Uptown", area: "North Side" },
-            { name: "Edgewater", area: "North Side" },
-            { name: "Bronzeville", area: "South Side" },
-            { name: "Bridgeport", area: "South Side" },
-            { name: "Chinatown", area: "South Side" },
-            { name: "Pilsen", area: "South Side" },
-            { name: "Little Italy", area: "West Side" },
-            { name: "Greektown", area: "West Side" },
-            { name: "West Loop", area: "Downtown" },
-            { name: "South Loop", area: "Downtown" },
-            { name: "Printer's Row", area: "Downtown" },
-            { name: "Museum Campus", area: "Downtown" },
-            { name: "Grant Park", area: "Downtown" },
-            { name: "Millennium Park", area: "Downtown" }
-        ];
-        
-        function displayRandomAreas() {
-            const areasContainer = document.getElementById('service-areas');
-            if (!areasContainer) return;
-            
-            // Shuffle array and take first 12
-            const shuffled = [...allAreas].sort(() => 0.5 - Math.random());
-            const selected = shuffled.slice(0, 12);
-            
-            areasContainer.innerHTML = selected.map(area => `
-                <div class="bg-white rounded-lg p-4 text-center shadow-md touch-safe">
-                    <h4 class="font-semibold text-gray-900 mb-2">${area.name}</h4>
-                    <p class="text-sm text-gray-600">${area.area}</p>
-                </div>
-            `).join('');
-        }
-        
-        // Initialize on load
-        document.addEventListener('DOMContentLoaded', () => {
-            displayRandomAreas();
-            
-            // Set current year in footer
-            document.getElementById('current-year').textContent = new Date().getFullYear();
-            
-            // Refresh areas button
-            const refreshBtn = document.getElementById('refresh-areas');
-            if (refreshBtn) {
-                refreshBtn.addEventListener('click', displayRandomAreas);
-            }
-            
-            // Initialize FAQ icons
-            document.querySelectorAll('.faq-question i').forEach(icon => {
-                icon.style.transition = 'transform 0.3s ease';
-            });
+        // Initialize FAQ icons
+        document.querySelectorAll('.faq-question i').forEach(icon => {
+            icon.style.transition = 'transform 0.3s ease';
         });
+    });
+    
+    // Scroll-based parallax
+    document.addEventListener('DOMContentLoaded', function() {
+        const image = document.getElementById('moving-image');
+        if (!image) return;
         
-        // Scroll-based parallax
-        document.addEventListener('DOMContentLoaded', function() {
-            const image = document.getElementById('moving-image');
-            if (!image) return;
-            
-            let isScrolling;
-            let scrollPosition = 0;
-            let lastScrollY = 0;
-            let animationId = null;
-            
-            image.style.transform = 'translate3d(0,0,0)';
-            
-            function handleParallax() {
-                if (window.innerWidth >= 1024) {
-                    const speed = 0.15;
-                    const currentScrollY = window.scrollY || window.pageYOffset;
-                    const scrollDiff = currentScrollY - lastScrollY;
-                    
-                    scrollPosition += scrollDiff * speed;
-                    
-                    if (animationId) {
-                        cancelAnimationFrame(animationId);
-                    }
-                    
-                    function animate() {
-                        image.style.transform = `translate3d(0, ${scrollPosition}px, 0)`;
-                        animationId = null;
-                    }
-                    
-                    animationId = requestAnimationFrame(animate);
-                    lastScrollY = currentScrollY;
+        let isScrolling;
+        let scrollPosition = 0;
+        let lastScrollY = 0;
+        let animationId = null;
+        
+        image.style.transform = 'translate3d(0,0,0)';
+        
+        function handleParallax() {
+            if (window.innerWidth >= 1024) {
+                const speed = 0.15;
+                const currentScrollY = window.scrollY || window.pageYOffset;
+                const scrollDiff = currentScrollY - lastScrollY;
+                
+                scrollPosition += scrollDiff * speed;
+                
+                if (animationId) {
+                    cancelAnimationFrame(animationId);
+                }
+                
+                function animate() {
+                    image.style.transform = `translate3d(0, ${scrollPosition}px, 0)`;
+                    animationId = null;
+                }
+                
+                animationId = requestAnimationFrame(animate);
+                lastScrollY = currentScrollY;
+            } else {
+                image.style.transform = 'translate3d(0,0,0)';
+            }
+        }
+        
+        function debouncedParallax() {
+            window.clearTimeout(isScrolling);
+            isScrolling = setTimeout(function() {
+                handleParallax();
+            }, 10);
+        }
+        
+        function scrollHandler() {
+            if (!animationId) {
+                animationId = requestAnimationFrame(handleParallax);
+            }
+        }
+        
+        window.addEventListener('scroll', scrollHandler, { passive: true });
+        window.addEventListener('resize', handleParallax);
+        
+        handleParallax();
+    });
+    
+    // Form validation and submission
+    const quoteForm = document.getElementById('quote-form');
+    const successMessage = document.getElementById('success-message');
+    
+    if (quoteForm) {
+        // Format phone number
+        const phoneInput = quoteForm.querySelector('input[name="phone"]');
+        if (phoneInput) {
+            phoneInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 10) value = value.substring(0, 10);
+                
+                if (value.length === 0) {
+                    e.target.value = '';
+                } else if (value.length <= 3) {
+                    e.target.value = `(${value}`;
+                } else if (value.length <= 6) {
+                    e.target.value = `(${value.substring(0, 3)}) ${value.substring(3)}`;
                 } else {
-                    image.style.transform = 'translate3d(0,0,0)';
+                    e.target.value = `(${value.substring(0, 3)}) ${value.substring(3, 6)}-${value.substring(6)}`;
                 }
-            }
-            
-            function debouncedParallax() {
-                window.clearTimeout(isScrolling);
-                isScrolling = setTimeout(function() {
-                    handleParallax();
-                }, 10);
-            }
-            
-            function scrollHandler() {
-                if (!animationId) {
-                    animationId = requestAnimationFrame(handleParallax);
-                }
-            }
-            
-            window.addEventListener('scroll', scrollHandler, { passive: true });
-            window.addEventListener('resize', handleParallax);
-            
-            handleParallax();
+                
+                // Save after formatting
+                saveFormData();
+            });
+        }
+        
+        // Format ZIP codes
+        const zipInputs = quoteForm.querySelectorAll('input[name="from_zip"], input[name="to_zip"]');
+        zipInputs.forEach(input => {
+            input.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 5) value = value.substring(0, 5);
+                e.target.value = value;
+                
+                // Save after formatting
+                saveFormData();
+            });
         });
         
-        // Form validation and submission
-        const quoteForm = document.getElementById('quote-form');
-        const successMessage = document.getElementById('success-message');
+        // Date picker control
+        const dateInput = document.getElementById('move-date-input');
+        const datePlaceholder = document.getElementById('date-placeholder');
         
-        if (quoteForm) {
-            // Format phone number
-            const phoneInput = quoteForm.querySelector('input[name="phone"]');
-            if (phoneInput) {
-                phoneInput.addEventListener('input', function(e) {
-                    let value = e.target.value.replace(/\D/g, '');
-                    if (value.length > 10) value = value.substring(0, 10);
-                    
-                    if (value.length === 0) {
-                        e.target.value = '';
-                    } else if (value.length <= 3) {
-                        e.target.value = `(${value}`;
-                    } else if (value.length <= 6) {
-                        e.target.value = `(${value.substring(0, 3)}) ${value.substring(3)}`;
-                    } else {
-                        e.target.value = `(${value.substring(0, 3)}) ${value.substring(3, 6)}-${value.substring(6)}`;
-                    }
-                    
-                    // Save after formatting
-                    saveFormData();
-                });
+        if (dateInput && datePlaceholder) {
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.min = today;
+            
+            function updateDateDisplay() {
+                if (dateInput.value) {
+                    datePlaceholder.style.display = 'none';
+                    dateInput.style.color = '#1f2937';
+                } else {
+                    datePlaceholder.style.display = 'block';
+                    dateInput.style.color = 'transparent';
+                }
             }
             
-            // Format ZIP codes
-            const zipInputs = quoteForm.querySelectorAll('input[name="from_zip"], input[name="to_zip"]');
-            zipInputs.forEach(input => {
-                input.addEventListener('input', function(e) {
-                    let value = e.target.value.replace(/\D/g, '');
-                    if (value.length > 5) value = value.substring(0, 5);
-                    e.target.value = value;
-                    
-                    // Save after formatting
-                    saveFormData();
-                });
-            });
+            updateDateDisplay();
             
-            // Date picker control
-            const dateInput = document.getElementById('move-date-input');
-            const datePlaceholder = document.getElementById('date-placeholder');
+            dateInput.addEventListener('change', updateDateDisplay);
+            dateInput.addEventListener('input', updateDateDisplay);
             
-            if (dateInput && datePlaceholder) {
-                const today = new Date().toISOString().split('T')[0];
-                dateInput.min = today;
-                
-                function updateDateDisplay() {
-                    if (dateInput.value) {
-                        datePlaceholder.style.display = 'none';
-                        dateInput.style.color = '#1f2937';
-                    } else {
-                        datePlaceholder.style.display = 'block';
-                        dateInput.style.color = 'transparent';
-                    }
-                }
-                
-                updateDateDisplay();
-                
-                dateInput.addEventListener('change', updateDateDisplay);
-                dateInput.addEventListener('input', updateDateDisplay);
-                
-                // Update when modal opens
-                quoteButtons.forEach(trigger => {
-                    if (trigger) {
-                        trigger.addEventListener('click', function() {
-                            setTimeout(updateDateDisplay, 100);
-                        });
-                    }
-                });
-            }
-            
-            // Form submission
-            quoteForm.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                
-                if (!validateForm()) {
-                    return;
-                }
-                
-                const submitBtn = quoteForm.querySelector('button[type="submit"]');
-                const originalText = submitBtn.innerHTML;
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Processing...';
-                submitBtn.disabled = true;
-                
-                const formDataObj = new FormData(quoteForm);
-                const data = Object.fromEntries(formDataObj);
-                
-                const formattedData = {
-                    name: `${data.first_name} ${data.last_name}`,
-                    email: data.email,
-                    phone: data.phone,
-                    from_zip: data.from_zip,
-                    to_zip: data.to_zip,
-                    from_stairs: data.from_stairs,
-                    to_stairs: data.to_stairs,
-                    home_size: data.home_size,
-                    move_date: data.move_date,
-                    services: data['services[]'] ? (Array.isArray(data['services[]']) ? data['services[]'] : [data['services[]']]) : [],
-                    additional_info: data.additional_info,
-                    timestamp: new Date().toISOString(),
-                    source: 'Website Quote Form'
-                };
-                
-                try {
-                    // Replace with your actual Formspree endpoint
-                    const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Accept': 'application/json'
-                        },
-                        body: JSON.stringify(formattedData)
+            // Update when modal opens
+            quoteButtons.forEach(trigger => {
+                if (trigger) {
+                    trigger.addEventListener('click', function() {
+                        setTimeout(updateDateDisplay, 100);
                     });
-                    
-                    if (response.ok) {
-                        // Show success message
-                        quoteForm.style.display = 'none';
-                        successMessage.classList.remove('hidden');
-                        
-                        // Clear form data from storage
-                        clearFormData();
-                    } else {
-                        throw new Error('Form submission failed');
-                    }
-                } catch (error) {
-                    // Fallback: Show success even if network fails
+                }
+            });
+        }
+        
+        // Form submission
+        quoteForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            if (!validateForm()) {
+                return;
+            }
+            
+            const submitBtn = quoteForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Processing...';
+            submitBtn.disabled = true;
+            
+            const formDataObj = new FormData(quoteForm);
+            const data = Object.fromEntries(formDataObj);
+            
+            const formattedData = {
+                name: `${data.first_name} ${data.last_name}`,
+                email: data.email,
+                phone: data.phone,
+                from_zip: data.from_zip,
+                to_zip: data.to_zip,
+                from_stairs: data.from_stairs,
+                to_stairs: data.to_stairs,
+                home_size: data.home_size,
+                move_date: data.move_date,
+                services: data['services[]'] ? (Array.isArray(data['services[]']) ? data['services[]'] : [data['services[]']]) : [],
+                additional_info: data.additional_info,
+                timestamp: new Date().toISOString(),
+                source: 'Website Quote Form'
+            };
+            
+            try {
+                // Replace with your actual Formspree endpoint
+                const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(formattedData)
+                });
+                
+                if (response.ok) {
+                    // Show success message
                     quoteForm.style.display = 'none';
                     successMessage.classList.remove('hidden');
                     
                     // Clear form data from storage
                     clearFormData();
-                } finally {
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                // Fallback: Show success even if network fails
+                quoteForm.style.display = 'none';
+                successMessage.classList.remove('hidden');
+                
+                // Clear form data from storage
+                clearFormData();
+            } finally {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+        
+        function validateForm() {
+            let isValid = true;
+            
+            const errorElements = quoteForm.querySelectorAll('.error-message');
+            errorElements.forEach(el => el.remove());
+            const inputElements = quoteForm.querySelectorAll('input, select, textarea');
+            inputElements.forEach(el => el.classList.remove('border-red-500'));
+            
+            // Validate required fields
+            const requiredFields = quoteForm.querySelectorAll('[required]');
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    showError(field, 'This field is required');
+                    isValid = false;
                 }
             });
             
-            function validateForm() {
-                let isValid = true;
-                
-                const errorElements = quoteForm.querySelectorAll('.error-message');
-                errorElements.forEach(el => el.remove());
-                const inputElements = quoteForm.querySelectorAll('input, select, textarea');
-                inputElements.forEach(el => el.classList.remove('border-red-500'));
-                
-                // Validate required fields
-                const requiredFields = quoteForm.querySelectorAll('[required]');
-                requiredFields.forEach(field => {
-                    if (!field.value.trim()) {
-                        showError(field, 'This field is required');
-                        isValid = false;
-                    }
-                });
-                
-                // Validate email
-                const emailField = quoteForm.querySelector('input[type="email"]');
-                if (emailField.value && !isValidEmail(emailField.value)) {
-                    showError(emailField, 'Please enter a valid email');
-                    isValid = false;
-                }
-                
-                // Validate phone (basic US format)
-                const phoneField = quoteForm.querySelector('input[type="tel"]');
-                const phoneDigits = phoneField.value.replace(/\D/g, '');
-                if (phoneDigits.length !== 10) {
-                    showError(phoneField, 'Please enter a 10-digit phone number');
-                    isValid = false;
-                }
-                
-                // Validate ZIP codes
-                const zipFields = quoteForm.querySelectorAll('input[name="from_zip"], input[name="to_zip"]');
-                zipFields.forEach(field => {
-                    if (field.value.length !== 5) {
-                        showError(field, 'Please enter a 5-digit ZIP code');
-                        isValid = false;
-                    }
-                });
-                
-                // Validate stairs fields (make them required)
-                const fromStairs = quoteForm.querySelector('select[name="from_stairs"]');
-                const toStairs = quoteForm.querySelector('select[name="to_stairs"]');
-                
-                if (!fromStairs.value) {
-                    showError(fromStairs, 'Please select stairs/elevator option for pickup location');
-                    isValid = false;
-                }
-                
-                if (!toStairs.value) {
-                    showError(toStairs, 'Please select stairs/elevator option for delivery location');
-                    isValid = false;
-                }
-                
-                return isValid;
+            // Validate email
+            const emailField = quoteForm.querySelector('input[type="email"]');
+            if (emailField.value && !isValidEmail(emailField.value)) {
+                showError(emailField, 'Please enter a valid email');
+                isValid = false;
             }
             
-            function showError(field, message) {
-                field.classList.add('border-red-500');
-                const errorDiv = document.createElement('div');
-                errorDiv.className = 'error-message text-red-600 text-xs mt-1 flex items-center';
-                errorDiv.innerHTML = `<i class="fas fa-exclamation-circle mr-1"></i> ${message}`;
-                field.parentNode.appendChild(errorDiv);
+            // Validate phone (basic US format)
+            const phoneField = quoteForm.querySelector('input[type="tel"]');
+            const phoneDigits = phoneField.value.replace(/\D/g, '');
+            if (phoneDigits.length !== 10) {
+                showError(phoneField, 'Please enter a 10-digit phone number');
+                isValid = false;
             }
             
-            function isValidEmail(email) {
-                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            // Validate ZIP codes
+            const zipFields = quoteForm.querySelectorAll('input[name="from_zip"], input[name="to_zip"]');
+            zipFields.forEach(field => {
+                if (field.value.length !== 5) {
+                    showError(field, 'Please enter a 5-digit ZIP code');
+                    isValid = false;
+                }
+            });
+            
+            // Validate stairs fields (make them required)
+            const fromStairs = quoteForm.querySelector('select[name="from_stairs"]');
+            const toStairs = quoteForm.querySelector('select[name="to_stairs"]');
+            
+            if (!fromStairs.value) {
+                showError(fromStairs, 'Please select stairs/elevator option for pickup location');
+                isValid = false;
             }
             
-            // Add event listener to the Close button in success message
-            const successCloseBtn = successMessage ? successMessage.querySelector('button') : null;
-            if (successCloseBtn) {
-                successCloseBtn.addEventListener('click', function() {
-                    // Clear form data when user closes success message
-                    clearFormData();
-                    resetVisibleForm();
-                    closeQuoteModal();
-                });
+            if (!toStairs.value) {
+                showError(toStairs, 'Please select stairs/elevator option for delivery location');
+                isValid = false;
             }
+            
+            return isValid;
         }
         
-        // FAQ Tab Functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const tabs = document.querySelectorAll('.faq-tab');
-            const tabContents = document.querySelectorAll('.faq-tab-content');
+        function showError(field, message) {
+            field.classList.add('border-red-500');
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error-message text-red-600 text-xs mt-1 flex items-center';
+            errorDiv.innerHTML = `<i class="fas fa-exclamation-circle mr-1"></i> ${message}`;
+            field.parentNode.appendChild(errorDiv);
+        }
+        
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+        
+        // Add event listener to the Close button in success message
+        const successCloseBtn = successMessage ? successMessage.querySelector('button') : null;
+        if (successCloseBtn) {
+            successCloseBtn.addEventListener('click', function() {
+                // Clear form data when user closes success message
+                clearFormData();
+                resetVisibleForm();
+                closeQuoteModal();
+            });
+        }
+    }
+    
+    // FAQ Tab Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const tabs = document.querySelectorAll('.faq-tab');
+        const tabContents = document.querySelectorAll('.faq-tab-content');
+        
+        function activateTab(tabId) {
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+                tab.classList.remove('border-blue-600');
+                tab.classList.add('border-gray-300');
+            });
             
-            function activateTab(tabId) {
-                tabs.forEach(tab => {
-                    tab.classList.remove('active');
-                    tab.classList.remove('border-blue-600');
-                    tab.classList.add('border-gray-300');
-                });
-                
-                const activeTab = document.querySelector(`.faq-tab[data-tab="${tabId}"]`);
-                if (activeTab) {
-                    activeTab.classList.add('active');
-                    activeTab.classList.add('border-blue-600');
-                    activeTab.classList.remove('border-gray-300');
-                }
-                
-                tabContents.forEach(content => {
-                    content.classList.remove('active');
-                    content.classList.add('hidden');
-                });
-                
-                const activeContent = document.getElementById(`${tabId}-tab`);
-                if (activeContent) {
-                    activeContent.classList.add('active');
-                    activeContent.classList.remove('hidden');
-                }
-                
-                document.querySelectorAll('.faq-answer').forEach(answer => {
-                    answer.classList.remove('open');
-                });
-                document.querySelectorAll('.faq-question').forEach(question => {
-                    question.classList.remove('active');
-                    const icon = question.querySelector('i');
-                    if (icon) {
-                        icon.style.transform = 'rotate(0deg)';
-                    }
-                });
+            const activeTab = document.querySelector(`.faq-tab[data-tab="${tabId}"]`);
+            if (activeTab) {
+                activeTab.classList.add('active');
+                activeTab.classList.add('border-blue-600');
+                activeTab.classList.remove('border-gray-300');
             }
             
-            tabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    const tabId = this.getAttribute('data-tab');
-                    activateTab(tabId);
-                    localStorage.setItem('activeFaqTab', tabId);
-                });
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+                content.classList.add('hidden');
             });
             
-            const savedTab = localStorage.getItem('activeFaqTab') || 'reservation';
-            const defaultTab = document.querySelector(`.faq-tab[data-tab="${savedTab}"]`) ? savedTab : 'reservation';
-            activateTab(defaultTab);
+            const activeContent = document.getElementById(`${tabId}-tab`);
+            if (activeContent) {
+                activeContent.classList.add('active');
+                activeContent.classList.remove('hidden');
+            }
             
+            document.querySelectorAll('.faq-answer').forEach(answer => {
+                answer.classList.remove('open');
+            });
             document.querySelectorAll('.faq-question').forEach(question => {
-                question.addEventListener('click', () => {
-                    const faqItem = question.closest('.faq-item');
-                    const answer = faqItem.querySelector('.faq-answer');
-                    const icon = question.querySelector('i');
-                    
-                    const isOpening = !answer.classList.contains('open');
-                    answer.classList.toggle('open');
-                    question.classList.toggle('active');
-                    
-                    if (icon) {
-                        icon.style.transform = isOpening ? 'rotate(90deg)' : 'rotate(0deg)';
-                        icon.style.transition = 'transform 0.3s ease';
-                    }
-                    
-                    const activeTabContent = document.querySelector('.faq-tab-content.active');
-                    if (activeTabContent) {
-                        activeTabContent.querySelectorAll('.faq-item').forEach(otherItem => {
-                            if (otherItem !== faqItem) {
-                                const otherAnswer = otherItem.querySelector('.faq-answer');
-                                const otherQuestion = otherItem.querySelector('.faq-question');
-                                const otherIcon = otherQuestion.querySelector('i');
-                                
-                                otherAnswer.classList.remove('open');
-                                otherQuestion.classList.remove('active');
-                                
-                                if (otherIcon) {
-                                    otherIcon.style.transform = 'rotate(0deg)';
-                                }
-                            }
-                        });
-                    }
-                });
+                question.classList.remove('active');
+                const icon = question.querySelector('i');
+                if (icon) {
+                    icon.style.transform = 'rotate(0deg)';
+                }
+            });
+        }
+        
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                const tabId = this.getAttribute('data-tab');
+                activateTab(tabId);
+                localStorage.setItem('activeFaqTab', tabId);
             });
         });
-    </script>
+        
+        const savedTab = localStorage.getItem('activeFaqTab') || 'reservation';
+        const defaultTab = document.querySelector(`.faq-tab[data-tab="${savedTab}"]`) ? savedTab : 'reservation';
+        activateTab(defaultTab);
+        
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.closest('.faq-item');
+                const answer = faqItem.querySelector('.faq-answer');
+                const icon = question.querySelector('i');
+                
+                const isOpening = !answer.classList.contains('open');
+                answer.classList.toggle('open');
+                question.classList.toggle('active');
+                
+                if (icon) {
+                    icon.style.transform = isOpening ? 'rotate(90deg)' : 'rotate(0deg)';
+                    icon.style.transition = 'transform 0.3s ease';
+                }
+                
+                const activeTabContent = document.querySelector('.faq-tab-content.active');
+                if (activeTabContent) {
+                    activeTabContent.querySelectorAll('.faq-item').forEach(otherItem => {
+                        if (otherItem !== faqItem) {
+                            const otherAnswer = otherItem.querySelector('.faq-answer');
+                            const otherQuestion = otherItem.querySelector('.faq-question');
+                            const otherIcon = otherQuestion.querySelector('i');
+                            
+                            otherAnswer.classList.remove('open');
+                            otherQuestion.classList.remove('active');
+                            
+                            if (otherIcon) {
+                                otherIcon.style.transform = 'rotate(0deg)';
+                            }
+                        }
+                    });
+                }
+            });
+        });
+    });
+</script>
 </body>
 </html>
