@@ -606,7 +606,7 @@ description: "Licensed and insured moving company in Chicago. Local and long-dis
             </div>
         </div>
                 <div class="text-center mt-12">
-            <p class="text-gray-600">Have more questions? Please contact us at info@fairplaymoving.com</p>
+            <p class="text-gray-600 text-sm">Have more questions? Please contact us at info@fairplaymoving.com or call.</p>
         </div>
 
     </div>
@@ -938,43 +938,43 @@ description: "Licensed and insured moving company in Chicago. Local and long-dis
                             </div>
                         </div>
                         
-                        <!-- Stairs -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Stairs at Pickup</label>
-                                <div class="relative">
-                                    <select name="from_stairs" 
-                                            class="w-full px-4 py-3.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all bg-white appearance-none">
-                                        <option value="">Select</option>
-                                        <option value="no">No Stairs</option>
-                                        <option value="elevator">Elevator</option>
-                                        <option value="1">1 Flight of Stairs</option>
-                                        <option value="2">2 Flights of Stairs</option>
-                                        <option value="3">3+ Flights of Stairs</option>
-                                    </select>
-                                    <div class="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                                        <i class="fas fa-chevron-down text-gray-400"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Stairs at Delivery</label>
-                                <div class="relative">
-                                    <select name="to_stairs" 
-                                            class="w-full px-4 py-3.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all bg-white appearance-none">
-                                        <option value="">Select</option>
-                                        <option value="no">No Stairs</option>
-                                        <option value="elevator">Elevator</option>
-                                        <option value="1">1 Flight of Stairs</option>
-                                        <option value="2">2 Flights of Stairs</option>
-                                        <option value="3">3+ Flights of Stairs</option>
-                                    </select>
-                                    <div class="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                                        <i class="fas fa-chevron-down text-gray-400"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+<!-- Stairs at Pickup - ADD required attribute -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+    <div>
+        <label class="block text-sm font-medium text-gray-700 mb-2">Stairs at Pickup *</label>
+        <div class="relative">
+            <select name="from_stairs" required
+                    class="w-full px-4 py-3.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all bg-white appearance-none">
+                <option value="">Select</option>
+                <option value="no">No Stairs</option>
+                <option value="elevator">Elevator</option>
+                <option value="1">1 Flight of Stairs</option>
+                <option value="2">2 Flights of Stairs</option>
+                <option value="3">3+ Flights of Stairs</option>
+            </select>
+            <div class="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                <i class="fas fa-chevron-down text-gray-400"></i>
+            </div>
+        </div>
+    </div>
+    <div>
+        <label class="block text-sm font-medium text-gray-700 mb-2">Stairs at Delivery *</label>
+        <div class="relative">
+            <select name="to_stairs" required
+                    class="w-full px-4 py-3.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all bg-white appearance-none">
+                <option value="">Select</option>
+                <option value="no">No Stairs</option>
+                <option value="elevator">Elevator</option>
+                <option value="1">1 Flight of Stairs</option>
+                <option value="2">2 Flights of Stairs</option>
+                <option value="3">3+ Flights of Stairs</option>
+            </select>
+            <div class="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                <i class="fas fa-chevron-down text-gray-400"></i>
+            </div>
+        </div>
+    </div>
+</div>
                         
                         <!-- Moving Size -->
                         <div class="mb-6">
@@ -1080,8 +1080,7 @@ description: "Licensed and insured moving company in Chicago. Local and long-dis
                         <i class="fas fa-check text-green-600 text-2xl"></i>
                     </div>
                     <h4 class="text-xl font-semibold text-gray-900 mb-2">Quote Request Sent!</h4>
-                    <p class="text-xs text-gray-600">Mon-Sat: 8am-6pm</p>
-                    <p class="text-gray-600 mb-4">We'll get back to you within 12 hours.</p>
+                    <p class="text-gray-600 mb-4">We'll get back to you asap!git</p>
                     <button onclick="closeQuoteModal()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors touch-safe">
                         Close
                     </button>

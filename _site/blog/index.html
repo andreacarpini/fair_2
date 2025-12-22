@@ -468,23 +468,6 @@
         .touch-safe:active {
             opacity: 0.8;
         }
-        
-        /* Form persistence styles */
-        .form-data-saved {
-            border-color: #10b981 !important;
-            background-color: #f0fdf4 !important;
-        }
-        
-        .form-data-saved::after {
-            content: '✓ Saved';
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 0.75rem;
-            color: #10b981;
-            font-weight: 600;
-        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -753,45 +736,6 @@
             el.classList.add('touch-safe');
         });
         
-        // Improved touch handling for iPhone
-        function setupTouchHandlers() {
-            const interactiveElements = document.querySelectorAll('button, a[href], .faq-tab, .faq-question, label[for]');
-            
-            interactiveElements.forEach(el => {
-                // Prevent default touch behaviors
-                el.addEventListener('touchstart', function(e) {
-                    e.stopPropagation();
-                }, { passive: true });
-                
-                // Handle touch end (tap) with better detection
-                el.addEventListener('touchend', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    
-                    // Only trigger if touch started and ended on same element
-                    const touch = e.changedTouches[0];
-                    const elementAtTouch = document.elementFromPoint(touch.clientX, touch.clientY);
-                    
-                    if (elementAtTouch === this || this.contains(elementAtTouch)) {
-                        this.click();
-                    }
-                });
-                
-                // Add active state for visual feedback
-                el.addEventListener('touchstart', function() {
-                    this.classList.add('active');
-                });
-                
-                el.addEventListener('touchend', function() {
-                    this.classList.remove('active');
-                });
-                
-                el.addEventListener('touchcancel', function() {
-                    this.classList.remove('active');
-                });
-            });
-        }
-        
         if (mobileMenuBtn && mobileMenu) {
             mobileMenuBtn.addEventListener('click', openMobileMenu);
             closeMenu.addEventListener('click', closeMobileMenu);
@@ -853,8 +797,6 @@
                     }
                 });
             });
-            
-            setupTouchHandlers();
         });
         
         // Quote modal functionality - with form persistence
@@ -876,30 +818,38 @@
             document.getElementById('open-quote-modal-mobile')
         ].filter(btn => btn !== null);
         
-        // Form persistence variables
-        let formData = {};
-        let isFormSubmitted = false;
-        
         // Function to save form data to localStorage
         function saveFormData() {
             const quoteForm = document.getElementById('quote-form');
             if (!quoteForm) return;
             
+            const formData = {};
             const formElements = quoteForm.querySelectorAll('input, select, textarea');
-            formData = {};
             
             formElements.forEach(element => {
-                if (element.type === 'checkbox') {
-                    // Handle checkboxes
-                    formData[element.name] = element.checked;
-                } else if (element.type === 'radio') {
-                    // Handle radio buttons
-                    if (element.checked) {
+                if (element.name) {
+                    if (element.type === 'checkbox') {
+                        // Handle checkboxes - save as array
+                        if (element.name.includes('[]')) {
+                            if (!formData[element.name]) {
+                                formData[element.name] = [];
+                            }
+                            if (element.checked) {
+                                formData[element.name].push(element.value);
+                            }
+                        } else {
+                            // Single checkbox
+                            formData[element.name] = element.checked;
+                        }
+                    } else if (element.type === 'radio') {
+                        // Handle radio buttons
+                        if (element.checked) {
+                            formData[element.name] = element.value;
+                        }
+                    } else {
+                        // Handle other inputs
                         formData[element.name] = element.value;
                     }
-                } else {
-                    // Handle other inputs
-                    formData[element.name] = element.value;
                 }
             });
             
@@ -916,16 +866,30 @@
             if (!savedData) return;
             
             try {
-                formData = JSON.parse(savedData);
+                const formData = JSON.parse(savedData);
                 
                 // Populate form fields
                 const formElements = quoteForm.querySelectorAll('input, select, textarea');
+                
+                // First, reset checkboxes to unchecked state
+                quoteForm.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                    checkbox.checked = false;
+                });
                 
                 formElements.forEach(element => {
                     if (element.name && formData[element.name] !== undefined) {
                         if (element.type === 'checkbox') {
                             // Handle checkboxes
-                            element.checked = formData[element.name];
+                            if (element.name.includes('[]')) {
+                                // Checkbox array (services)
+                                const values = formData[element.name];
+                                if (Array.isArray(values) && values.includes(element.value)) {
+                                    element.checked = true;
+                                }
+                            } else {
+                                // Single checkbox
+                                element.checked = formData[element.name];
+                            }
                         } else if (element.type === 'radio') {
                             // Handle radio buttons
                             if (element.value === formData[element.name]) {
@@ -934,11 +898,6 @@
                         } else {
                             // Handle other inputs
                             element.value = formData[element.name];
-                            
-                            // Add visual indicator for saved data
-                            if (element.value && element.value.trim() !== '') {
-                                element.classList.add('form-data-saved');
-                            }
                         }
                         
                         // Trigger change event for date field
@@ -947,8 +906,6 @@
                         }
                     }
                 });
-                
-                console.log('Form data loaded from storage');
             } catch (error) {
                 console.error('Error loading form data:', error);
                 // Clear corrupted data
@@ -958,21 +915,17 @@
         
         // Function to clear form data
         function clearFormData() {
+            // Clear saved data from localStorage
+            localStorage.removeItem('quoteFormData');
+        }
+        
+        // Function to reset the visible form
+        function resetVisibleForm() {
             const quoteForm = document.getElementById('quote-form');
             if (!quoteForm) return;
             
             // Clear form
             quoteForm.reset();
-            
-            // Clear saved data
-            formData = {};
-            localStorage.removeItem('quoteFormData');
-            
-            // Remove visual indicators
-            const formElements = quoteForm.querySelectorAll('input, select, textarea');
-            formElements.forEach(element => {
-                element.classList.remove('form-data-saved');
-            });
             
             // Reset success message if visible
             const successMessage = document.getElementById('success-message');
@@ -988,8 +941,6 @@
                 datePlaceholder.style.display = 'block';
                 dateInput.style.color = 'transparent';
             }
-            
-            isFormSubmitted = false;
         }
         
         // Function to open quote modal
@@ -1013,20 +964,19 @@
         // Function to close quote modal WITHOUT resetting form
         function closeQuoteModal() {
             if (quoteModal) {
+                // Save form data before closing
+                saveFormData();
+                
                 quoteModal.classList.add('hidden');
                 document.body.style.overflow = 'auto';
-                
-                // Only reset form if it was successfully submitted
-                if (!isFormSubmitted) {
-                    // Save form data before closing
-                    saveFormData();
-                }
             }
         }
         
         // Add event listeners for all quote buttons
         quoteButtons.forEach(btn => {
-            btn.addEventListener('click', openQuoteModal);
+            if (btn) {
+                btn.addEventListener('click', openQuoteModal);
+            }
         });
         
         if (closeQuoteBtn) {
@@ -1037,7 +987,10 @@
         if (quoteModal) {
             quoteModal.addEventListener('click', (e) => {
                 if (e.target === quoteModal) {
-                    closeQuoteModal();
+                    // Save form data before closing
+                    saveFormData();
+                    quoteModal.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
                 }
             });
         }
@@ -1046,40 +999,15 @@
         document.addEventListener('DOMContentLoaded', function() {
             const quoteForm = document.getElementById('quote-form');
             if (quoteForm) {
-                // Save data when user types
-                quoteForm.addEventListener('input', function(e) {
-                    if (e.target.name) {
-                        saveFormData();
-                        
-                        // Add visual indicator for non-empty fields
-                        if (e.target.value && e.target.value.trim() !== '') {
-                            e.target.classList.add('form-data-saved');
-                        } else {
-                            e.target.classList.remove('form-data-saved');
-                        }
-                    }
-                });
+                // Save data when user types or changes selections
+                quoteForm.addEventListener('input', saveFormData);
+                quoteForm.addEventListener('change', saveFormData);
                 
-                // Save data when checkboxes change
-                quoteForm.addEventListener('change', function(e) {
-                    if (e.target.name) {
-                        saveFormData();
-                        
-                        // Add visual indicator for checked checkboxes
-                        if (e.target.type === 'checkbox') {
-                            if (e.target.checked) {
-                                e.target.closest('label').classList.add('form-data-saved');
-                            } else {
-                                e.target.closest('label').classList.remove('form-data-saved');
-                            }
-                        }
-                    }
-                });
+                // Clear form data on page load/refresh
+                clearFormData();
                 
-                // Initialize form with saved data
-                setTimeout(() => {
-                    loadFormData();
-                }, 500);
+                // Reset the visible form
+                resetVisibleForm();
             }
         });
         
@@ -1190,9 +1118,6 @@
             document.querySelectorAll('.faq-question i').forEach(icon => {
                 icon.style.transition = 'transform 0.3s ease';
             });
-            
-            // Load saved form data on page load
-            loadFormData();
         });
         
         // Scroll-based parallax
@@ -1250,7 +1175,7 @@
             handleParallax();
         });
         
-        // Form validation and submission - UPDATED for persistence
+        // Form validation and submission
         const quoteForm = document.getElementById('quote-form');
         const successMessage = document.getElementById('success-message');
         
@@ -1315,13 +1240,15 @@
                 
                 // Update when modal opens
                 quoteButtons.forEach(trigger => {
-                    trigger.addEventListener('click', function() {
-                        setTimeout(updateDateDisplay, 100);
-                    });
+                    if (trigger) {
+                        trigger.addEventListener('click', function() {
+                            setTimeout(updateDateDisplay, 100);
+                        });
+                    }
                 });
             }
             
-            // Form submission - UPDATED to clear form only after successful submission
+            // Form submission
             quoteForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 
@@ -1365,25 +1292,22 @@
                     });
                     
                     if (response.ok) {
-                        // Mark form as submitted
-                        isFormSubmitted = true;
-                        
                         // Show success message
                         quoteForm.style.display = 'none';
                         successMessage.classList.remove('hidden');
                         
-                        // Clear form data from storage (will be cleared when user clicks Close)
-                        console.log('Form submitted successfully - data will be cleared when user closes modal');
+                        // Clear form data from storage
+                        clearFormData();
                     } else {
                         throw new Error('Form submission failed');
                     }
                 } catch (error) {
                     // Fallback: Show success even if network fails
-                    isFormSubmitted = true;
                     quoteForm.style.display = 'none';
                     successMessage.classList.remove('hidden');
                     
-                    console.log('Form submitted (offline mode)');
+                    // Clear form data from storage
+                    clearFormData();
                 } finally {
                     submitBtn.innerHTML = originalText;
                     submitBtn.disabled = false;
@@ -1398,6 +1322,7 @@
                 const inputElements = quoteForm.querySelectorAll('input, select, textarea');
                 inputElements.forEach(el => el.classList.remove('border-red-500'));
                 
+                // Validate required fields
                 const requiredFields = quoteForm.querySelectorAll('[required]');
                 requiredFields.forEach(field => {
                     if (!field.value.trim()) {
@@ -1406,12 +1331,14 @@
                     }
                 });
                 
+                // Validate email
                 const emailField = quoteForm.querySelector('input[type="email"]');
                 if (emailField.value && !isValidEmail(emailField.value)) {
                     showError(emailField, 'Please enter a valid email');
                     isValid = false;
                 }
                 
+                // Validate phone (basic US format)
                 const phoneField = quoteForm.querySelector('input[type="tel"]');
                 const phoneDigits = phoneField.value.replace(/\D/g, '');
                 if (phoneDigits.length !== 10) {
@@ -1419,6 +1346,7 @@
                     isValid = false;
                 }
                 
+                // Validate ZIP codes
                 const zipFields = quoteForm.querySelectorAll('input[name="from_zip"], input[name="to_zip"]');
                 zipFields.forEach(field => {
                     if (field.value.length !== 5) {
@@ -1426,6 +1354,20 @@
                         isValid = false;
                     }
                 });
+                
+                // Validate stairs fields (make them required)
+                const fromStairs = quoteForm.querySelector('select[name="from_stairs"]');
+                const toStairs = quoteForm.querySelector('select[name="to_stairs"]');
+                
+                if (!fromStairs.value) {
+                    showError(fromStairs, 'Please select stairs/elevator option for pickup location');
+                    isValid = false;
+                }
+                
+                if (!toStairs.value) {
+                    showError(toStairs, 'Please select stairs/elevator option for delivery location');
+                    isValid = false;
+                }
                 
                 return isValid;
             }
@@ -1448,6 +1390,7 @@
                 successCloseBtn.addEventListener('click', function() {
                     // Clear form data when user closes success message
                     clearFormData();
+                    resetVisibleForm();
                     closeQuoteModal();
                 });
             }
@@ -1542,18 +1485,6 @@
                 });
             });
         });
-        
-        // Clear form data on page refresh
-        window.addEventListener('beforeunload', function() {
-            // Optional: You can clear form data on page refresh if desired
-            // localStorage.removeItem('quoteFormData');
-        });
-        
-        // Function to manually clear form (for testing or debugging)
-        window.clearQuoteForm = function() {
-            clearFormData();
-            alert('Form data cleared!');
-        };
     </script>
 </body>
 </html>
