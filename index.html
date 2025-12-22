@@ -909,16 +909,26 @@ description: "Licensed and insured moving company in Chicago. Local and long-dis
                     </button>
                 </div>
                 
-                <!-- Form Container -->
-                <div class="bg-gray-50 rounded-xl p-4 md:p-6 mb-6">
-                    <div class="flex items-center">
-                        <div>
-                            <p class="text-sm font-medium text-gray-900">Fast Response</p>
-                            <p class="text-xs text-gray-600">Mon-Sat: 8am-6pm</p>
-                        </div>
-                    </div>
-                </div>
-                
+<!-- Form Container -->
+<div class="bg-gray-50 rounded-xl p-4 md:p-6 mb-6">
+    <div class="flex">
+        <!-- Dot indicator - perfectly centered with size 2 -->
+        <div class="mr-2 flex items-center justify-center h-5">
+            <div id="availability-dot" class="w-2 h-2 rounded-full bg-gray-400"></div>
+        </div>
+        <div class="flex-1">
+            <div class="flex items-center">
+                <p class="text-sm font-medium text-gray-900">Fast Response</p>
+                <p class="text-xs font-medium text-gray-800 ml-2" id="status-message">
+                    Available Now
+                </p>
+            </div>
+            <p class="text-xs text-gray-600 mt-0.5">Mon-Sat: 8am-6pm</p>
+        </div>
+    </div>
+</div>
+
+
                 <!-- Form -->
                 <form id="quote-form" class="space-y-6">
                     <!-- Name Section -->

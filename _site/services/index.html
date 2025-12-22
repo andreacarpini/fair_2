@@ -1530,5 +1530,111 @@
         });
     });
 </script>
+<script>
+// Simple availability indicator
+document.addEventListener('DOMContentLoaded', function() {
+    const availabilityDot = document.getElementById('availability-dot');
+    const statusMessage = document.getElementById('status-message');
+    
+    if (!availabilityDot) return;
+    
+    function getChicagoTime() {
+        const now = new Date();
+        return new Date(now.toLocaleString("en-US", {timeZone: "America/Chicago"}));
+    }
+    
+    function getStatus() {
+        const chicagoTime = getChicagoTime();
+        const hour = chicagoTime.getHours();
+        const minutes = chicagoTime.getMinutes();
+        const day = chicagoTime.getDay(); // 0=Sun, 1=Mon, 6=Sat
+        
+        // Calculate total minutes for more precise timing
+        const totalMinutes = (hour * 60) + minutes;
+        
+        // Sunday - All day
+        if (day === 0) {
+            return {
+                color: 'red',
+                message: 'Responds Tomorrow' // Monday
+            };
+        }
+        
+        // All days before 8am
+        if (hour < 8) {
+            return {
+                color: 'red',
+                message: 'Responds Today'
+            };
+        }
+        
+        // Saturday after 6pm
+        if (day === 6 && hour >= 18) {
+            return {
+                color: 'red',
+                message: 'Responds Monday' // Sunday off
+            };
+        }
+        
+        // Friday after 6pm
+        if (day === 5 && hour >= 18) {
+            return {
+                color: 'red',
+                message: 'Responds Tomorrow' // Saturday
+            };
+        }
+        
+        // Monday-Thursday after 6pm
+        if (day >= 1 && day <= 4 && hour >= 18) {
+            return {
+                color: 'red',
+                message: 'Responds Tomorrow'
+            };
+        }
+        
+        // Closing Soon period (5pm-6pm)
+        if (hour >= 17 && hour < 18) { // 5pm-5:59pm
+            return {
+                color: 'green',
+                message: 'Closing Soon'
+            };
+        }
+        
+        // Currently open (Mon-Sat, 8am-5pm)
+        return {
+            color: 'green',
+            message: 'Available Now'
+        };
+    }
+    
+    function updateAvailabilityIndicator() {
+        const status = getStatus();
+        
+        // Update dot color
+        availabilityDot.classList.remove('bg-green-500', 'bg-red-500', 'bg-gray-400');
+        
+        if (status.color === 'green') {
+            availabilityDot.classList.add('bg-green-500');
+            if (status.message === 'Closing Soon') {
+                availabilityDot.title = 'Closing soon - respond quickly!';
+            } else {
+                availabilityDot.title = 'We\'re currently available';
+            }
+        } else {
+            availabilityDot.classList.add('bg-red-500');
+            availabilityDot.title = 'We\'ll respond during business hours';
+        }
+        
+        // Update message
+        statusMessage.textContent = status.message;
+        
+        // Update every minute
+        setTimeout(updateAvailabilityIndicator, 60000);
+    }
+    
+    // Initial update
+    updateAvailabilityIndicator();
+});
+</script>
 </body>
 </html>
