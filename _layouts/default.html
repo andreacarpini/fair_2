@@ -1413,6 +1413,7 @@
         });
     });
 </script>
+
 <script>
 // Simple availability indicator
 document.addEventListener('DOMContentLoaded', function() {
@@ -1429,11 +1430,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function getStatus() {
         const chicagoTime = getChicagoTime();
         const hour = chicagoTime.getHours();
-        const minutes = chicagoTime.getMinutes();
         const day = chicagoTime.getDay(); // 0=Sun, 1=Mon, 6=Sat
-        
-        // Calculate total minutes for more precise timing
-        const totalMinutes = (hour * 60) + minutes;
         
         // Sunday - All day
         if (day === 0) {
@@ -1483,10 +1480,10 @@ document.addEventListener('DOMContentLoaded', function() {
             };
         }
         
-        // Currently open (Mon-Sat, 8am-5pm)
+        // Currently open (Mon-Sat, 8am-5pm) - NO TEXT, just green dot
         return {
             color: 'green',
-            message: 'Available Now'
+            message: '' // Empty string - no text shown
         };
     }
     
@@ -1508,7 +1505,7 @@ document.addEventListener('DOMContentLoaded', function() {
             availabilityDot.title = 'We\'ll respond during business hours';
         }
         
-        // Update message
+        // Update message (empty string during open hours)
         statusMessage.textContent = status.message;
         
         // Update every minute
